@@ -22,7 +22,7 @@ void MainMenuScreen::onRender(float mouseX, float mouseY) {
     session->font->drawString("Hello, World!", 0, 10);
     session->font->drawString(std::to_string(session->fps), 0, height - session->font->FONT_HEIGHT);
 
-    test.bind();
+    Battleship::atlas.bind();
 
     glEnable(GL_TEXTURE_2D);
     glDisable(GL_COLOR);

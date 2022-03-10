@@ -3,3 +3,5 @@
 //
 
 #include "Battleship.h"
+
+Texture Battleship::atlas = Texture("texture_atlas.png");

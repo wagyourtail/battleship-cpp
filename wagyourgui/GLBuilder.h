@@ -45,7 +45,6 @@ class GLBuilder {
     public:
         GLBuilder& begin(GLenum mode, VertexFormat format) {
             if (state) throw std::runtime_error("already building");
-            glBegin(mode);
             if (format == POS_COL) {
                 glEnable(GL_COLOR);
                 glDisable(GL_TEXTURE_2D);
@@ -58,6 +57,7 @@ class GLBuilder {
                 glDisable(GL_COLOR);
                 glEnable(GL_TEXTURE_2D);
             }
+            glBegin(mode);
             this->format = format;
             state = true;
             return *this;
@@ -119,7 +119,7 @@ class GLBuilder {
         GLBuilder& uv(float u, float v, float w, float h) {
             if (!state) throw std::runtime_error("not building");
             if (tex != nullptr) throw std::runtime_error("already have tex");
-            tex = new Tex{u, v};
+            tex = new Tex{u / w, v / h};
             return *this;
         }
         GLBuilder& next() {

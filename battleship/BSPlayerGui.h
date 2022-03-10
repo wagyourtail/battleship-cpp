@@ -9,11 +9,8 @@
 
 class BSPlayerGui : public BSPlayer {
     public:
-        int ts{}, i{}, j{};
-    public:
-        void render() override;
-        void renderHitBoard() override;
-
+        void render(float i, float j, float ts);
+        void renderHitBoard(float i, float j, float ts);
 };
 
 #endif //BATTLESHIP_BSPLAYERGUI_H

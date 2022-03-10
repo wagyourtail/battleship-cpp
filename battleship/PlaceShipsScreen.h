@@ -11,10 +11,12 @@
 
 class PlaceShipsScreen : public Screen {
     protected:
+        float ts{}, i{}, j{};
         GameSession *gameSession;
     public:
         PlaceShipsScreen(GLFWSession *session, GameSession *gameSession) : Screen(session), gameSession(gameSession) {}
         void init(Window *window) override;
+        void onRender(float mouseX, float mouseY) override;
 };
 
 

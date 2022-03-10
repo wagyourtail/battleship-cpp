@@ -37,6 +37,7 @@ class GLFWSession {
         void runLoop();
         void setScreen(Screen *screen) {
             this->screen = screen;
+            screen->onWindowResize(window);
         }
     private:
         void loop();
