@@ -6,7 +6,7 @@
 #define BATTLESHIP_SCREEN_H
 
 #include <vector>
-#include "BaseElement.h"
+#include "elements/BaseElement.h"
 
 class Window;
 class GLFWSession;
@@ -14,7 +14,7 @@ class GLFWSession;
 class Screen {
     public:
         GLFWSession *session;
-        std::vector<BaseElement> elements{};
+        std::vector<BaseElement*> elements{};
         BaseElement *focused{};
         int width{};
         int height{};

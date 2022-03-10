@@ -7,6 +7,7 @@
 
 #include "battleship-nogui.cpp"
 #include "wagyourgui/GLFWSession.h"
+#include "wagyourgui/Texture.h"
 
 class GameRunnerGui : public GameRunner {
 public:
@@ -15,6 +16,7 @@ public:
 };
 
 class MainMenuScreen : public Screen {
+        Texture test{"texture_atlas.png"};
     public:
         explicit MainMenuScreen(GLFWSession *session) : Screen(session) {};
         void init(Window *window) override;

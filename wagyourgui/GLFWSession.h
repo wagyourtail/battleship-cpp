@@ -22,7 +22,7 @@ class GLFWSession {
         Screen *screen;
     public:
         // oops that signature ports a bit weirdly, whatever
-        GLFWSession(Screen *(*func)(GLFWSession*)) : screen(func(this)) {
+        GLFWSession(Screen* (*func)(GLFWSession*)) : screen(func(this)) {
             init();
         };
         ~GLFWSession() {

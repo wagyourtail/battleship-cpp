@@ -16,6 +16,7 @@ Font::Font(const std::string &path) {
     fontData.resize(size);
     file.seekg(0, std::ios::beg);
     file.read(reinterpret_cast<char *>(&fontData[0]), size);
+    file.close();
     if (!stbtt_InitFont(&fontInfo, &fontData[0], 0)) {
         throw std::runtime_error("Failed to load font");
     }
@@ -25,8 +26,7 @@ Font::Font(const std::string &path) {
 }
 
 std::vector<stbtt_bakedchar> Font::init(int BITMAP_W, int BITMAP_H) {
-    auto *texture = new unsigned int[1];
-    glGenTextures(1, texture);
+    glGenTextures(1, &texid);
     std::vector<stbtt_bakedchar> cdata;
     cdata.resize(96);
     std::vector<unsigned char> bitmap;
@@ -34,7 +34,7 @@ std::vector<stbtt_bakedchar> Font::init(int BITMAP_W, int BITMAP_H) {
     stbtt_BakeFontBitmap(fontData.data(), 0, 32,
                          bitmap.data(), BITMAP_W, BITMAP_H, 32, 96,
                          cdata.data());
-    glBindTexture(GL_TEXTURE_2D, texture[0]);
+    glBindTexture(GL_TEXTURE_2D, texid);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, BITMAP_W, BITMAP_H, 0, GL_ALPHA, GL_UNSIGNED_BYTE,bitmap.data());
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -56,6 +56,7 @@ float Font::drawString(const std::string &text, float x, float y) {
     if (cdata.empty()) {
         cdata = init(1024, 1024);
     }
+    glBindTexture(GL_TEXTURE_2D, texid);
 
     stbtt_aligned_quad q;
     float xP = 0, yP = 0;
@@ -134,6 +135,7 @@ float Font::drawTrimmedString(const std::string &text, float x, float y, float w
     if (cdata.empty()) {
         cdata = init(1024, 1024);
     }
+    glBindTexture(GL_TEXTURE_2D, texid);
 
     stbtt_aligned_quad q;
     float xP, yP;

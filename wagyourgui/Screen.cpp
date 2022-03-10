@@ -4,12 +4,13 @@
 
 #include "Screen.h"
 #include "Window.h"
-#include "BaseElement.h"
+#include "elements/BaseElement.h"
 
 void Screen::onWindowResize(Window *window) {
     width = window->getWidth();
     height = window->getHeight();
     elements.clear();
+    focused = nullptr;
     init(window);
 }
 
@@ -38,13 +39,13 @@ void Screen::onMouseButton(float x, float y, int button, int action, int mods) {
 bool Screen::onClick(float x, float y, int button) {
     bool unfocus = true;
     for (auto &element : elements) {
-        if (element.shouldFocus(x, y)) {
+        if (element->shouldFocus(x, y)) {
             BaseElement *old = focused;
-            focused = &element;
+            focused = element;
             if (old != nullptr) {
                 old->onFocusLost();
             }
-            element.onFocus();
+            element->onFocus();
             unfocus = false;
         }
     }
@@ -99,6 +100,6 @@ bool Screen::onKey(int key, int scancode, int action, int mods) {
 
 void Screen::onRender(float mouseX, float mouseY) {
     for (auto &element : elements) {
-        element.onRender(mouseX, mouseY);
+        element->onRender(mouseX, mouseY);
     }
 }

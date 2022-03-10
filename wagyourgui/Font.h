@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "../stb/stb_truetype.h"
+#include "GLFW/glfw3.h"
 
 class Font {
     public:
@@ -20,9 +21,13 @@ class Font {
         int descent{};
         int lineGap{};
         std::vector<stbtt_bakedchar> cdata;
+        GLuint texid{};
     public:
         const int FONT_HEIGHT = 16;
         Font(const std::string& path);
+        ~Font() {
+            glDeleteTextures(1 , &texid);
+        }
     private:
         std::vector<stbtt_bakedchar> init(int BITMAP_W, int BITMAP_H);
 

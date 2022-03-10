@@ -63,12 +63,12 @@ build CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o: CXX_COMPILER__BATT
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
-build CMakeFiles/BATTLESHIP.dir/wagyourgui/BaseElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/BaseElement.cpp || cmake_object_order_depends_target_BATTLESHIP
-  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/BaseElement.cpp.o.d
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/BaseElement.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o.d
   FLAGS = -g -std=gnu++14
   INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
-  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Font.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o.d
@@ -91,6 +91,41 @@ build CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o: CXX_COMPILER__BATTLESHI
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/DrawableHelper.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
+
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/GLBuilder.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
+
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/Button.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
+
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/DisableableElement.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
+
+build CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Texture.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BATTLESHIP
@@ -99,7 +134,7 @@ build CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o: CXX_COMPILER__BATTLESHI
 #############################################
 # Link the executable BATTLESHIP
 
-build BATTLESHIP: CXX_EXECUTABLE_LINKER__BATTLESHIP_Debug CMakeFiles/BATTLESHIP.dir/battleship-gui.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/BaseElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o | /usr/lib/libGL.so /usr/lib/libGLU.so glfw/src/libglfw3.a /usr/lib/librt.a /usr/lib/libm.so || glfw/src/libglfw3.a
+build BATTLESHIP: CXX_EXECUTABLE_LINKER__BATTLESHIP_Debug CMakeFiles/BATTLESHIP.dir/battleship-gui.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o | /usr/lib/libGL.so /usr/lib/libGLU.so glfw/src/libglfw3.a /usr/lib/librt.a /usr/lib/libm.so || glfw/src/libglfw3.a
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/libGL.so  /usr/lib/libGLU.so  glfw/src/libglfw3.a  /usr/lib/librt.a  -lm  -ldl
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir

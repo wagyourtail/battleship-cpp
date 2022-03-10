@@ -3,6 +3,7 @@
 //
 
 #include "GLFWSession.h"
+#include "DrawableHelper.h"
 
 
 void GLFWSession::runLoop() {
@@ -58,22 +59,15 @@ void GLFWSession::loop() {
         ++frameCount;
         if (frameCount % 10 == 0) {
             auto newTimeNanos = std::chrono::high_resolution_clock::now();
-            fps = frameCount / (newTimeNanos - timeNanos).count();
+            fps = 10 * 1000000000L / std::chrono::nanoseconds {newTimeNanos - timeNanos}.count();
+            timeNanos = newTimeNanos;
         }
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         glDisable(GL_TEXTURE_2D);
-        glBegin(GL_TRIANGLE_STRIP);
-        // red square
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2f(-0.5f, -0.5f);
-        glVertex2f(-0.5f, 0.5f);
-        glVertex2f(0.5f, -0.5f);
-        glVertex2f(0.5f, 0.5f);
-        glEnd();
+        DrawableHelper::rect(-1, -1, 1, 1, 0xFF2b2b2b);
 
         glPushMatrix();
 

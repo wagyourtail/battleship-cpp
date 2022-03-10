@@ -17,6 +17,8 @@ Window::Window(const std::string &title, int width, int height, GLFWSession *par
         auto* thisRef = (Window*) glfwGetWindowUserPointer(window);
         thisRef->width = width;
         thisRef->height = height;
+        glViewport(0, 0, width, height);
+
         thisRef->parent->onWindowResize(thisRef);
     });
 
