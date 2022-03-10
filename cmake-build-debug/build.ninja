@@ -126,6 +126,76 @@ build CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o: CXX_COMPILER__BATTLESH
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
+build CMakeFiles/BATTLESHIP.dir/battleship/Battleship.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/Battleship.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/Battleship.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/BSBot.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSBot.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSBot.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/BSLocal.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSLocal.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSLocal.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/BSOpponent.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSOpponent.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSOpponent.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/BSPlayer.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSPlayer.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSPlayer.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/BSPlayerGui.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSPlayerGui.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSPlayerGui.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/GameSession.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/GameSession.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/GameSession.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/MainMenuScreen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/MainMenuScreen.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/MainMenuScreen.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/NoGuiRunner.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/NoGuiRunner.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/NoGuiRunner.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
+build CMakeFiles/BATTLESHIP.dir/battleship/PlaceShipsScreen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/PlaceShipsScreen.cpp || cmake_object_order_depends_target_BATTLESHIP
+  DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/PlaceShipsScreen.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/william/Documents/battleship-cpp/glfw/include
+  OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
+  OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BATTLESHIP
@@ -134,7 +204,7 @@ build CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o: CXX_COMPILER__BATTLESH
 #############################################
 # Link the executable BATTLESHIP
 
-build BATTLESHIP: CXX_EXECUTABLE_LINKER__BATTLESHIP_Debug CMakeFiles/BATTLESHIP.dir/battleship-gui.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o | /usr/lib/libGL.so /usr/lib/libGLU.so glfw/src/libglfw3.a /usr/lib/librt.a /usr/lib/libm.so || glfw/src/libglfw3.a
+build BATTLESHIP: CXX_EXECUTABLE_LINKER__BATTLESHIP_Debug CMakeFiles/BATTLESHIP.dir/battleship-gui.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/Battleship.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/BSBot.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/BSLocal.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/BSOpponent.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/BSPlayer.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/BSPlayerGui.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/GameSession.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/MainMenuScreen.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/NoGuiRunner.cpp.o CMakeFiles/BATTLESHIP.dir/battleship/PlaceShipsScreen.cpp.o | /usr/lib/libGL.so /usr/lib/libGLU.so glfw/src/libglfw3.a /usr/lib/librt.a /usr/lib/libm.so || glfw/src/libglfw3.a
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/libGL.so  /usr/lib/libGLU.so  glfw/src/libglfw3.a  /usr/lib/librt.a  -lm  -ldl
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
@@ -167,58 +237,10 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
-
-#############################################
-# Utility command for list_install_components
-
-build list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build install: phony CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build install/local: phony CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build install/strip: phony CMakeFiles/install/strip.util
-
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /home/william/Documents/battleship-cpp/CMakeLists.txt
 # =============================================================================
-
-
-#############################################
-# Utility command for uninstall
-
-build glfw/uninstall: phony glfw/CMakeFiles/uninstall
 
 
 #############################################
@@ -243,55 +265,6 @@ build glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build glfw/rebuild_cache: phony glfw/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build glfw/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build glfw/CMakeFiles/install.util: CUSTOM_COMMAND glfw/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build glfw/install: phony glfw/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build glfw/install/local: phony glfw/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build glfw/install/strip: phony glfw/CMakeFiles/install/strip.util
-
-
-#############################################
-# Custom command for glfw/CMakeFiles/uninstall
-
-build glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw && /usr/bin/cmake -P /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/cmake_uninstall.cmake
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -539,48 +512,6 @@ build glfw/src/rebuild_cache: phony glfw/src/CMakeFiles/rebuild_cache.util
 
 
 #############################################
-# Utility command for list_install_components
-
-build glfw/src/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND glfw/src/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/src && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build glfw/src/install: phony glfw/src/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/src/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/src && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build glfw/src/install/local: phony glfw/src/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/src/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/src && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build glfw/src/install/strip: phony glfw/src/CMakeFiles/install/strip.util
-
-
-#############################################
 # Custom command for glfw/src/CMakeFiles/update_mappings
 
 build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
@@ -588,101 +519,11 @@ build glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}glfw/src/CMake
   DESC = Updating gamepad mappings from upstream repository
 
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# /home/william/Documents/battleship-cpp/glfw/CMakeLists.txt
-# =============================================================================
-
-
-#############################################
-# Utility command for docs
-
-build glfw/docs/docs: phony glfw/docs/html/index.html
-
-
-#############################################
-# Utility command for edit_cache
-
-build glfw/docs/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/ccmake -S/home/william/Documents/battleship-cpp -B/home/william/Documents/battleship-cpp/cmake-build-debug
-  DESC = Running CMake cache editor...
-  pool = console
-  restat = 1
-
-build glfw/docs/edit_cache: phony glfw/docs/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build glfw/docs/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/cmake --regenerate-during-build -S/home/william/Documents/battleship-cpp -B/home/william/Documents/battleship-cpp/cmake-build-debug
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build glfw/docs/rebuild_cache: phony glfw/docs/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build glfw/docs/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build glfw/docs/CMakeFiles/install.util: CUSTOM_COMMAND glfw/docs/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/cmake -P cmake_install.cmake
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build glfw/docs/install: phony glfw/docs/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build glfw/docs/CMakeFiles/install/local.util: CUSTOM_COMMAND glfw/docs/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build glfw/docs/install/local: phony glfw/docs/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build glfw/docs/CMakeFiles/install/strip.util: CUSTOM_COMMAND glfw/docs/all
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build glfw/docs/install/strip: phony glfw/docs/CMakeFiles/install/strip.util
-
-
-#############################################
-# Custom command for glfw/docs/html/index.html
-
-build glfw/docs/html/index.html | ${cmake_ninja_workdir}glfw/docs/html/index.html: CUSTOM_COMMAND ../glfw/include/GLFW/glfw3.h ../glfw/include/GLFW/glfw3native.h ../glfw/docs/main.dox ../glfw/docs/news.dox ../glfw/docs/quick.dox ../glfw/docs/moving.dox ../glfw/docs/compile.dox ../glfw/docs/build.dox ../glfw/docs/intro.dox ../glfw/docs/context.dox ../glfw/docs/monitor.dox ../glfw/docs/window.dox ../glfw/docs/input.dox ../glfw/docs/vulkan.dox ../glfw/docs/compat.dox ../glfw/docs/internal.dox ../glfw/docs/DoxygenLayout.xml ../glfw/docs/header.html ../glfw/docs/footer.html ../glfw/docs/extra.css ../glfw/docs/spaces.svg glfw/docs/Doxyfile
-  COMMAND = cd /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs && /usr/bin/doxygen
-  DESC = Generating HTML documentation
-  restat = 1
-
-# =============================================================================
 # Target aliases.
-
-build docs: phony glfw/docs/docs
 
 build glfw: phony glfw/src/libglfw3.a
 
 build libglfw3.a: phony glfw/src/libglfw3.a
-
-build uninstall: phony glfw/uninstall
 
 build update_mappings: phony glfw/src/update_mappings
 
@@ -701,14 +542,7 @@ build all: phony BATTLESHIP glfw/all
 #############################################
 # Folder: /home/william/Documents/battleship-cpp/cmake-build-debug/glfw
 
-build glfw/all: phony glfw/src/all glfw/docs/all
-
-# =============================================================================
-
-#############################################
-# Folder: /home/william/Documents/battleship-cpp/cmake-build-debug/glfw/docs
-
-build glfw/docs/all: phony glfw/docs/docs
+build glfw/all: phony glfw/src/all
 
 # =============================================================================
 
@@ -724,14 +558,14 @@ build glfw/src/all: phony glfw/src/libglfw3.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../glfw/CMake/cmake_uninstall.cmake.in ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/CMakeLists.txt ../glfw/docs/CMakeLists.txt ../glfw/docs/Doxyfile.in ../glfw/src/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindDoxygen.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindOpenGL.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/CMakeLists.txt ../glfw/src/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindOpenGL.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../glfw/CMake/cmake_uninstall.cmake.in ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/CMakeLists.txt ../glfw/docs/CMakeLists.txt ../glfw/docs/Doxyfile.in ../glfw/src/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindDoxygen.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindOpenGL.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../glfw/CMake/glfw3.pc.in ../glfw/CMake/glfw3Config.cmake.in ../glfw/CMakeLists.txt ../glfw/src/CMakeLists.txt /usr/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeDependentOption.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/CheckCSourceCompiles.cmake /usr/share/cmake/Modules/CheckFunctionExists.cmake /usr/share/cmake/Modules/CheckIncludeFile.cmake /usr/share/cmake/Modules/CheckLibraryExists.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/GNU-C.cmake /usr/share/cmake/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/FindFontconfig.cmake /usr/share/cmake/Modules/FindFreetype.cmake /usr/share/cmake/Modules/FindOpenGL.cmake /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake/Modules/FindPackageMessage.cmake /usr/share/cmake/Modules/FindPkgConfig.cmake /usr/share/cmake/Modules/FindThreads.cmake /usr/share/cmake/Modules/FindX11.cmake /usr/share/cmake/Modules/GNUInstallDirs.cmake /usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake /usr/share/cmake/Modules/SelectLibraryConfigurations.cmake /usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.22.3/CMakeCCompiler.cmake CMakeFiles/3.22.3/CMakeCXXCompiler.cmake CMakeFiles/3.22.3/CMakeSystem.cmake: phony
 
 
 #############################################

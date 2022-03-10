@@ -38,4 +38,7 @@ class Screen {
         virtual void init(Window *window) = 0;
 };
 
+#include "Window.h"
+#include "GLFWSession.h"
+
 #endif //BATTLESHIP_SCREEN_H

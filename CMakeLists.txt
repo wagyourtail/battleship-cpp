@@ -17,7 +17,29 @@ if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
 endif()
 
-set(BATTLESHIP-SOURCE battleship-gui.cpp wagyourgui/GLFWSession.cpp wagyourgui/elements/BaseElement.cpp wagyourgui/Font.cpp wagyourgui/Screen.cpp wagyourgui/Window.cpp wagyourgui/DrawableHelper.cpp wagyourgui/GLBuilder.cpp wagyourgui/elements/Button.cpp wagyourgui/elements/DisableableElement.cpp wagyourgui/elements/DisableableElement.h wagyourgui/Texture.cpp wagyourgui/Texture.h)
+set(BATTLESHIP-SOURCE
+        battleship-gui.cpp
+        wagyourgui/GLFWSession.cpp
+        wagyourgui/elements/BaseElement.cpp
+        wagyourgui/Font.cpp
+        wagyourgui/Screen.cpp
+        wagyourgui/Window.cpp
+        wagyourgui/DrawableHelper.cpp
+        wagyourgui/GLBuilder.cpp
+        wagyourgui/elements/Button.cpp
+        wagyourgui/elements/DisableableElement.cpp
+        wagyourgui/Texture.cpp
+        battleship/Battleship.cpp
+        battleship/BSBot.cpp
+        battleship/BSLocal.cpp
+        battleship/BSOpponent.cpp
+        battleship/BSPlayer.cpp
+        battleship/BSPlayerGui.cpp
+        battleship/GameSession.cpp
+        battleship/MainMenuScreen.cpp
+        battleship/NoGuiRunner.cpp
+        battleship/PlaceShipsScreen.cpp
+    )
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw)
 
