@@ -107,6 +107,7 @@ Status BSLocal::attack(int x, int y) {
         case Status::GAME_END:
             return Status::GAME_END;
     }
+    return Status::ERROR;
 }
 
 bool BSLocal::placeShip(Ship ship) {
