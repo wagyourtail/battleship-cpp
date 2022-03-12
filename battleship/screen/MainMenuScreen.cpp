@@ -3,10 +3,12 @@
 //
 
 #include "PlaceShipsScreen.h"
-#include "../wagyourgui/GLBuilder.h"
-#include "../wagyourgui/elements/Button.h"
-#include "BSBot.h"
+#include "wagyourgui/GLBuilder.h"
+#include "wagyourgui/elements/Button.h"
+#include "battleship/BSBot.h"
 #include "MainMenuScreen.h"
+#include "wagyourgui/Window.h"
+#include "wagyourgui/GLFWSession.h"
 
 void MainMenuScreen::init(Window *window) {
     elements.push_back(new Button(width / 2.f - 400, height / 2.f - 14, 800, 28, session->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {

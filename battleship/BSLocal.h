@@ -6,6 +6,7 @@
 #define BATTLESHIP_BSLOCAL_H
 
 #include "BSOpponent.h"
+#include "Battleship.h"
 
 class BSLocal : public BSOpponent {
     // board bits
@@ -19,9 +20,9 @@ class BSLocal : public BSOpponent {
         int numSpacesAlive{};
 
     protected:
-        Status attackedAt(int x, int y) override;
-        Status attack(int x, int y) override;
-        virtual bool placeShip(Ship ship);
+        Battleship::Status attackedAt(int x, int y) override;
+        Battleship::Status attack(int x, int y) override;
+        virtual bool placeShip(Battleship::Ship ship);
     private:
         int sunkCheck(int x, int y);
     protected:

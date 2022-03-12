@@ -6,6 +6,7 @@
 #define BATTLESHIP_BSBOT_H
 
 #include "BSLocal.h"
+#include "Battleship.h"
 
 class BSBot : public BSLocal {
     public:
@@ -14,7 +15,7 @@ class BSBot : public BSLocal {
                 placeRandomShip(i);
             }
         }
-        Status runTurn() override;
+        Battleship::Status runTurn() override;
 };
 
 #endif //BATTLESHIP_BSBOT_H

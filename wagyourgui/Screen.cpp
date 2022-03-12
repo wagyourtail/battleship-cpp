@@ -6,6 +6,9 @@
 #include "Window.h"
 #include "elements/BaseElement.h"
 
+float *Screen::sX = new float[6];
+float *Screen::sY = new float[6];
+
 void Screen::onWindowResize(Window *window) {
     width = window->getWidth();
     height = window->getHeight();

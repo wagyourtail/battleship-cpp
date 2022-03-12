@@ -7,6 +7,7 @@
 
 class BaseElement {
     public:
+        virtual ~BaseElement() = default;
         virtual bool onClick(float x, float y, int button) {return false;};
         virtual bool onScroll(float x, float y, float dx, float dy) {return false;};
         virtual bool onDrag(float x, float y, float dx, float dy, int button) {return false;};

@@ -3,9 +3,10 @@
 //
 
 #include "BSBot.h"
+#include "Battleship.h"
 #include <random>
 
-Status BSBot::runTurn() {
+Battleship::Status BSBot::runTurn() {
     std::random_device rd;
     std::uniform_int_distribution<int> dist(0, 9);
     int x, y;

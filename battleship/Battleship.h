@@ -5,29 +5,29 @@
 #ifndef BATTLESHIP_BATTLESHIP_H
 #define BATTLESHIP_BATTLESHIP_H
 
-#include "../wagyourgui/Texture.h"
+#include "wagyourgui/Texture.h"
 
 namespace Battleship {
     constexpr int SHIP_LENGTHS[5] = {5, 4, 3, 3, 2};
     extern Texture atlas;
+
+    struct Ship {
+        int x;
+        int y;
+        int length;
+        bool horizontal;
+    };
+
+    enum Status {
+        HIT,
+        MISS,
+        SUNK_2,
+        SUNK_3,
+        SUNK_4,
+        SUNK_5,
+        GAME_END,
+        ERROR
+    };
 }
-
-struct Ship {
-    int x;
-    int y;
-    int length;
-    bool horizontal;
-};
-
-enum Status {
-    HIT,
-    MISS,
-    SUNK_2,
-    SUNK_3,
-    SUNK_4,
-    SUNK_5,
-    GAME_END,
-    ERROR
-};
 
 #endif //BATTLESHIP_BATTLESHIP_H

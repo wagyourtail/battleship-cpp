@@ -3,6 +3,7 @@
 //
 
 #include "BSPlayer.h"
+#include "Battleship.h"
 #include <iostream>
 #include <random>
 
@@ -140,7 +141,7 @@ void BSPlayer::promptShipPlacement(int length) {
     } while (!placed);
 }
 
-Status BSPlayer::runTurn() {
+Battleship::Status BSPlayer::runTurn() {
     std::cout << "Your turn." << std::endl;
     while (true) {
         std::cout << "Enter the coordinates of the shot. or 'r' for random" << std::endl;

@@ -6,6 +6,7 @@
 #define BATTLESHIP_BSPLAYER_H
 
 #include "BSLocal.h"
+#include "Battleship.h"
 #include <iostream>
 
 class BSPlayer : public BSLocal {
@@ -16,7 +17,7 @@ class BSPlayer : public BSLocal {
                 promptShipPlacement(ship);
             }
         }
-        Status attackedAt(int x, int y) override {
+        Battleship::Status attackedAt(int x, int y) override {
             char xchar = x + 'a';
             std::cout << "opponent attacked at " << xchar << y + 1 << "!" << std::endl;
             return BSLocal::attackedAt(x, y);
@@ -24,7 +25,7 @@ class BSPlayer : public BSLocal {
         virtual void render();
         virtual void renderHitBoard();
         void promptShipPlacement(int length);
-        Status runTurn() override;
+        Battleship::Status runTurn() override;
 };
 
 #endif //BATTLESHIP_BSPLAYER_H

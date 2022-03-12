@@ -3,9 +3,12 @@
 //
 
 #include "BSLocal.h"
+#include "Battleship.h"
 #include <random>
 
-Status BSLocal::attackedAt(int x, int y) {
+using namespace Battleship;
+
+Battleship::Status BSLocal::attackedAt(int x, int y) {
     // space already hit
     if (board[x][y] & 1) {
         return ERROR;
@@ -89,8 +92,8 @@ int BSLocal::sunkCheck(int x, int y) {
     return l - 1;
 }
 
-Status BSLocal::attack(int x, int y) {
-    Status status = opponent->attackedAt(x, y);
+Battleship::Status BSLocal::attack(int x, int y) {
+    Battleship::Status status = opponent->attackedAt(x, y);
     switch (status) {
         case ERROR:
             return ERROR;
@@ -110,7 +113,7 @@ Status BSLocal::attack(int x, int y) {
     return ERROR;
 }
 
-bool BSLocal::placeShip(Ship ship) {
+bool BSLocal::placeShip(Battleship::Ship ship) {
     int sid = ++numShips;
     sid <<= 2;
     sid |= 2;

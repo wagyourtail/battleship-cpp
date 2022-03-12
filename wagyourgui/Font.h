@@ -8,7 +8,7 @@
 #include <fstream>
 #include <vector>
 
-#include "../stb/stb_truetype.h"
+#include "stb/stb_truetype.h"
 #include "GLFW/glfw3.h"
 
 class Font {

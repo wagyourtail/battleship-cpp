@@ -36,7 +36,11 @@ class GLFWSession {
     public:
         void runLoop();
         void setScreen(Screen *screen) {
+            Screen *old = this->screen;
             this->screen = screen;
+            if (old != nullptr) {
+                delete old;
+            }
             screen->onWindowResize(window);
         }
     private:

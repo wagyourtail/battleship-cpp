@@ -115,17 +115,19 @@ float Font::getWidth(const std::string &text) {
     while (i < text.length()) {
         i += getCP(text, text.length(), i, &pCodepoint);
         int cp = pCodepoint;
-        stbtt_GetCodepointHMetrics(&fontInfo, pCodepoint - 32, &pAdvancedWidth, &pLeftSizeBearing);
+
+        stbtt_GetCodepointHMetrics(&fontInfo, pCodepoint, &pAdvancedWidth, &pLeftSizeBearing);
         width += pAdvancedWidth;
 
         // kerning
         if (i < text.length()) {
             getCP(text, text.length(), i, &pCodepoint);
-            width += stbtt_GetCodepointKernAdvance(&fontInfo, cp, pCodepoint - 32);
+            width += stbtt_GetCodepointKernAdvance(&fontInfo, cp, pCodepoint);
         }
     }
 
-    return width * scale;
+    return width * scale * 2;
+    // idk why *2, but it works
 }
 
 float Font::drawTrimmedString(const std::string &text, float x, float y, float width) {

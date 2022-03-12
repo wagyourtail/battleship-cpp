@@ -6,6 +6,8 @@
 #include <iostream>
 #include <random>
 
+using namespace Battleship;
+
 void NoGuiRunner::runGame() {
     std::cout << "Welcome to Battleship!" << std::endl;
     std::cout << "Place your ships!" << std::endl;

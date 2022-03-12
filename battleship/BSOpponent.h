@@ -15,9 +15,9 @@ class BSOpponent {
             opponent = opp;
         };
         virtual ~BSOpponent() = default;
-        virtual Status attackedAt(int x, int y) = 0;
-        virtual Status attack(int x, int y) = 0;
-        virtual Status runTurn() = 0;
+        virtual Battleship::Status attackedAt(int x, int y) = 0;
+        virtual Battleship::Status attack(int x, int y) = 0;
+        virtual Battleship::Status runTurn() = 0;
         virtual void setup() = 0;
 };
 

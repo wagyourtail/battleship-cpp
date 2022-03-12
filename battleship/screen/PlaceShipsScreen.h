@@ -6,12 +6,11 @@
 #define BATTLESHIP_PLACESHIPSSCREEN_H
 
 
-#include "../wagyourgui/Screen.h"
-#include "GameSession.h"
+#include "wagyourgui/Screen.h"
+#include "battleship/GameSession.h"
 
 class PlaceShipsScreen : public Screen {
     protected:
-        float ts{}, i{}, j{};
         GameSession *gameSession;
     public:
         PlaceShipsScreen(GLFWSession *session, GameSession *gameSession) : Screen(session), gameSession(gameSession) {}

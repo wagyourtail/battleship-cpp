@@ -3,7 +3,7 @@
 //
 
 #include "wagyourgui/elements/Button.h"
-#include "battleship/MainMenuScreen.h"
+#include "battleship/screen/MainMenuScreen.h"
 #include "battleship/NoGuiRunner.h"
 #include "battleship/BSBot.h"
 #include "battleship/BSPlayer.h"

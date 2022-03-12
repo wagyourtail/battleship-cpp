@@ -19,11 +19,17 @@ class Screen {
         int width{};
         int height{};
         explicit Screen(GLFWSession *session) : session(session) {};
+        virtual ~Screen() {
+            for (auto element : elements) {
+                delete element;
+            }
+            elements.clear();
+        }
         void onWindowResize(Window *window);
 
     private:
-        float *sX = new float[6];
-        float *sY = new float[6];
+        static float *sX;
+        static float *sY;
 
     public:
         virtual void onMouseButton(float x, float y, int button, int action, int mods);
@@ -38,7 +44,5 @@ class Screen {
         virtual void init(Window *window) = 0;
 };
 
-#include "Window.h"
-#include "GLFWSession.h"
 
 #endif //BATTLESHIP_SCREEN_H

@@ -18,7 +18,7 @@ if( MSVC )
 endif()
 
 set(BATTLESHIP-SOURCE
-        battleship-gui.cpp
+        main.cpp
         wagyourgui/GLFWSession.cpp
         wagyourgui/elements/BaseElement.cpp
         wagyourgui/Font.cpp
@@ -26,9 +26,9 @@ set(BATTLESHIP-SOURCE
         wagyourgui/Window.cpp
         wagyourgui/DrawableHelper.cpp
         wagyourgui/GLBuilder.cpp
+        wagyourgui/Texture.cpp
         wagyourgui/elements/Button.cpp
         wagyourgui/elements/DisableableElement.cpp
-        wagyourgui/Texture.cpp
         battleship/Battleship.cpp
         battleship/BSBot.cpp
         battleship/BSLocal.cpp
@@ -36,11 +36,14 @@ set(BATTLESHIP-SOURCE
         battleship/BSPlayer.cpp
         battleship/BSPlayerGui.cpp
         battleship/GameSession.cpp
-        battleship/MainMenuScreen.cpp
         battleship/NoGuiRunner.cpp
-        battleship/PlaceShipsScreen.cpp
+        battleship/screen/MainMenuScreen.cpp
+        battleship/screen/PlaceShipsScreen.cpp
+        battleship/screen/elements/BoardElement.cpp
     )
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
+# allows not using ../ in #include, and specifying from the root of the project instead
+target_include_directories(BATTLESHIP PUBLIC ./)
 target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw)
 
 if( MSVC )

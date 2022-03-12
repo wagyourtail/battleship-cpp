@@ -10,7 +10,7 @@
 
 #include "BaseElement.h"
 #include "DisableableElement.h"
-#include "../Font.h"
+#include "wagyourgui/Font.h"
 
 class Button : public BaseElement, public DisableableElement {
     protected:

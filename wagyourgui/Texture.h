@@ -8,8 +8,8 @@
 #include <iostream>
 #include <vector>
 #include "GLFW/glfw3.h"
-#include "../stb/stb_image.h"
-#include "../stb/stb_image_resize.h"
+#include "stb/stb_image.h"
+#include "stb/stb_image_resize.h"
 
 class Texture {
     private:
