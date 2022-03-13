@@ -11,7 +11,6 @@
 #include "wagyourgui/Font.h"
 #include "battleship/BSPlayerGui.h"
 #include <functional>
-#include <utility>
 
 class BoardElement : public BaseElement, public DisableableElement {
     protected:
@@ -20,12 +19,13 @@ class BoardElement : public BaseElement, public DisableableElement {
         float width;
         Font *font;
         BSPlayerGui *player;
-        std::function<void(BoardElement*, int, int)> onClickFn;
+        std::function<void(BoardElement*, int, int, int)> onClickFn;
         bool disabled{false};
         bool renderHitBoard{};
+        std::function<void(BoardElement*, int, int)> onRenderHighlightFn;
     public:
-        BoardElement(float x, float y, float width, Font *font, BSPlayerGui *player, std::function<void(BoardElement*, int, int)> onClick) : BaseElement(), x(x), y(y), width(width), font(font), player(player), onClickFn(std::move(onClick)) {}
-        void setOnClick(std::function<void(BoardElement*, int, int)> onClick) {
+        BoardElement(float x, float y, float width, Font *font, BSPlayerGui *player, std::function<void(BoardElement*, int, int, int)> onClick, std::function<void(BoardElement*, int, int)> onRenderHighlightFn) : BaseElement(), x(x), y(y), width(width), font(font), player(player), onClickFn(std::move(onClick)), onRenderHighlightFn(std::move(onRenderHighlightFn)) {}
+        void setOnClick(std::function<void(BoardElement*, int, int, int)> onClick) {
             onClickFn = std::move(onClick);
         }
         void setDisabled(bool disabled) override { this->disabled = disabled; }
@@ -35,7 +35,7 @@ class BoardElement : public BaseElement, public DisableableElement {
                 int row = (y - this->y) / (width / 11);
                 int col = (x - this->x) / (width / 11);
                 if (row >= 1 && row < 11 && col >= 1 && col < 11) {
-                    onClickFn(this, row - 1, col - 1);
+                    onClickFn(this, row - 1, col - 1, button);
                 }
             }
             return true;
@@ -43,8 +43,8 @@ class BoardElement : public BaseElement, public DisableableElement {
         bool shouldFocus(float mouseX, float mouseY) override {
             return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + width;
         }
-        virtual void onRender(float mouseX, float mouseY) override;
-        virtual void renderHighlightCell(int row, int col);
+        float getWidth() const { return width; }
+        void onRender(float mouseX, float mouseY) override;
 };
 
 

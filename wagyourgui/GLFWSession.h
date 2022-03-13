@@ -26,10 +26,9 @@ class GLFWSession {
             init();
         };
         ~GLFWSession() {
+            delete screen;
             delete window;
-            window = nullptr;
             delete font;
-            font = nullptr;
         }
     private:
         void init();
@@ -38,9 +37,7 @@ class GLFWSession {
         void setScreen(Screen *screen) {
             Screen *old = this->screen;
             this->screen = screen;
-            if (old != nullptr) {
-                delete old;
-            }
+            delete old;
             screen->onWindowResize(window);
         }
     private:

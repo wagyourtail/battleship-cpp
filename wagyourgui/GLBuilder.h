@@ -55,6 +55,7 @@ class GLBuilder {
             }
             else if (format == POS_TEX) {
                 glDisable(GL_COLOR);
+                glColor4f(1, 1, 1, 1);
                 glEnable(GL_TEXTURE_2D);
             }
             glBegin(mode);

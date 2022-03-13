@@ -120,6 +120,7 @@ bool BSLocal::placeShip(Battleship::Ship ship) {
     if (ship.horizontal) {
         for (int i = ship.x; i < ship.x + ship.length; ++i) {
             if (board[i][ship.y] >> 2 != 0 || i > 9 || i < 0) {
+                --numShips;
                 return false;
             }
         }
@@ -129,6 +130,7 @@ bool BSLocal::placeShip(Battleship::Ship ship) {
     } else {
         for (int i = ship.y; i < ship.y + ship.length; ++i) {
             if (board[ship.x][i] >> 2 != 0 || i > 9 || i < 0) {
+                --numShips;
                 return false;
             }
         }

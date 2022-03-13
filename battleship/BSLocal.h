@@ -10,7 +10,7 @@
 
 class BSLocal : public BSOpponent {
     // board bits
-    // 1 = hit
+    // 1 = shot
     // 2 = ship
     // 3-end = ship_id
     protected:

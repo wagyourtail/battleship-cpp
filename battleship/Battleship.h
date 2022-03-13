@@ -9,6 +9,23 @@
 
 namespace Battleship {
     constexpr int SHIP_LENGTHS[5] = {5, 4, 3, 3, 2};
+    constexpr int SHIP_RENDER_LOCATIONS[5][5][2] = {
+            {
+                {0, 48}, {16, 48}, {32, 48}, {48, 48}, {64, 48}
+            },
+            {
+                {0, 32}, {16, 32}, {32, 32}, {48, 32}
+            },
+            {
+                {64, 0}, {64, 16}, {64, 32}
+            },
+            {
+                {0, 16}, {16, 16}, {32, 16}
+            },
+            {
+                {32, 0}, {48, 0}
+            }
+    };
     extern Texture atlas;
 
     struct Ship {

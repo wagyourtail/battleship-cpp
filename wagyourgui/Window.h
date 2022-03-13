@@ -25,6 +25,7 @@ class Window {
         Window(const std::string& title, int width, int height, GLFWSession *parent);
         void setupFramebuffer();
         ~Window() {
+            glfwSetWindowUserPointer(handle, nullptr);
             glfwDestroyWindow(handle);
         }
         int getWidth() const { return width; }
