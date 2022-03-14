@@ -23,9 +23,9 @@ void BoardElement::onRender(float mouseX, float mouseY) {
     if (!disabled) {
         int row = (mouseY - this->y) / ts;
         int col = (mouseX - this->x) / ts;
-        if (row >= 0 && row < 10 && col >= 0 && col < 10 && !disabled) {
+        if (row >= 1 && row < 11 && col >= 1 && col < 11 && !disabled) {
             // render current cell highlight
-            onRenderHighlightFn(this, row, col);
+            onRenderHighlightFn(this, row - 1, col - 1);
         }
     }
 }

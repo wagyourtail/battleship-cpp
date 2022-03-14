@@ -44,7 +44,7 @@ bool Screen::onClick(float x, float y, int button) {
     for (auto &element : elements) {
         if (element->shouldFocus(x, y)) {
             BaseElement *old = focused;
-            focused = element;
+            focused = element.get();
             if (old != nullptr) {
                 old->onFocusLost();
             }

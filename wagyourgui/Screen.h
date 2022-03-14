@@ -6,6 +6,7 @@
 #define BATTLESHIP_SCREEN_H
 
 #include <vector>
+#include <memory>
 #include "elements/BaseElement.h"
 
 class Window;
@@ -14,15 +15,12 @@ class GLFWSession;
 class Screen {
     public:
         GLFWSession *session;
-        std::vector<BaseElement*> elements{};
+        std::vector<std::unique_ptr<BaseElement>> elements{};
         BaseElement *focused{};
         int width{};
         int height{};
         explicit Screen(GLFWSession *session) : session(session) {};
         virtual ~Screen() {
-            for (auto element : elements) {
-                delete element;
-            }
             elements.clear();
         }
         void onWindowResize(Window *window);

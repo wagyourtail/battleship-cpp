@@ -11,9 +11,8 @@
 #include "wagyourgui/GLFWSession.h"
 
 void MainMenuScreen::init(Window *window) {
-    elements.push_back(new Button(width / 2.f - 400, height / 2.f - 14, 800, 28, session->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
-        auto *gamerunner = new GameSession(new BSPlayerGui(), new BSBot());
-        session->setScreen(new PlaceShipsScreen(session, gamerunner));
+    elements.push_back(std::make_unique<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, session->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
+        session->setScreen(new PlaceShipsScreen(session, std::make_unique<GameSession>(new BSPlayerGui(), new BSBot())));
     }));
 }
 

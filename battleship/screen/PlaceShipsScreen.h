@@ -12,16 +12,15 @@
 
 class PlaceShipsScreen : public Screen {
     protected:
-        GameSession *gameSession;
+        std::unique_ptr<GameSession> gameSession;
         int shipsPlaced = 0;
         bool horizontal = true;
     public:
-        PlaceShipsScreen(GLFWSession *session, GameSession *gameSession) : Screen(session), gameSession(gameSession) {}
+        PlaceShipsScreen(GLFWSession *session, std::unique_ptr<GameSession> gameSession) : Screen(session), gameSession(std::move(gameSession)) {}
         void init(Window *window) override;
         void onRender(float mouseX, float mouseY) override;
 
     private:
-        void renderHover(BoardElement *element, int row, int col);
         void placeShip(BoardElement *element, int row, int col);
 };
 
