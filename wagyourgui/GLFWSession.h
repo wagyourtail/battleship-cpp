@@ -12,7 +12,12 @@
 #include "GLFW/glfw3.h"
 #include <iostream>
 #include <chrono>
+#include <functional>
 
+/*
+ * GLFWSession
+ * adapted from "HelloWorld" example at <https://www.lwjgl.org/guide>
+ */
 class GLFWSession {
     public:
         Window *window{};
@@ -22,7 +27,7 @@ class GLFWSession {
         Screen *screen;
     public:
         // oops that signature ports a bit weirdly, whatever
-        GLFWSession(Screen* (*func)(GLFWSession*)) : screen(func(this)) {
+        GLFWSession(const std::function<Screen*(GLFWSession*)>& initialScreen) : screen(initialScreen(this)) {
             init();
         };
         ~GLFWSession() {
@@ -57,10 +62,10 @@ class GLFWSession {
             glfwGetCursorPos(window->handle, &cursorX, &cursorY);
             screen->onMouseButton((float) cursorX, (float) cursorY, button, action, mods);
         }
-        void onScroll(double xoffset, double yoffset) {
+        void onScroll(double xOffset, double yOffset) {
             double cursorX, cursorY;
             glfwGetCursorPos(window->handle, &cursorX, &cursorY);
-            screen->onScroll((float) cursorX, (float) cursorY, (float) xoffset, (float) yoffset);
+            screen->onScroll((float) cursorX, (float) cursorY, (float) xOffset, (float) yOffset);
         }
 };
 

@@ -14,12 +14,12 @@ class GLFWSession;
 
 class Screen {
     public:
-        GLFWSession *session;
-        std::vector<std::unique_ptr<BaseElement>> elements{};
+        GLFWSession *parent;
+        std::vector<std::shared_ptr<BaseElement>> elements{};
         BaseElement *focused{};
         int width{};
         int height{};
-        explicit Screen(GLFWSession *session) : session(session) {};
+        explicit Screen(GLFWSession *parent) : parent(parent) {};
         virtual ~Screen() {
             elements.clear();
         }

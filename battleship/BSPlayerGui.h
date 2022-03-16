@@ -13,6 +13,7 @@ class BSPlayerGui : public BSPlayer {
         void renderHitBoard(float i, float j, float ts);
         void renderPlace(float i, float j, float ts, int row, int col, bool horizontal);
         bool placeShip(Battleship::Ship ship) override { return BSLocal::placeShip(ship);};
+        bool allPlaced() const { return numShips == 5; };
 };
 
 #endif //BATTLESHIP_BSPLAYERGUI_H

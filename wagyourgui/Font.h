@@ -11,6 +11,11 @@
 #include "stb/stb_truetype.h"
 #include "GLFW/glfw3.h"
 
+
+/*
+ * Font
+ * adapted from <https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Truetype.java>
+ */
 class Font {
     public:
         stbtt_fontinfo fontInfo{};

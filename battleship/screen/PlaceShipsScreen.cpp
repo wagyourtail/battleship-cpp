@@ -12,7 +12,7 @@
 void PlaceShipsScreen::init(Window *window) {
     float ts;
     ts = height / 11;
-    elements.push_back(std::make_unique<BoardElement>(0, 0, ts * 11, session->font, gameSession->player, [=] (BoardElement *element, int row, int col, int button) {
+    elements.push_back(std::make_shared<BoardElement>(0, 0, ts * 11, parent->font, gameSession->player, [=] (BoardElement *element, int row, int col, int button) {
         if (button == GLFW_MOUSE_BUTTON_LEFT) {
             this->placeShip(element, row, col);
         } else if (button == GLFW_MOUSE_BUTTON_MIDDLE) {

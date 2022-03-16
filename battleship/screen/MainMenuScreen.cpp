@@ -11,8 +11,8 @@
 #include "wagyourgui/GLFWSession.h"
 
 void MainMenuScreen::init(Window *window) {
-    elements.push_back(std::make_unique<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, session->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
-        session->setScreen(new PlaceShipsScreen(session, std::make_unique<GameSession>(new BSPlayerGui(), new BSBot())));
+    elements.push_back(std::make_shared<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, parent->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
+        parent->setScreen(new PlaceShipsScreen(parent, std::make_unique<GameSession>(new BSPlayerGui(), new BSBot())));
     }));
 }
 
@@ -20,8 +20,8 @@ void MainMenuScreen::onRender(float mouseX, float mouseY) {
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
     glEnable(GL_TEXTURE_2D);
-    session->font->drawString("Hello, World!", 0, 10);
-    session->font->drawString(std::to_string(session->fps), 0, height - session->font->FONT_HEIGHT);
+    parent->font->drawString("Hello, World!", 0, 10);
+    parent->font->drawString(std::to_string(parent->fps), 0, height - parent->font->FONT_HEIGHT);
 
     Battleship::atlas.bind();
 
