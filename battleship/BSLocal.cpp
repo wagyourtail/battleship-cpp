@@ -114,6 +114,7 @@ Battleship::Status BSLocal::attack(int x, int y) {
 }
 
 bool BSLocal::placeShip(Battleship::Ship ship) {
+    ships[numShips] = ship;
     int sid = ++numShips;
     sid <<= 2;
     sid |= 2;

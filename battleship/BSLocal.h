@@ -16,6 +16,7 @@ class BSLocal : public BSOpponent {
     protected:
         int board[10][10]{};
         int hitBoard[10][10]{};
+        Battleship::Ship ships[5]{};
         int numShips{};
         int numSpacesAlive{};
 

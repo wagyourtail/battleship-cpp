@@ -40,6 +40,7 @@ set(BATTLESHIP-SOURCE
         battleship/screen/MainMenuScreen.cpp
         battleship/screen/PlaceShipsScreen.cpp
         battleship/screen/elements/BoardElement.cpp
+        battleship/screen/PlayScreen.cpp
     )
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead

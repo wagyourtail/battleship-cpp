@@ -12,7 +12,7 @@
 
 void MainMenuScreen::init(Window *window) {
     elements.push_back(std::make_shared<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, parent->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
-        parent->setScreen(new PlaceShipsScreen(parent, std::make_unique<GameSession>(new BSPlayerGui(), new BSBot())));
+        parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameSession>(new BSPlayerGui(), new BSBot())));
     }));
 }
 

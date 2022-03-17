@@ -147,7 +147,9 @@ class GLBuilder {
         }
         void end() {
             if (!state) throw std::runtime_error("not building");
-            next();
+            if (pos != nullptr || col != nullptr || tex != nullptr) {
+                next();
+            }
             glEnd();
             state = false;
         }

@@ -44,6 +44,7 @@ class BoardElement : public BaseElement, public DisableableElement {
             return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + width;
         }
         float getWidth() const { return width; }
+        void setRenderHitBoard(bool renderHitBoard) { this->renderHitBoard = renderHitBoard; }
         void onRender(float mouseX, float mouseY) override;
 };
 

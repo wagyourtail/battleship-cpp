@@ -26,6 +26,7 @@ namespace Battleship {
                 {32, 0}, {48, 0}
             }
     };
+    constexpr char* SHIP_NAMES[5] = {(char*)"Aircraft Carrier", (char*)"Battleship", (char*)"Submarine", (char*)"Destroyer", (char*)"Patrol Boat"};
     extern Texture atlas;
 
     struct Ship {
