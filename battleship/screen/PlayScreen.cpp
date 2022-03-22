@@ -15,8 +15,8 @@ void PlayScreen::init(Window *window) {
         }
     }, [=] (BoardElement* element, int row, int col) {
         Battleship::atlas.bind();
-        GLBuilder builder = GLBuilder::getBuilder();
-        builder.begin(GL_TRIANGLE_STRIP, POS_COL_TEX)
+        GLBuilder& builder = GLBuilder::getImmediate();
+        builder.begin(GL_TRIANGLE_STRIP, GLBuilder::POS_COL_TEX)
             .color(gameSession->player->isHit(col, row) ? 0xFFFF0000 : 0xFFFFFFFF)
             .vertex((1 + col) * ts, (1 + row) * ts).uv(48, 16, 80, 64).next()
             .vertex((1 + col) * ts, (2 + row) * ts).uv(48, 32, 80, 64).next()

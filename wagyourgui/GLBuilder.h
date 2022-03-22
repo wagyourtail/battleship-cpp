@@ -8,42 +8,77 @@
 #include "GLFW/glfw3.h"
 #include <iostream>
 #include <cstdint>
+#include <vector>
 
-enum VertexFormat {
-    POS_COL,
-    POS_COL_TEX,
-    POS_TEX
-};
-
-struct Pos {
-    float x, y;
-};
-
-struct Col {
-    float r, g, b, a;
-};
-
-struct Tex {
-    float u, v;
-};
 
 class GLBuilder {
+
     public:
-        static GLBuilder& getBuilder() {
-            static GLBuilder instance;
-            return instance;
-        }
+
+        enum VertexFormat {
+            POS_COL,
+            POS_COL_TEX,
+            POS_TEX
+        };
+
+    protected:
+
+        struct Pos {
+            float x, y;
+        };
+
+        struct Col {
+            float r, g, b, a;
+        };
+
+        struct Tex {
+            float u, v;
+        };
+
+    public:
+        static GLBuilder& getImmediate();
+
+    protected:
+        static bool state;
+
+    public:
+    virtual GLBuilder& begin(GLenum mode, VertexFormat format) = 0;
+    GLBuilder& begin(GLenum mode) {
+        return begin(mode, POS_COL);
+    }
+    virtual GLBuilder& vertex(float x, float y) = 0;
+    virtual GLBuilder& color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) = 0;
+    virtual GLBuilder& color(float r, float g, float b, float a) = 0;
+    virtual GLBuilder& color(uint32_t rgb, float a) = 0;
+    virtual GLBuilder& color(uint32_t rgba) = 0;
+    virtual GLBuilder& uv(float u, float v) = 0;
+    virtual GLBuilder& uv(float u, float v, float w, float h) = 0;
+    virtual GLBuilder& next() = 0;
+    virtual void end() = 0;
 
     private:
-        bool state;
+        class ImmediateBuilder;
+};
+
+class GLBuilder::ImmediateBuilder : public GLBuilder {
+
+    private:
         VertexFormat format;
         Pos* pos{};
         Col* col{};
         Tex* tex{};
-        GLBuilder() : state(false), format(POS_COL) {}
+
+    protected:
+        ImmediateBuilder() : format(POS_COL) {}
 
     public:
-        GLBuilder& begin(GLenum mode, VertexFormat format) {
+        static ImmediateBuilder& getInstance() {
+            static ImmediateBuilder instance;
+            return instance;
+        }
+
+    public:
+        GLBuilder& begin(GLenum mode, VertexFormat format) override {
             if (state) throw std::runtime_error("already building");
             if (format == POS_COL) {
                 glEnable(GL_COLOR);
@@ -63,16 +98,13 @@ class GLBuilder {
             state = true;
             return *this;
         }
-        GLBuilder& begin(GLenum mode) {
-            return begin(mode, POS_COL);
-        }
-        GLBuilder& vertex(float x, float y) {
+        GLBuilder& vertex(float x, float y) override {
             if (!state) throw std::runtime_error("not building");
             if (pos != nullptr) throw std::runtime_error("already have pos");
             pos = new Pos{x, y};
             return *this;
         }
-        GLBuilder& color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
+        GLBuilder& color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) override {
             if (!state) {
                 glColor4f(r / 255.0f, g / 255.0f, b / 255.0f, a / 255.0f);
                 return *this;
@@ -85,7 +117,7 @@ class GLBuilder {
             }
             return *this;
         }
-        GLBuilder& color(float r, float g, float b, float a) {
+        GLBuilder& color(float r, float g, float b, float a) override {
             if (!state) {
                 glColor4f(r, g, b, a);
                 return *this;
@@ -98,32 +130,32 @@ class GLBuilder {
             }
             return *this;
         }
-        GLBuilder& color(uint32_t rgb, float a) {
+        GLBuilder& color(uint32_t rgb, float a) override {
             uint8_t r = (rgb >> 16) & 0xFF;
             uint8_t g = (rgb >> 8) & 0xFF;
             uint8_t b = rgb & 0xFF;
             return color(r, g, b, (uint8_t) a * 255);
         }
-        GLBuilder& color(uint32_t argb) {
+        GLBuilder& color(uint32_t argb) override {
             uint8_t a = (argb >> 24) & 0xFF;
             uint8_t r = (argb >> 16) & 0xFF;
             uint8_t g = (argb >> 8) & 0xFF;
             uint8_t b = argb & 0xFF;
             return color(r, g, b, a);
         }
-        GLBuilder& uv(float u, float v) {
+        GLBuilder& uv(float u, float v) override {
             if (!state) throw std::runtime_error("not building");
             if (tex != nullptr) throw std::runtime_error("already have tex");
             tex = new Tex{u, v};
             return *this;
         }
-        GLBuilder& uv(float u, float v, float w, float h) {
+        GLBuilder& uv(float u, float v, float w, float h) override {
             if (!state) throw std::runtime_error("not building");
             if (tex != nullptr) throw std::runtime_error("already have tex");
             tex = new Tex{u / w, v / h};
             return *this;
         }
-        GLBuilder& next() {
+        GLBuilder& next() override {
             if (!state) throw std::runtime_error("not building");
             if (pos == nullptr) throw std::runtime_error("no pos");
             if (format == POS_COL) {
@@ -145,7 +177,7 @@ class GLBuilder {
             tex = nullptr;
             return *this;
         }
-        void end() {
+        void end() override {
             if (!state) throw std::runtime_error("not building");
             if (pos != nullptr || col != nullptr || tex != nullptr) {
                 next();
@@ -153,6 +185,11 @@ class GLBuilder {
             glEnd();
             state = false;
         }
+
 };
+
+// todo: if i have time, implement the non-immediate pipeline here
+// https://cpp.hotexamples.com/examples/-/-/glBufferData/cpp-glbufferdata-function-examples.html
+
 
 #endif //BATTLESHIP_GLBUILDER_H

@@ -4,3 +4,8 @@
 
 #include "GLBuilder.h"
 
+bool GLBuilder::GLBuilder::state = false;
+
+GLBuilder& GLBuilder::getImmediate() {
+    return ImmediateBuilder::getInstance();
+}

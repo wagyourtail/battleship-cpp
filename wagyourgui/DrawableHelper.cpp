@@ -3,9 +3,10 @@
 //
 
 #include "DrawableHelper.h"
+#include "GLBuilder.h"
 
 namespace DrawableHelper {
-    GLBuilder &builder = GLBuilder::getBuilder();
+    GLBuilder& builder = GLBuilder::getImmediate();
 }
 
 void DrawableHelper::rect(float x1, float y1, float x2, float y2, uint32_t argb) {
