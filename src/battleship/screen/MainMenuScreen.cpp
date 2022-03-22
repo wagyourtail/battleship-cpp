@@ -3,12 +3,12 @@
 //
 
 #include "PlaceShipsScreen.h"
-#include "wagyourgui/GLBuilder.h"
-#include "wagyourgui/elements/Button.h"
-#include "battleship/BSBot.h"
+#include "src/wagyourgui/GLBuilder.h"
+#include "src/wagyourgui/elements/Button.h"
+#include "src/battleship/BSBot.h"
 #include "MainMenuScreen.h"
-#include "wagyourgui/Window.h"
-#include "wagyourgui/GLFWSession.h"
+#include "src/wagyourgui/Window.h"
+#include "src/wagyourgui/GLFWSession.h"
 
 void MainMenuScreen::init(Window *window) {
     elements.push_back(std::make_shared<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, parent->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {

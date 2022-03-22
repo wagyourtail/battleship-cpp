@@ -5,8 +5,8 @@
 #ifndef BATTLESHIP_MAINMENUSCREEN_H
 #define BATTLESHIP_MAINMENUSCREEN_H
 
-#include "wagyourgui/Screen.h"
-#include "wagyourgui/Texture.h"
+#include "src/wagyourgui/Screen.h"
+#include "src/wagyourgui/Texture.h"
 
 class MainMenuScreen : public Screen {
     public:

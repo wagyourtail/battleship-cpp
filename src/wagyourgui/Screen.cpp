@@ -4,7 +4,7 @@
 
 #include "Screen.h"
 #include "Window.h"
-#include "elements/BaseElement.h"
+#include "src/wagyourgui/elements/BaseElement.h"
 
 float *Screen::sX = new float[6];
 float *Screen::sY = new float[6];

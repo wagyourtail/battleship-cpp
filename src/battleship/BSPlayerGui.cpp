@@ -2,7 +2,7 @@
 // Created by william on 3/10/22.
 //
 
-#include "wagyourgui/GLBuilder.h"
+#include "src/wagyourgui/GLBuilder.h"
 #include "BSPlayerGui.h"
 
 void BSPlayerGui::render(float i, float j, float ts) {

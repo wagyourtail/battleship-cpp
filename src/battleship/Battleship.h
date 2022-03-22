@@ -5,7 +5,7 @@
 #ifndef BATTLESHIP_BATTLESHIP_H
 #define BATTLESHIP_BATTLESHIP_H
 
-#include "wagyourgui/Texture.h"
+#include "src/wagyourgui/Texture.h"
 
 namespace Battleship {
     constexpr int SHIP_LENGTHS[5] = {5, 4, 3, 3, 2};
