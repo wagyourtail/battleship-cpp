@@ -51,161 +51,161 @@ build cmake_object_order_depends_target_BATTLESHIP: phony || cmake_object_order_
 
 build CMakeFiles/BATTLESHIP.dir/main.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/main.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/GLFWSession.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/GLFWSession.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/BaseElement.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/BaseElement.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Font.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Font.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Screen.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Screen.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Window.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Window.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/DrawableHelper.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/DrawableHelper.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/GLBuilder.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/GLBuilder.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/Texture.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/Texture.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/Button.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/Button.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
 
 build CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/wagyourgui/elements/DisableableElement.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements/DisableableElement.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/wagyourgui/elements
 
 build CMakeFiles/BATTLESHIP.dir/battleship/Battleship.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/Battleship.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/Battleship.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/BSBot.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSBot.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSBot.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/BSLocal.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSLocal.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSLocal.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/BSOpponent.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSOpponent.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSOpponent.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/BSPlayer.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSPlayer.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSPlayer.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/BSPlayerGui.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/BSPlayerGui.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/BSPlayerGui.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/GameSession.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/GameSession.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/GameSession.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/NoGuiRunner.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/NoGuiRunner.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/NoGuiRunner.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship
 
 build CMakeFiles/BATTLESHIP.dir/battleship/screen/MainMenuScreen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/screen/MainMenuScreen.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/screen/MainMenuScreen.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship/screen
 
 build CMakeFiles/BATTLESHIP.dir/battleship/screen/PlaceShipsScreen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/screen/PlaceShipsScreen.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/screen/PlaceShipsScreen.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship/screen
 
 build CMakeFiles/BATTLESHIP.dir/battleship/screen/elements/BoardElement.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/screen/elements/BoardElement.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/screen/elements/BoardElement.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship/screen/elements
 
 build CMakeFiles/BATTLESHIP.dir/battleship/screen/PlayScreen.cpp.o: CXX_COMPILER__BATTLESHIP_Debug /home/william/Documents/battleship-cpp/battleship/screen/PlayScreen.cpp || cmake_object_order_depends_target_BATTLESHIP
   DEP_FILE = CMakeFiles/BATTLESHIP.dir/battleship/screen/PlayScreen.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++11
   INCLUDES = -I/home/william/Documents/battleship-cpp/. -I/home/william/Documents/battleship-cpp/glfw/include
   OBJECT_DIR = CMakeFiles/BATTLESHIP.dir
   OBJECT_FILE_DIR = CMakeFiles/BATTLESHIP.dir/battleship/screen

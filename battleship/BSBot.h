@@ -10,10 +10,11 @@
 
 class BSBot : public BSLocal {
     public:
-        void setup() override {
+        bool setup() override {
             for (auto & i : Battleship::SHIP_LENGTHS) {
                 placeRandomShip(i);
             }
+            return true;
         }
         Battleship::Status runTurn() override;
 };

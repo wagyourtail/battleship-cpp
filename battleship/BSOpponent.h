@@ -18,7 +18,7 @@ class BSOpponent {
         virtual Battleship::Status attackedAt(int x, int y) = 0;
         virtual Battleship::Status attack(int x, int y) = 0;
         virtual Battleship::Status runTurn() = 0;
-        virtual void setup() = 0;
+        virtual bool setup() = 0;
 };
 
 #endif //BATTLESHIP_BSOPPONENT_H

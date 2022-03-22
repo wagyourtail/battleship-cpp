@@ -55,9 +55,8 @@ class GameSession {
                 }
             }
         }
-        bool pollSetup() {
-            opponent->setup();
-            return true;
+        bool pollSetup() const {
+            return opponent->setup();
         }
         void pollOpponent() {
             if (state == OPPONENT_TURN) {
@@ -68,6 +67,10 @@ class GameSession {
                     state = PLAYER_TURN;
                 }
             }
+        }
+        void surrender() {
+            state = GAME_OVER;
+            //TODO: add surrender logic to notify opponent
         }
 };
 

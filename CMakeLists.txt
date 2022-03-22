@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
 
 project(BATTLESHIP)
@@ -41,7 +41,7 @@ set(BATTLESHIP-SOURCE
         battleship/screen/PlaceShipsScreen.cpp
         battleship/screen/elements/BoardElement.cpp
         battleship/screen/PlayScreen.cpp
-    )
+        battleship/screen/WinLossScreen.h)
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
 target_include_directories(BATTLESHIP PUBLIC ./)

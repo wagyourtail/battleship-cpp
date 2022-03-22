@@ -6,6 +6,8 @@
 #include "wagyourgui/GLFWSession.h"
 #include "wagyourgui/GLBuilder.h"
 #include "wagyourgui/DrawableHelper.h"
+#include "WinLossScreen.h"
+#include "wagyourgui/elements/Button.h"
 
 void PlayScreen::init(Window *window) {
     float ts = height / 11;
@@ -25,6 +27,15 @@ void PlayScreen::init(Window *window) {
             .end();
     }));
 
+    // calc room for controls on right
+    float controlRoom = width - height;
+
+    elements.push_back(std::make_shared<Button>(height, height - 30, controlRoom, 20, parent->font, "Surrender", 0, 0xFF7F7F7F, 0xFFFFFFFF, 0xFF000000, [=] (Button* button) {
+        gameSession->surrender();
+        parent->setScreen(new WinLossScreen(parent, "You Lose!"));
+    }));
+
+
     currentState = gameSession->getState();
     board->setRenderHitBoard(gameSession->getState() == PLAYER_TURN);
 }
@@ -35,8 +46,10 @@ void PlayScreen::onRender(float mouseX, float mouseY) {
     if (gameSession->getState() == GAME_OVER) {
         if (currentState == PLAYER_TURN) {
             // win
+            parent->setScreen(new WinLossScreen(parent, "You Win!"));
         } else {
             // lose
+            parent->setScreen(new WinLossScreen(parent, "You Lose!"));
         }
         return;
     }

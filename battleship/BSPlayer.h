@@ -11,11 +11,12 @@
 
 class BSPlayer : public BSLocal {
     public:
-        void setup() override {
+        bool setup() override {
             for (auto & ship : Battleship::SHIP_LENGTHS) {
                 render();
                 promptShipPlacement(ship);
             }
+            return true;
         }
         Battleship::Status attackedAt(int x, int y) override {
             char xchar = x + 'a';

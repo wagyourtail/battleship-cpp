@@ -93,6 +93,9 @@ int BSLocal::sunkCheck(int x, int y) {
 }
 
 Battleship::Status BSLocal::attack(int x, int y) {
+    if (hitBoard[x][y] & 1) {
+        return ERROR;
+    }
     Battleship::Status status = opponent->attackedAt(x, y);
     switch (status) {
         case ERROR:
