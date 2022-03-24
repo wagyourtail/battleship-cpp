@@ -30,9 +30,11 @@ class Font {
     public:
         const int FONT_HEIGHT = 16;
         Font(const std::string& path);
+
         ~Font() {
-            glDeleteTextures(1 , &texid);
+            glDeleteTextures(1, &texid);
         }
+
     private:
         std::vector<stbtt_bakedchar> init(int BITMAP_W, int BITMAP_H);
 
@@ -42,6 +44,7 @@ class Font {
         float drawTrimmedString(const std::string& text, float x, float y, float width);
     private:
         static int getCP(const std::string& text, int to, int i, int* cpOut);
+
         static float scaler(float center, float offset, float factor) {
             return (offset - center) * factor + center;
         }

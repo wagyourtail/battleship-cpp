@@ -6,10 +6,11 @@
 #include "Window.h"
 #include "src/wagyourgui/elements/BaseElement.h"
 
-float *Screen::sX = new float[6];
-float *Screen::sY = new float[6];
+float* Screen::sX = new float[6];
 
-void Screen::onWindowResize(Window *window) {
+float* Screen::sY = new float[6];
+
+void Screen::onWindowResize(Window* window) {
     width = window->getWidth();
     height = window->getHeight();
     elements.clear();
@@ -41,9 +42,9 @@ void Screen::onMouseButton(float x, float y, int button, int action, int mods) {
 
 bool Screen::onClick(float x, float y, int button) {
     bool unfocus = true;
-    for (auto &element : elements) {
+    for (auto& element: elements) {
         if (element->shouldFocus(x, y)) {
-            BaseElement *old = focused;
+            BaseElement* old = focused;
             focused = element.get();
             if (old != nullptr) {
                 old->onFocusLost();
@@ -102,7 +103,7 @@ bool Screen::onKey(int key, int scancode, int action, int mods) {
 }
 
 void Screen::onRender(float mouseX, float mouseY) {
-    for (auto &element : elements) {
+    for (auto& element: elements) {
         element->onRender(mouseX, mouseY);
     }
 }

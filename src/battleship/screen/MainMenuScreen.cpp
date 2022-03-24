@@ -10,10 +10,26 @@
 #include "src/wagyourgui/Window.h"
 #include "src/wagyourgui/GLFWSession.h"
 
-void MainMenuScreen::init(Window *window) {
-    elements.push_back(std::make_shared<Button>(width / 2.f - 400, height / 2.f - 14, 800, 28, parent->font, "Start Game", 0, 0xFFa2a2a2, 0xFFFFFFFF, 0xFF000000, [=] (Button *btn) {
-        parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameSession>(new BSPlayerGui(), new BSBot())));
-    }));
+void MainMenuScreen::init(Window* window) {
+    elements.push_back(
+            std::make_shared<Button>(
+                    width / 2.f - 400,
+                    height / 2.f - 14,
+                    800,
+                    28,
+                    parent->font,
+                    "Start Game",
+                    0,
+                    0xFFa2a2a2,
+                    0xFFFFFFFF,
+                    0xFF000000,
+                    [=](Button* btn) {
+                        parent->setScreen(
+                                new PlaceShipsScreen(
+                                        parent,
+                                        std::make_shared<GameSession>(new BSPlayerGui(), new BSBot())));
+                    }
+            ));
 }
 
 void MainMenuScreen::onRender(float mouseX, float mouseY) {
@@ -28,10 +44,14 @@ void MainMenuScreen::onRender(float mouseX, float mouseY) {
     glEnable(GL_TEXTURE_2D);
     glDisable(GL_COLOR);
     glBegin(GL_QUADS);
-    glTexCoord2f(0.0f, 0.0f); glVertex2f(0.0f, 0.0f);
-    glTexCoord2f(1.0f, 0.0f); glVertex2f(100, 0.0f);
-    glTexCoord2f(1.0f, 1.0f); glVertex2f(100, 100);
-    glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 100);
+    glTexCoord2f(0.0f, 0.0f);
+    glVertex2f(0.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f);
+    glVertex2f(100, 0.0f);
+    glTexCoord2f(1.0f, 1.0f);
+    glVertex2f(100, 100);
+    glTexCoord2f(0.0f, 1.0f);
+    glVertex2f(0.0f, 100);
     glEnd();
 
     Screen::onRender(mouseX, mouseY);

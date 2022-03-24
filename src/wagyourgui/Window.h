@@ -12,24 +12,28 @@ class GLFWSession;
 
 class Window {
     public:
-        GLFWwindow *handle;
+        GLFWwindow* handle;
     private:
         bool visible{false};
         int width;
         int height;
 
     private:
-        GLFWSession *parent;
+        GLFWSession* parent;
 
     public:
-        Window(const std::string& title, int width, int height, GLFWSession *parent);
+        Window(const std::string& title, int width, int height, GLFWSession* parent);
         void setupFramebuffer();
+
         ~Window() {
             glfwSetWindowUserPointer(handle, nullptr);
             glfwDestroyWindow(handle);
         }
+
         int getWidth() const { return width; }
+
         int getHeight() const { return height; }
+
         void setVisible(bool visible) {
             if (visible) {
                 glfwShowWindow(handle);
@@ -38,6 +42,7 @@ class Window {
             }
             this->visible = visible;
         }
+
         bool isVisible() const { return visible; }
 };
 

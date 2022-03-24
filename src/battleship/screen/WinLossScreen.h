@@ -12,11 +12,13 @@ class WinLossScreen : public Screen {
         std::string message;
 
     public:
-        WinLossScreen(GLFWSession* parent, std::string  message) : Screen(parent), message(std::move(message)) {}
+        WinLossScreen(GLFWSession* parent, std::string message) : Screen(parent), message(std::move(message)) {}
+
         bool onClick(float x, float y, int button) override {
             parent->setScreen(new MainMenuScreen(parent));
             return true;
         }
+
         void onRender(float mouseX, float mouseY) override {
             DrawableHelper::drawCenteredString(parent->font, message, width / 2, height / 2, 0xFFFFFFFF);
 
@@ -26,5 +28,6 @@ class WinLossScreen : public Screen {
             DrawableHelper::drawCenteredString(parent->font, "Click to continue", 0, 0, 0xFFFFFFFF);
             glPopMatrix();
         }
-        void init(Window *window) override {}
+
+        void init(Window* window) override {}
 };

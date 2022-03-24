@@ -22,8 +22,21 @@ void Button::onRender(float mouseX, float mouseY) {
     // Draw text
     float w = font->getWidth(text);
     if (w < width - 4) {
-        drawCenteredString(font, text, x + width / 2, y + height / 2 - font->FONT_HEIGHT / 2, hover ? hoverTextColor : textColor);
+        drawCenteredString(
+                font,
+                text,
+                x + width / 2,
+                y + height / 2 - font->FONT_HEIGHT / 2,
+                hover ? hoverTextColor : textColor
+        );
     } else {
-        drawTrimmedString(font, text, x + 2, y + height / 2 - font->FONT_HEIGHT / 2, width - 4, hover ? hoverTextColor : textColor);
+        drawTrimmedString(
+                font,
+                text,
+                x + 2,
+                y + height / 2 - font->FONT_HEIGHT / 2,
+                width - 4,
+                hover ? hoverTextColor : textColor
+        );
     }
 }

@@ -22,7 +22,8 @@ class PlayScreen : public Screen {
         std::chrono::system_clock::time_point lastStateChangeTime = std::chrono::system_clock::now();
 
     public:
-        PlayScreen(GLFWSession* session, std::shared_ptr<GameSession> gameSession) : Screen(session), gameSession(std::move(gameSession)) {};
+        PlayScreen(GLFWSession* session, std::shared_ptr<GameSession> gameSession) :
+                Screen(session), gameSession(std::move(gameSession)) {};
         void init(Window* window) override;
         void onRender(float mouseX, float mouseY) override;
 

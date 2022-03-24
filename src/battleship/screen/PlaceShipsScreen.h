@@ -17,12 +17,14 @@ class PlaceShipsScreen : public Screen {
         int shipsPlaced = 0;
         bool horizontal = true;
     public:
-        PlaceShipsScreen(GLFWSession *session, std::shared_ptr<GameSession> gameSession) : Screen(session), gameSession(std::move(gameSession)) {}
-        void init(Window *window) override;
+        PlaceShipsScreen(GLFWSession* session, std::shared_ptr<GameSession> gameSession) :
+                Screen(session), gameSession(std::move(gameSession)) {}
+
+        void init(Window* window) override;
         void onRender(float mouseX, float mouseY) override;
 
     private:
-        void placeShip(BoardElement *element, int row, int col);
+        void placeShip(BoardElement* element, int row, int col);
 };
 
 

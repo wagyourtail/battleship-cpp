@@ -20,48 +20,56 @@
  */
 class GLFWSession {
     public:
-        Window *window{};
-        Font *font{};
+        Window* window{};
+        Font* font{};
         long fps{};
     private:
-        Screen *screen;
+        Screen* screen;
     public:
         // oops that signature ports a bit weirdly, whatever
         GLFWSession(const std::function<Screen*(GLFWSession*)>& initialScreen) : screen(initialScreen(this)) {
             init();
         };
+
         ~GLFWSession() {
             delete screen;
             delete window;
             delete font;
         }
+
     private:
         void init();
     public:
         void runLoop();
-        void setScreen(Screen *screen) {
-            Screen *old = this->screen;
+
+        void setScreen(Screen* screen) {
+            Screen* old = this->screen;
             this->screen = screen;
             delete old;
             screen->onWindowResize(window);
         }
+
     private:
         void loop();
     public:
-        void onWindowResize(Window *window) {
+        void onWindowResize(Window* window) {
             screen->onWindowResize(window);
         }
+
         void onKey(int key, int scancode, int action, int mods) {
             screen->onKey(key, scancode, action, mods);
         }
+
         void onChar(unsigned int codepoint) {
             screen->onChar(codepoint);
         }
+
         void onMouseButton(int button, int action, int mods) {
             double cursorX, cursorY;
             glfwGetCursorPos(window->handle, &cursorX, &cursorY);
             screen->onMouseButton((float) cursorX, (float) cursorY, button, action, mods);
         }
+
         void onScroll(double xOffset, double yOffset) {
             double cursorX, cursorY;
             glfwGetCursorPos(window->handle, &cursorX, &cursorY);

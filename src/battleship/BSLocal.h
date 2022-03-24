@@ -9,10 +9,10 @@
 #include "Battleship.h"
 
 class BSLocal : public BSOpponent {
-    // board bits
-    // 1 = shot
-    // 2 = ship
-    // 3-end = ship_id
+        // board bits
+        // 1 = shot
+        // 2 = ship
+        // 3-end = ship_id
     protected:
         int board[10][10]{};
         int hitBoard[10][10]{};

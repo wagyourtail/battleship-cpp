@@ -18,9 +18,11 @@ void GLFWSession::runLoop() {
 }
 
 void GLFWSession::init() {
-    glfwSetErrorCallback([] (int errCode, const char *errMsg) {
-        std::cerr << "GLFW Error: " << errMsg << std::endl;
-    });
+    glfwSetErrorCallback(
+            [](int errCode, const char* errMsg) {
+                std::cerr << "GLFW Error: " << errMsg << std::endl;
+            }
+    );
 
     if (!glfwInit()) {
         throw std::runtime_error("Failed to initialize GLFW");
@@ -59,7 +61,7 @@ void GLFWSession::loop() {
         ++frameCount;
         if (frameCount % 10 == 0) {
             auto newTimeNanos = std::chrono::high_resolution_clock::now();
-            fps = 10 * 1000000000L / std::chrono::nanoseconds {newTimeNanos - timeNanos}.count();
+            fps = 10 * 1000000000L / std::chrono::nanoseconds{newTimeNanos - timeNanos}.count();
             timeNanos = newTimeNanos;
         }
 

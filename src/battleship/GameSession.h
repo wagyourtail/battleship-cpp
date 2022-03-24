@@ -18,23 +18,26 @@ enum GameState {
 
 class GameSession {
     public:
-        BSPlayerGui *player;
-        BSOpponent *opponent;
+        BSPlayerGui* player;
+        BSOpponent* opponent;
     protected:
         GameState state{PLACE_SHIPS};
         Battleship::Status stateChangeStatus{Battleship::Status::MISS};
     public:
-        GameSession(BSPlayerGui *player, BSOpponent *opponent) : player(player), opponent(opponent) {
+        GameSession(BSPlayerGui* player, BSOpponent* opponent) : player(player), opponent(opponent) {
             player->setOpponent(opponent);
             opponent->setOpponent(player);
         }
+
         ~GameSession() {
             delete player;
             delete opponent;
         }
+
         GameState getState() const {
             return state;
         }
+
         void attack(int col, int row) {
             stateChangeStatus = player->attack(col, row);
             if (stateChangeStatus == Battleship::GAME_END) {
@@ -44,6 +47,7 @@ class GameSession {
             }
 
         }
+
         void finishPlace() {
             if (state == PLACE_SHIPS) {
                 std::random_device rd;
@@ -55,9 +59,11 @@ class GameSession {
                 }
             }
         }
+
         bool pollSetup() const {
             return opponent->setup();
         }
+
         void pollOpponent() {
             if (state == OPPONENT_TURN) {
                 stateChangeStatus = opponent->runTurn();
@@ -68,6 +74,7 @@ class GameSession {
                 }
             }
         }
+
         void surrender() {
             state = GAME_OVER;
             //TODO: add surrender logic to notify opponent

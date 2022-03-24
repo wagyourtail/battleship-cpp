@@ -38,7 +38,7 @@ void BSPlayer::render() {
                 }
             }
             if (x < 9) {
-                if (board[x+1][y] >> 2 == board[x][y] >> 2 && board[x+1][y] >> 2 != 0) {
+                if (board[x + 1][y] >> 2 == board[x][y] >> 2 && board[x + 1][y] >> 2 != 0) {
                     std::cout << ansi_background_gray << " " << ansi_background_reset;
                 } else {
                     std::cout << " ";
@@ -48,8 +48,8 @@ void BSPlayer::render() {
         std::cout << std::endl;
         if (y < 9) {
             std::cout << "   ";
-            for (auto & x : board) {
-                if (x[y+1] >> 2 == x[y] >> 2 && x[y+1] >> 2 != 0) {
+            for (auto& x: board) {
+                if (x[y + 1] >> 2 == x[y] >> 2 && x[y + 1] >> 2 != 0) {
                     std::cout << ansi_background_gray << "　" << ansi_background_reset << " ";
                 } else {
                     std::cout << "　 ";
@@ -90,7 +90,7 @@ void BSPlayer::renderHitBoard() {
         std::cout << std::endl;
         if (y < 9) {
             std::cout << "   ";
-            for (auto & x : hitBoard) {
+            for (auto& x: hitBoard) {
                 std::cout << "　 ";
             }
             std::cout << std::endl;

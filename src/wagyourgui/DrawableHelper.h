@@ -16,5 +16,4 @@ namespace DrawableHelper {
 };
 
 
-
 #endif //BATTLESHIP_DRAWABLEHELPER_H

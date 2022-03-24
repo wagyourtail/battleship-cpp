@@ -9,31 +9,53 @@
 #include "WinLossScreen.h"
 #include "src/wagyourgui/elements/Button.h"
 
-void PlayScreen::init(Window *window) {
+void PlayScreen::init(Window* window) {
     float ts = height / 11;
-    elements.push_back(board = std::make_shared<BoardElement>(0, 0, ts * 11, parent->font, gameSession->player, [=] (BoardElement* element, int row, int col, int button) {
-        if (button == GLFW_MOUSE_BUTTON_LEFT) {
-            handleAttack(col, row);
-        }
-    }, [=] (BoardElement* element, int row, int col) {
-        Battleship::atlas.bind();
-        GLBuilder& builder = GLBuilder::getImmediate();
-        builder.begin(GL_TRIANGLE_STRIP, GLBuilder::POS_COL_TEX)
-            .color(gameSession->player->isHit(col, row) ? 0xFFFF0000 : 0xFFFFFFFF)
-            .vertex((1 + col) * ts, (1 + row) * ts).uv(48, 16, 80, 64).next()
-            .vertex((1 + col) * ts, (2 + row) * ts).uv(48, 32, 80, 64).next()
-            .vertex((2 + col) * ts, (1 + row) * ts).uv(64, 16, 80, 64).next()
-            .vertex((2 + col) * ts, (2 + row) * ts).uv(64, 32, 80, 64).next()
-            .end();
-    }));
+    elements.push_back(
+            board = std::make_shared<BoardElement>(
+                    0,
+                    0,
+                    ts * 11,
+                    parent->font,
+                    gameSession->player,
+                    [=](BoardElement* element, int row, int col, int button) {
+                        if (button == GLFW_MOUSE_BUTTON_LEFT) {
+                            handleAttack(col, row);
+                        }
+                    },
+                    [=](BoardElement* element, int row, int col) {
+                        Battleship::atlas.bind();
+                        GLBuilder& builder = GLBuilder::getImmediate();
+                        builder.begin(GL_TRIANGLE_STRIP, GLBuilder::POS_COL_TEX)
+                               .color(gameSession->player->isHit(col, row) ? 0xFFFF0000 : 0xFFFFFFFF)
+                               .vertex((1 + col) * ts, (1 + row) * ts).uv(48, 16, 80, 64).next()
+                               .vertex((1 + col) * ts, (2 + row) * ts).uv(48, 32, 80, 64).next()
+                               .vertex((2 + col) * ts, (1 + row) * ts).uv(64, 16, 80, 64).next()
+                               .vertex((2 + col) * ts, (2 + row) * ts).uv(64, 32, 80, 64).next()
+                               .end();
+                    }
+            ));
 
     // calc room for controls on right
     float controlRoom = width - height;
 
-    elements.push_back(std::make_shared<Button>(height, height - 30, controlRoom, 20, parent->font, "Surrender", 0, 0xFF7F7F7F, 0xFFFFFFFF, 0xFF000000, [=] (Button* button) {
-        gameSession->surrender();
-        parent->setScreen(new WinLossScreen(parent, "You Lose!"));
-    }));
+    elements.push_back(
+            std::make_shared<Button>(
+                    height,
+                    height - 30,
+                    controlRoom,
+                    20,
+                    parent->font,
+                    "Surrender",
+                    0,
+                    0xFF7F7F7F,
+                    0xFFFFFFFF,
+                    0xFF000000,
+                    [=](Button* button) {
+                        gameSession->surrender();
+                        parent->setScreen(new WinLossScreen(parent, "You Lose!"));
+                    }
+            ));
 
 
     currentState = gameSession->getState();

@@ -10,24 +10,28 @@
 #include "src/wagyourgui/elements/BaseElement.h"
 
 class Window;
+
 class GLFWSession;
 
 class Screen {
     public:
-        GLFWSession *parent;
+        GLFWSession* parent;
         std::vector<std::shared_ptr<BaseElement>> elements{};
-        BaseElement *focused{};
+        BaseElement* focused{};
         int width{};
         int height{};
-        explicit Screen(GLFWSession *parent) : parent(parent) {};
+
+        explicit Screen(GLFWSession* parent) : parent(parent) {};
+
         virtual ~Screen() {
             elements.clear();
         }
-        void onWindowResize(Window *window);
+
+        void onWindowResize(Window* window);
 
     private:
-        static float *sX;
-        static float *sY;
+        static float* sX;
+        static float* sY;
 
     public:
         virtual void onMouseButton(float x, float y, int button, int action, int mods);
@@ -39,7 +43,7 @@ class Screen {
         virtual bool onKey(int key, int scancode, int action, int mods);
         virtual void onRender(float mouseX, float mouseY);
 
-        virtual void init(Window *window) = 0;
+        virtual void init(Window* window) = 0;
 };
 
 

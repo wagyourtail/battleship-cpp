@@ -26,12 +26,12 @@ void DrawableHelper::rect(float x1, float y1, float x2, float y2, uint32_t argb)
     glEnable(GL_COLOR);
 
     builder.begin(GL_TRIANGLE_STRIP)
-            .color(argb)
-            .vertex(x1, y1).next()
-            .vertex(x2, y1).next()
-            .vertex(x1, y2).next()
-            .vertex(x2, y2)
-            .end();
+           .color(argb)
+           .vertex(x1, y1).next()
+           .vertex(x2, y1).next()
+           .vertex(x1, y2).next()
+           .vertex(x2, y2)
+           .end();
 }
 
 void DrawableHelper::drawCenteredString(Font* font, const std::string& text, float x, float y, uint32_t argb) {
@@ -47,7 +47,8 @@ void DrawableHelper::drawString(Font* font, const std::string& text, float x, fl
     font->drawString(text, x, y);
 }
 
-void DrawableHelper::drawTrimmedString(Font* font, const std::string& text, float x, float y, float width, uint32_t argb) {
+void
+DrawableHelper::drawTrimmedString(Font* font, const std::string& text, float x, float y, float width, uint32_t argb) {
     builder.color(argb);
     glEnable(GL_TEXTURE_2D);
     font->drawTrimmedString(text, x, y, width);

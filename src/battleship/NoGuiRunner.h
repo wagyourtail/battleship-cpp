@@ -17,6 +17,7 @@ class NoGuiRunner {
             player->setOpponent(opponent);
             opponent->setOpponent(player);
         }
+
         virtual void runGame();
 };
 

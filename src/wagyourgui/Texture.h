@@ -10,17 +10,19 @@
 #include "GLFW/glfw3.h"
 #include "stb/stb_image.h"
 #include "stb/stb_image_resize.h"
+
 /*
  * Texture
  * adapted from <https://github.com/LWJGL/lwjgl3/blob/master/modules/samples/src/test/java/org/lwjgl/demo/stb/Image.java>
  */
 class Texture {
     private:
-        stbi_uc *data;
+        stbi_uc* data;
         int w, h, comp;
         GLuint texid{};
     public:
-        Texture(const std::string &path);
+        Texture(const std::string& path);
+
         ~Texture() {
             glDeleteTextures(1, &texid);
             free(data);

@@ -3,10 +3,11 @@
 //
 
 #define STB_TRUETYPE_IMPLEMENTATION
+
 #include "Window.h"
 #include "Font.h"
 
-Font::Font(const std::string &path) {
+Font::Font(const std::string& path) {
     std::ifstream file(path, std::ios::binary);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open font file");
@@ -15,7 +16,7 @@ Font::Font(const std::string &path) {
     int size = file.tellg();
     fontData.resize(size);
     file.seekg(0, std::ios::beg);
-    file.read(reinterpret_cast<char *>(&fontData[0]), size);
+    file.read(reinterpret_cast<char*>(&fontData[0]), size);
     file.close();
     if (!stbtt_InitFont(&fontInfo, &fontData[0], 0)) {
         throw std::runtime_error("Failed to load font");
@@ -31,11 +32,12 @@ std::vector<stbtt_bakedchar> Font::init(int BITMAP_W, int BITMAP_H) {
     cdata.resize(96);
     std::vector<unsigned char> bitmap;
     bitmap.resize(BITMAP_W * BITMAP_H);
-    stbtt_BakeFontBitmap(fontData.data(), 0, 32,
-                         bitmap.data(), BITMAP_W, BITMAP_H, 32, 96,
-                         cdata.data());
+    stbtt_BakeFontBitmap(
+            fontData.data(), 0, 32,
+            bitmap.data(), BITMAP_W, BITMAP_H, 32, 96,
+            cdata.data());
     glBindTexture(GL_TEXTURE_2D, texid);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, BITMAP_W, BITMAP_H, 0, GL_ALPHA, GL_UNSIGNED_BYTE,bitmap.data());
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, BITMAP_W, BITMAP_H, 0, GL_ALPHA, GL_UNSIGNED_BYTE, bitmap.data());
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
@@ -49,7 +51,7 @@ std::vector<stbtt_bakedchar> Font::init(int BITMAP_W, int BITMAP_H) {
     return cdata;
 }
 
-float Font::drawString(const std::string &text, float x, float y) {
+float Font::drawString(const std::string& text, float x, float y) {
     // move to top instead of bottom
     y += FONT_HEIGHT;
 
@@ -105,7 +107,7 @@ float Font::drawString(const std::string &text, float x, float y) {
     return x1;
 }
 
-float Font::getWidth(const std::string &text) {
+float Font::getWidth(const std::string& text) {
     int width = 0;
     int pCodepoint;
     int pAdvancedWidth;
@@ -130,7 +132,7 @@ float Font::getWidth(const std::string &text) {
     // idk why *2, but it works
 }
 
-float Font::drawTrimmedString(const std::string &text, float x, float y, float width) {
+float Font::drawTrimmedString(const std::string& text, float x, float y, float width) {
     // move to top instead of bottom
     y += FONT_HEIGHT;
 
@@ -190,7 +192,7 @@ float Font::drawTrimmedString(const std::string &text, float x, float y, float w
     return x1;
 }
 
-int Font::getCP(const std::string &text, int to, int i, int *cpOut) {
+int Font::getCP(const std::string& text, int to, int i, int* cpOut) {
     int c1 = text[i];
     // skipping high surrogate support
     *cpOut = c1;

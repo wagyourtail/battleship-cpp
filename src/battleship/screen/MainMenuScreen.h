@@ -10,8 +10,8 @@
 
 class MainMenuScreen : public Screen {
     public:
-        explicit MainMenuScreen(GLFWSession *session) : Screen(session) {};
-        void init(Window *window) override;
+        explicit MainMenuScreen(GLFWSession* session) : Screen(session) {};
+        void init(Window* window) override;
 
         void onRender(float mouseX, float mouseY) override;
 };

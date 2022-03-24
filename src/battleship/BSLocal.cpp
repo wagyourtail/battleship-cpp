@@ -53,18 +53,18 @@ int BSLocal::sunkCheck(int x, int y) {
 
     int l = 0;
     bool horizontal = false;
-    if (x > 0 && board[x-1][y] >> 2 == shipid) {
+    if (x > 0 && board[x - 1][y] >> 2 == shipid) {
         // go to left end
         while (board[--x][y] >> 2 == shipid) {}
         horizontal = true;
-    } else if (x < 9 && board[x+1][y] >> 2 == shipid) {
+    } else if (x < 9 && board[x + 1][y] >> 2 == shipid) {
         // already at left end
         --x;
         horizontal = true;
-    } else if (y > 0 && board[x][y-1] >> 2 == shipid) {
+    } else if (y > 0 && board[x][y - 1] >> 2 == shipid) {
         // go to top
         while (board[x][--y] >> 2 == shipid) {}
-    } else if (y < 9 && board[x][y+1] >> 2 == shipid) {
+    } else if (y < 9 && board[x][y + 1] >> 2 == shipid) {
         // already at top
         --y;
     } else {

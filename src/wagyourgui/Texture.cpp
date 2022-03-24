@@ -4,12 +4,13 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
+
 #include "Texture.h"
 #include <fstream>
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
-Texture::Texture(const std::string &path) {
+Texture::Texture(const std::string& path) {
     std::ifstream file(path, std::ios::binary);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open file: " + path);
@@ -19,7 +20,7 @@ Texture::Texture(const std::string &path) {
     int size = file.tellg();
     imageData.resize(size);
     file.seekg(0, std::ios::beg);
-    file.read(reinterpret_cast<char *>(&imageData[0]), size);
+    file.read(reinterpret_cast<char*>(&imageData[0]), size);
     file.close();
 
 //    stbi_set_flip_vertically_on_load(true);

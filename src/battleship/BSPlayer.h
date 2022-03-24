@@ -12,12 +12,13 @@
 class BSPlayer : public BSLocal {
     public:
         bool setup() override {
-            for (auto & ship : Battleship::SHIP_LENGTHS) {
+            for (auto& ship: Battleship::SHIP_LENGTHS) {
                 render();
                 promptShipPlacement(ship);
             }
             return true;
         }
+
         Battleship::Status attackedAt(int x, int y) override {
             char xchar = x + 'a';
             std::cout << "opponent attacked at " << xchar << y + 1 << "!" << std::endl;
