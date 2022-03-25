@@ -5,11 +5,11 @@
 #include "PlaceShipsScreen.h"
 
 #include <memory>
-#include "src/battleship/screen/elements/BoardElement.h"
-#include "src/wagyourgui/GLFWSession.h"
-#include "src/wagyourgui/DrawableHelper.h"
+#include "battleship/screen/elements/BoardElement.h"
+#include "wagyourgui/GLFWSession.h"
+#include "wagyourgui/DrawableHelper.h"
 #include "PlayScreen.h"
-#include "src/wagyourgui/elements/Button.h"
+#include "wagyourgui/elements/Button.h"
 
 
 void PlaceShipsScreen::init(Window* window) {

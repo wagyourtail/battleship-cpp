@@ -4,7 +4,7 @@
 
 #include "Screen.h"
 #include "Window.h"
-#include "src/wagyourgui/elements/BaseElement.h"
+#include "wagyourgui/elements/BaseElement.h"
 
 float* Screen::sX = new float[6];
 

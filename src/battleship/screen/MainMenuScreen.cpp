@@ -3,12 +3,12 @@
 //
 
 #include "PlaceShipsScreen.h"
-#include "src/wagyourgui/GLBuilder.h"
-#include "src/wagyourgui/elements/Button.h"
-#include "src/battleship/BSBot.h"
+#include "wagyourgui/GLBuilder.h"
+#include "wagyourgui/elements/Button.h"
+#include "battleship/BSBot.h"
 #include "MainMenuScreen.h"
-#include "src/wagyourgui/Window.h"
-#include "src/wagyourgui/GLFWSession.h"
+#include "wagyourgui/Window.h"
+#include "wagyourgui/GLFWSession.h"
 
 void MainMenuScreen::init(Window* window) {
     elements.push_back(

@@ -6,10 +6,10 @@
 #define BATTLESHIP_BOARDELEMENT_H
 
 
-#include "src/wagyourgui/elements/BaseElement.h"
-#include "src/wagyourgui/elements/DisableableElement.h"
-#include "src/wagyourgui/Font.h"
-#include "src/battleship/BSPlayerGui.h"
+#include "wagyourgui/elements/BaseElement.h"
+#include "wagyourgui/elements/DisableableElement.h"
+#include "wagyourgui/Font.h"
+#include "battleship/BSPlayerGui.h"
 #include <functional>
 
 class BoardElement : public BaseElement, public DisableableElement {

@@ -3,11 +3,11 @@
 //
 
 #include "PlayScreen.h"
-#include "src/wagyourgui/GLFWSession.h"
-#include "src/wagyourgui/GLBuilder.h"
-#include "src/wagyourgui/DrawableHelper.h"
+#include "wagyourgui/GLFWSession.h"
+#include "wagyourgui/GLBuilder.h"
+#include "wagyourgui/DrawableHelper.h"
 #include "WinLossScreen.h"
-#include "src/wagyourgui/elements/Button.h"
+#include "wagyourgui/elements/Button.h"
 
 void PlayScreen::init(Window* window) {
     float ts = height / 11;

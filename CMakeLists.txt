@@ -45,7 +45,7 @@ set(BATTLESHIP-SOURCE
         src/battleship/screen/WinLossScreen.h)
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
-target_include_directories(BATTLESHIP PUBLIC ./ ./includes)
+target_include_directories(BATTLESHIP PUBLIC ./src ./includes)
 target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw sockpp)
 
 if( MSVC )

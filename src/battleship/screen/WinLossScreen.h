@@ -3,9 +3,9 @@
 //
 
 #include <string>
-#include "src/wagyourgui/GLFWSession.h"
-#include "src/wagyourgui/Screen.h"
-#include "src/wagyourgui/DrawableHelper.h"
+#include "wagyourgui/GLFWSession.h"
+#include "wagyourgui/Screen.h"
+#include "wagyourgui/DrawableHelper.h"
 #include "MainMenuScreen.h"
 
 class WinLossScreen : public Screen {

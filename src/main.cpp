@@ -2,12 +2,12 @@
 // Created by william on 3/8/22.
 //
 
-#include "src/battleship/screen/MainMenuScreen.h"
-#include "src/battleship/NoGuiRunner.h"
-#include "src/battleship/BSBot.h"
-#include "src/battleship/BSPlayer.h"
-#include "src/wagyourgui/GLFWSession.h"
-#include "src/wagyourgui/Screen.h"
+#include "battleship/screen/MainMenuScreen.h"
+#include "battleship/NoGuiRunner.h"
+#include "battleship/BSBot.h"
+#include "battleship/BSPlayer.h"
+#include "wagyourgui/GLFWSession.h"
+#include "wagyourgui/Screen.h"
 #include <cstring>
 
 int main(int argc, char* argv[]) {

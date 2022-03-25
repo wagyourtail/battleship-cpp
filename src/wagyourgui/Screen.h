@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <memory>
-#include "src/wagyourgui/elements/BaseElement.h"
+#include "wagyourgui/elements/BaseElement.h"
 
 class Window;
 

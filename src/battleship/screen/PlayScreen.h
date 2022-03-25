@@ -6,12 +6,12 @@
 #define BATTLESHIP_PLAYSCREEN_H
 
 
-#include "src/wagyourgui/Screen.h"
+#include "wagyourgui/Screen.h"
 
 #include <utility>
 #include <chrono>
-#include "src/battleship/GameSession.h"
-#include "src/battleship/screen/elements/BoardElement.h"
+#include "battleship/GameSession.h"
+#include "battleship/screen/elements/BoardElement.h"
 
 class PlayScreen : public Screen {
     protected:
