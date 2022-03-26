@@ -31,18 +31,18 @@ set(BATTLESHIP-SOURCE
         src/wagyourgui/elements/Button.cpp
         src/wagyourgui/elements/DisableableElement.cpp
         src/battleship/Battleship.cpp
-        src/battleship/BSBot.cpp
-        src/battleship/BSLocal.cpp
-        src/battleship/BSOpponent.cpp
-        src/battleship/BSPlayer.cpp
-        src/battleship/BSPlayerGui.cpp
+        src/battleship/player/BSBot.cpp
+        src/battleship/player/BSLocal.cpp
+        src/battleship/player/BSOpponent.cpp
+        src/battleship/player/BSPlayer.cpp
+        src/battleship/player/BSPlayerGui.cpp
         src/battleship/GameSession.cpp
         src/battleship/NoGuiRunner.cpp
         src/battleship/screen/MainMenuScreen.cpp
         src/battleship/screen/PlaceShipsScreen.cpp
         src/battleship/screen/elements/BoardElement.cpp
         src/battleship/screen/PlayScreen.cpp
-        src/battleship/screen/WinLossScreen.h)
+        src/battleship/screen/WinLossScreen.h src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h)
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
 target_include_directories(BATTLESHIP PUBLIC ./src ./includes)

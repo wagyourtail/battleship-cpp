@@ -11,8 +11,8 @@ using namespace Battleship;
 void NoGuiRunner::runGame() {
     std::cout << "Welcome to Battleship!" << std::endl;
     std::cout << "Place your ships!" << std::endl;
-    player->setup();
-    opponent->setup();
+    player->isPlaceDone();
+    opponent->isPlaceDone();
     std::cout << "Your board:" << std::endl;
     player->render();
     std::cout << "prepare to battle!" << std::endl;

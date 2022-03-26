@@ -4,8 +4,8 @@
 
 #include "battleship/screen/MainMenuScreen.h"
 #include "battleship/NoGuiRunner.h"
-#include "battleship/BSBot.h"
-#include "battleship/BSPlayer.h"
+#include "battleship/player/BSBot.h"
+#include "battleship/player/BSPlayer.h"
 #include "wagyourgui/GLFWSession.h"
 #include "wagyourgui/Screen.h"
 #include <cstring>

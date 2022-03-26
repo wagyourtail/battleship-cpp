@@ -414,7 +414,7 @@
             <UML:Parameter xmi.id="uocCoTTDipdRI" type="uqIoWn2M8Zmlw" kind="return"/>
            </UML:BehavioralFeature.parameter>
           </UML:Operation>
-          <UML:Operation isSpecification="false" isLeaf="false" isRoot="false" isAbstract="true" xmi.id="uDpNGHANLl0d0" name="setup" visibility="public" isQuery="false" isOverride="false" isVirtual="true" isInline="false">
+          <UML:Operation isSpecification="false" isLeaf="false" isRoot="false" isAbstract="true" xmi.id="uDpNGHANLl0d0" name="isPlaceDone" visibility="public" isQuery="false" isOverride="false" isVirtual="true" isInline="false">
            <UML:BehavioralFeature.parameter>
             <UML:Parameter xmi.id="ui9UhLoutBaHY" type="uoEpizaGjV8Lo" kind="return"/>
            </UML:BehavioralFeature.parameter>

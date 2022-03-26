@@ -6,7 +6,7 @@
 #define BATTLESHIP_BSLOCAL_H
 
 #include "BSOpponent.h"
-#include "Battleship.h"
+#include "battleship/Battleship.h"
 
 class BSLocal : public BSOpponent {
         // board bits

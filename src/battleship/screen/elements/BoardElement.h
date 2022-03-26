@@ -9,7 +9,7 @@
 #include "wagyourgui/elements/BaseElement.h"
 #include "wagyourgui/elements/DisableableElement.h"
 #include "wagyourgui/Font.h"
-#include "battleship/BSPlayerGui.h"
+#include "battleship/player/BSPlayerGui.h"
 #include <functional>
 
 class BoardElement : public BaseElement, public DisableableElement {

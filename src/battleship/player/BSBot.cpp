@@ -3,7 +3,7 @@
 //
 
 #include "BSBot.h"
-#include "Battleship.h"
+#include "battleship/Battleship.h"
 #include <random>
 
 Battleship::Status BSBot::runTurn() {

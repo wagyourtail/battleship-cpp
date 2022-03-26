@@ -6,8 +6,8 @@
 #define BATTLESHIP_GAMESESSION_H
 
 #include <random>
-#include "BSPlayerGui.h"
-#include "BSOpponent.h"
+#include "battleship/player/BSPlayerGui.h"
+#include "battleship/player/BSOpponent.h"
 
 enum GameState {
     PLACE_SHIPS,
@@ -61,7 +61,7 @@ class GameSession {
         }
 
         bool pollSetup() const {
-            return opponent->setup();
+            return opponent->isPlaceDone();
         }
 
         void pollOpponent() {

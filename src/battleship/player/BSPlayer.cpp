@@ -3,7 +3,7 @@
 //
 
 #include "BSPlayer.h"
-#include "Battleship.h"
+#include "battleship/Battleship.h"
 #include <iostream>
 #include <random>
 

@@ -5,7 +5,7 @@
 #include "PlaceShipsScreen.h"
 #include "wagyourgui/GLBuilder.h"
 #include "wagyourgui/elements/Button.h"
-#include "battleship/BSBot.h"
+#include "battleship/player/BSBot.h"
 #include "MainMenuScreen.h"
 #include "wagyourgui/Window.h"
 #include "wagyourgui/GLFWSession.h"

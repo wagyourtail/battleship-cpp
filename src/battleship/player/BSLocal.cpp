@@ -3,7 +3,7 @@
 //
 
 #include "BSLocal.h"
-#include "Battleship.h"
+#include "battleship/Battleship.h"
 #include <random>
 
 using namespace Battleship;

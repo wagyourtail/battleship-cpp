@@ -6,12 +6,12 @@
 #define BATTLESHIP_BSPLAYER_H
 
 #include "BSLocal.h"
-#include "Battleship.h"
+#include "battleship/Battleship.h"
 #include <iostream>
 
 class BSPlayer : public BSLocal {
     public:
-        bool setup() override {
+        bool isPlaceDone() override {
             for (auto& ship: Battleship::SHIP_LENGTHS) {
                 render();
                 promptShipPlacement(ship);

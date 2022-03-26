@@ -5,8 +5,8 @@
 #ifndef BATTLESHIP_NOGUIRUNNER_H
 #define BATTLESHIP_NOGUIRUNNER_H
 
-#include "BSPlayer.h"
-#include "BSOpponent.h"
+#include "battleship/player/BSPlayer.h"
+#include "battleship/player/BSOpponent.h"
 
 class NoGuiRunner {
     private:
