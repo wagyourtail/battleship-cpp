@@ -27,7 +27,6 @@ class GameStateMachine {
     public:
         virtual void poll() {
             switch (gameState) {
-
                 case PLACE_SHIPS:
                     break;
                 case WAIT_FOR_OPPONENT_PLACE_SHIPS:
@@ -37,25 +36,47 @@ class GameStateMachine {
                     break;
                 case PLAYER_TURN:
                     break;
-                case WAIT_FOR_OPPONENT_ACK:
+                case WAIT_FOR_OPPONENT_ACK: {
                     int x, y;
                     std::shared_ptr<Battleship::Status> ack = opponent->ackDone(x, y);
                     if (ack != nullptr) {
                         transition(ack, x, y);
                     }
                     break;
-                case ACK_OPPONENT_TURN:
+                }
+                case ACK_OPPONENT_TURN: {
                     int x, y;
                     std::shared_ptr<Battleship::Status> ack = opponent->pollTurn(x, y);
                     if (ack != nullptr) {
                         transition(ack, x, y);
                     }
                     break;
+                }
                 case GAME_OVER:
                     break;
             }
         }
-        virtual void transition(std::shared_ptr<Battleship::Status> status, int x, int y) = 0;
+        virtual void transition(std::shared_ptr<Battleship::Status> status, int x, int y) {
+            switch (gameState) {
+                case PLACE_SHIPS:
+                    gameState = WAIT_FOR_OPPONENT_PLACE_SHIPS;
+                    break;
+                case WAIT_FOR_OPPONENT_PLACE_SHIPS:
+                    gameState = PLAYER_TURN;
+                    break;
+                case PLAYER_TURN:
+                    gameState = WAIT_FOR_OPPONENT_ACK;
+                    break;
+                case WAIT_FOR_OPPONENT_ACK:
+                    gameState = ACK_OPPONENT_TURN;
+                    break;
+                case ACK_OPPONENT_TURN:
+                    gameState = PLAYER_TURN;
+                    break;
+                case GAME_OVER:
+                    break;
+            }
+        }
 };
 
 
