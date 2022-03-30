@@ -157,3 +157,11 @@ void BSLocal::placeRandomShip(int length) {
         horizontal = dist(rd) % 2;
     } while (!placeShip({x, y, length, horizontal}));
 }
+
+std::shared_ptr<Battleship::Status> BSLocal::ackDone() {
+    return prevAttack;
+}
+
+std::shared_ptr<Battleship::Status> pollTurn(int& x, int& y) {
+    
+}

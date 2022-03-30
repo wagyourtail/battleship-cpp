@@ -9,6 +9,7 @@
 #include "MainMenuScreen.h"
 #include "wagyourgui/Window.h"
 #include "wagyourgui/GLFWSession.h"
+#include <string>
 
 void MainMenuScreen::init(Window* window) {
     elements.push_back(

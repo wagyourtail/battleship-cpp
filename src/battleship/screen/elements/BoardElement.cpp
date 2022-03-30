@@ -4,6 +4,7 @@
 
 #include "BoardElement.h"
 #include "wagyourgui/DrawableHelper.h"
+#include <string>
 
 using namespace DrawableHelper;
 

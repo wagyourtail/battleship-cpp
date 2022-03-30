@@ -6,6 +6,7 @@
 #include "battleship/Battleship.h"
 #include <iostream>
 #include <random>
+#include <string>
 
 void BSPlayer::render() {
     std::string hit = "\033[31m⬛\033[0m";

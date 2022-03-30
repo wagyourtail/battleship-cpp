@@ -19,6 +19,8 @@ class BSOpponent {
         virtual Battleship::Status attack(int x, int y) = 0;
         virtual Battleship::Status runTurn() = 0;
         virtual bool isPlaceDone() = 0;
+        virtual std::shared_ptr<Battleship::Status> ackDone() = 0;
+        virtual std::shared_ptr<Battleship::Status> pollTurn(int& x, int& y) = 0;
 };
 
 #endif //BATTLESHIP_BSOPPONENT_H
