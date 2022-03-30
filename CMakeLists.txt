@@ -9,10 +9,8 @@ include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
 set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
-set ( SOCKPP_BUILD_STATIC ON )
 
 add_subdirectory(includes/glfw)
-add_subdirectory(includes/sockpp)
 
 if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
@@ -43,10 +41,11 @@ set(BATTLESHIP-SOURCE
         src/battleship/screen/elements/BoardElement.cpp
         src/battleship/screen/PlayScreen.cpp
         src/battleship/screen/WinLossScreen.h src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h)
+
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
 target_include_directories(BATTLESHIP PUBLIC ./src ./includes)
-target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw sockpp)
+target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw)
 
 if( MSVC )
     if(${CMAKE_VERSION} VERSION_LESS "3.6.0")

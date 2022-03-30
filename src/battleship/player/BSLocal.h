@@ -26,7 +26,7 @@ class BSLocal : public BSOpponent {
         Battleship::Status attackedAt(int x, int y) override;
         Battleship::Status attack(int x, int y) override;
         virtual bool placeShip(Battleship::Ship ship);
-        std::shared_ptr<Battleship::Status> ackDone() override;
+        std::shared_ptr<Battleship::Status> ackDone(int& x, int& y) override;
         std::shared_ptr<Battleship::Status> pollTurn(int& x, int& y) override;
     private:
         int sunkCheck(int x, int y);

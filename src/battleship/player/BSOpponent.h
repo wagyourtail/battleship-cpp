@@ -6,6 +6,7 @@
 #define BATTLESHIP_BSOPPONENT_H
 
 #include "battleship/Battleship.h"
+#include <memory>
 
 class BSOpponent {
     protected:
@@ -19,7 +20,7 @@ class BSOpponent {
         virtual Battleship::Status attack(int x, int y) = 0;
         virtual Battleship::Status runTurn() = 0;
         virtual bool isPlaceDone() = 0;
-        virtual std::shared_ptr<Battleship::Status> ackDone() = 0;
+        virtual std::shared_ptr<Battleship::Status> ackDone(int& x, int& y) = 0;
         virtual std::shared_ptr<Battleship::Status> pollTurn(int& x, int& y) = 0;
 };
 
