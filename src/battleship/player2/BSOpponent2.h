@@ -11,6 +11,9 @@
 
 class BSOpponent2 {
     public:
+        // <-
+        virtual bool pollPlaceDone() = 0;
+
         // send attack to opponent
         // ->
         virtual void attack(int x, int y) = 0;
