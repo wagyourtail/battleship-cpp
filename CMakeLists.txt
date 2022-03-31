@@ -40,7 +40,7 @@ set(BATTLESHIP-SOURCE
         src/battleship/screen/PlaceShipsScreen.cpp
         src/battleship/screen/elements/BoardElement.cpp
         src/battleship/screen/PlayScreen.cpp
-        src/battleship/screen/WinLossScreen.h src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h)
+        src/battleship/screen/WinLossScreen.h src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h src/battleship/player2/BSOpponent2.cpp src/battleship/player2/BSOpponent2.h)
 
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
