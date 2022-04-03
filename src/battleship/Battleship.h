@@ -49,6 +49,7 @@ namespace Battleship {
     };
 
     enum Status {
+        WAITING,
         HIT,
         MISS,
         SUNK_2,

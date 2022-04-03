@@ -29,18 +29,18 @@ set(BATTLESHIP-SOURCE
         src/wagyourgui/elements/Button.cpp
         src/wagyourgui/elements/DisableableElement.cpp
         src/battleship/Battleship.cpp
-        src/battleship/player/BSBot.cpp
-        src/battleship/player/BSLocal.cpp
-        src/battleship/player/BSOpponent.cpp
-        src/battleship/player/BSPlayer.cpp
-        src/battleship/player/BSPlayerGui.cpp
-        src/battleship/GameSession.cpp
-        src/battleship/NoGuiRunner.cpp
-        src/battleship/screen/MainMenuScreen.cpp
-        src/battleship/screen/PlaceShipsScreen.cpp
-        src/battleship/screen/elements/BoardElement.cpp
-        src/battleship/screen/PlayScreen.cpp
-        src/battleship/screen/WinLossScreen.h src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h src/battleship/player2/BSOpponent2.cpp src/battleship/player2/BSOpponent2.h src/battleship/player2/BsPlayer2.cpp src/battleship/player2/BsPlayer2.h)
+        src/battleship/screen2/WinLossScreen.h
+        src/battleship/GameStateMachine.cpp src/battleship/GameStateMachine.h
+        src/battleship/player2/BSOpponent2.cpp src/battleship/player2/BSOpponent2.h
+        src/battleship/player2/BsPlayer2.cpp src/battleship/player2/BsPlayer2.h
+        src/battleship/player2/BoardTracker.cpp src/battleship/player2/BoardTracker.h
+        src/battleship/player2/BsBotOpponent.cpp src/battleship/player2/BsBotOpponent.h
+        src/battleship/player2/BoardTrackerRenderer.cpp src/battleship/player2/BoardTrackerRenderer.h
+        src/battleship/screen2/MainMenuScreen2.cpp src/battleship/screen2/MainMenuScreen2.h
+        src/battleship/screen2/PlaceShipScreen2.cpp src/battleship/screen2/PlaceShipScreen2.h
+        src/battleship/screen2/elements/BoardElement2.cpp src/battleship/screen2/elements/BoardElement2.h
+        src/battleship/screen2/SyncOpponentScreen.cpp src/battleship/screen2/SyncOpponentScreen.h
+        src/battleship/screen2/PlayScreen2.cpp src/battleship/screen2/PlayScreen2.h)
 
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead

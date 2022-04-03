@@ -19,14 +19,17 @@ class BSOpponent2 {
         virtual void attack(int x, int y) = 0;
         // poll opponent, returns status & cords of attack back, or nullptr if still waiting
         // <-
-        virtual std::shared_ptr<Battleship::Status> ackDone(int& x, int& y) = 0;
+        virtual Battleship::Status ackDone(int& x, int& y) = 0;
 
         // poll opponent, returns status & cords of attack back, or false if still waiting
         // <-
         virtual bool pollAttack(int& x, int& y) = 0;
         // send acknowledgement of attack back to opponent with status
         // ->
-        virtual void ackAttack(std::shared_ptr<Battleship::Status> status) = 0;
+        virtual void ackAttack(Battleship::Status status) = 0;
+
+        // ->
+        virtual void surrender() = 0;
 };
 
 

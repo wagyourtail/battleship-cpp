@@ -1,42 +1,42 @@
 //
-// Created by william on 3/11/22.
+// Created by william on 4/3/22.
 //
 
-#ifndef BATTLESHIP_BOARDELEMENT_H
-#define BATTLESHIP_BOARDELEMENT_H
+#ifndef BATTLESHIP_BOARDELEMENT2_H
+#define BATTLESHIP_BOARDELEMENT2_H
 
-
+#include <memory>
+#include <functional>
 #include "wagyourgui/elements/BaseElement.h"
 #include "wagyourgui/elements/DisableableElement.h"
 #include "wagyourgui/Font.h"
-#include "battleship/player/BSPlayerGui.h"
-#include <functional>
+#include "battleship/player2/BsPlayer2.h"
 
-class BoardElement : public BaseElement, public DisableableElement {
+class BoardElement2 : public BaseElement, public DisableableElement {
     protected:
         float x;
         float y;
         float width;
         Font* font;
-        BSPlayerGui* player;
-        std::function<void(BoardElement*, int, int, int)> onClickFn;
+        std::shared_ptr<BSPlayer2> player;
+        std::function<void(BoardElement2*, int, int, int)> onClickFn;
         bool disabled{false};
         bool renderHitBoard{};
-        std::function<void(BoardElement*, int, int)> onRenderHighlightFn;
+        std::function<void(BoardElement2*, int, int)> onRenderHighlightFn;
     public:
-        BoardElement(
+        BoardElement2(
                 float x,
                 float y,
                 float width,
                 Font* font,
-                BSPlayerGui* player,
-                std::function<void(BoardElement*, int, int, int)> onClick,
-                std::function<void(BoardElement*, int, int)> onRenderHighlightFn
+                std::shared_ptr<BSPlayer2> player,
+                std::function<void(BoardElement2*, int, int, int)> onClick,
+                std::function<void(BoardElement2*, int, int)> onRenderHighlightFn
         ) :
                 BaseElement(), x(x), y(y), width(width), font(font), player(player), onClickFn(std::move(onClick)),
                 onRenderHighlightFn(std::move(onRenderHighlightFn)) {}
 
-        void setOnClick(std::function<void(BoardElement*, int, int, int)> onClick) {
+        void setOnClick(std::function<void(BoardElement2*, int, int, int)> onClick) {
             onClickFn = std::move(onClick);
         }
 
@@ -62,9 +62,9 @@ class BoardElement : public BaseElement, public DisableableElement {
         float getWidth() const { return width; }
 
         void setRenderHitBoard(bool renderHitBoard) { this->renderHitBoard = renderHitBoard; }
-
+        bool getRenderHitBoard() const { return renderHitBoard; }
         void onRender(float mouseX, float mouseY) override;
 };
 
 
-#endif //BATTLESHIP_BOARDELEMENT_H
+#endif //BATTLESHIP_BOARDELEMENT2_H

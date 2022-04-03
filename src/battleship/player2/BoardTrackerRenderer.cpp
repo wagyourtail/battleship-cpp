@@ -1,11 +1,11 @@
 //
-// Created by william on 3/10/22.
+// Created by william on 4/3/22.
 //
 
+#include "BoardTrackerRenderer.h"
 #include "wagyourgui/GLBuilder.h"
-#include "BSPlayerGui.h"
 
-void BSPlayerGui::render(float i, float j, float ts) {
+void BoardTrackerRenderer::render(float i, float j, float ts) {
     Battleship::atlas.bind();
     GLBuilder& builder = GLBuilder::getImmediate();
     for (int x = 0; x < 10; ++x) {
@@ -131,7 +131,7 @@ void BSPlayerGui::render(float i, float j, float ts) {
     }
 }
 
-void BSPlayerGui::renderHitBoard(float i, float j, float ts) {
+void BoardTrackerRenderer::renderHitBoard(float i, float j, float ts) {
     Battleship::atlas.bind();
     GLBuilder& builder = GLBuilder::GLBuilder::getImmediate();
     for (int x = 0; x < 10; ++x) {
@@ -145,9 +145,9 @@ void BSPlayerGui::renderHitBoard(float i, float j, float ts) {
                    .end();
 
             // hit/miss
-            if (hitBoard[x][y] & 1) {
+            if (attackBoard[x][y] & 1) {
                 builder.begin(GL_TRIANGLE_STRIP, GLBuilder::POS_COL_TEX)
-                       .color(hitBoard[x][y] & 2 ? 0xFFFF0000 : 0xFFFFFFFF)
+                       .color(attackBoard[x][y] & 2 ? 0xFFFF0000 : 0xFFFFFFFF)
                        .vertex(i + x * ts, j + y * ts).uv(48, 16, 80, 64).next()
                        .vertex(i + x * ts, j + (y + 1) * ts).uv(48, 32, 80, 64).next()
                        .vertex(i + (x + 1) * ts, j + y * ts).uv(64, 16, 80, 64).next()
@@ -158,9 +158,9 @@ void BSPlayerGui::renderHitBoard(float i, float j, float ts) {
     }
 }
 
-void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool horizontal) {
+void BoardTrackerRenderer::renderPlace(float i, float j, float ts, int row, int col, bool horizontal) {
     // get current ship length and id
-    int len = Battleship::SHIP_LENGTHS[numShips];
+    int len = Battleship::SHIP_LENGTHS[shipsPlaced];
     GLBuilder& builder = GLBuilder::getImmediate();
     Battleship::atlas.bind();
     if (horizontal) {
@@ -181,8 +181,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
                    .color(collides ? 0xFFFF6666 : 0xFFFFFFFF)
                    .vertex(i + x * ts, j + y * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0],
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1],
                            80,
                            64
                    )
@@ -190,8 +190,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + x * ts, j + (y + 1) * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0],
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1] + 16,
                            80,
                            64
                    )
@@ -199,8 +199,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + (x + 1) * ts, j + y * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0] + 16,
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1],
                            80,
                            64
                    )
@@ -208,8 +208,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + (x + 1) * ts, j + (y + 1) * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0] + 16,
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1] + 16,
                            80,
                            64
                    )
@@ -234,8 +234,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
                    .color(collides ? 0xFFFF6666 : 0xFFFFFFFF)
                    .vertex(i + x * ts, j + y * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0] + 16,
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1],
                            80,
                            64
                    )
@@ -243,8 +243,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + x * ts, j + (y + 1) * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0],
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1],
                            80,
                            64
                    )
@@ -252,8 +252,8 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + (x + 1) * ts, j + y * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0] + 16,
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1] + 16,
                            80,
                            64
                    )
@@ -261,27 +261,12 @@ void BSPlayerGui::renderPlace(float i, float j, float ts, int row, int col, bool
 
                    .vertex(i + (x + 1) * ts, j + (y + 1) * ts)
                    .uv(
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][0],
-                           (float) Battleship::SHIP_RENDER_LOCATIONS[numShips][n][1] + 16,
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][0],
+                           (float) Battleship::SHIP_RENDER_LOCATIONS[shipsPlaced][n][1] + 16,
                            80,
                            64
                    )
                    .end();
         }
     }
-}
-
-int BSPlayerGui::undoPlace() {
-    --numShips;
-    Battleship::Ship ship = ships[numShips];
-    if (ship.horizontal) {
-        for (int i = ship.x; i < ship.x + ship.length; ++i) {
-            board[i][ship.y] = 0;
-        }
-    } else {
-        for (int i = ship.y; i < ship.y + ship.length; ++i) {
-            board[ship.x][i] = 0;
-        }
-    }
-    return numShips;
 }

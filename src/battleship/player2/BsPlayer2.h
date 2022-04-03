@@ -7,11 +7,10 @@
 
 #include <memory>
 #include "battleship/Battleship.h"
+#include "BoardTracker.h"
+#include "BoardTrackerRenderer.h"
 
-class BSPlayer2 {
-    public:
-        void hitboard(const std::shared_ptr<Battleship::Status>& status, int x, int y);
-        Battleship::Status attacked(int x, int y);
+class BSPlayer2 : public BoardTrackerRenderer {
 };
 
 

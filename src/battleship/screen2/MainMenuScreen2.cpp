@@ -1,17 +1,15 @@
 //
-// Created by william on 3/10/22.
+// Created by william on 4/3/22.
 //
 
-#include "PlaceShipsScreen.h"
-#include "wagyourgui/GLBuilder.h"
-#include "wagyourgui/elements/Button.h"
-#include "battleship/player/BSBot.h"
-#include "MainMenuScreen.h"
-#include "wagyourgui/Window.h"
+#include "MainMenuScreen2.h"
 #include "wagyourgui/GLFWSession.h"
-#include <string>
+#include "wagyourgui/elements/Button.h"
+#include "battleship/Battleship.h"
+#include "PlaceShipScreen2.h"
+#include "battleship/player2/BsBotOpponent.h"
 
-void MainMenuScreen::init(Window* window) {
+void MainMenuScreen2::init(Window* window) {
     elements.push_back(
             std::make_shared<Button>(
                     width / 2.f - 400,
@@ -26,14 +24,14 @@ void MainMenuScreen::init(Window* window) {
                     0xFF000000,
                     [=](Button* btn) {
                         parent->setScreen(
-                                new PlaceShipsScreen(
+                                new PlaceShipsScreen2(
                                         parent,
-                                        std::make_shared<GameSession>(new BSPlayerGui(), new BSBot())));
+                                        std::make_shared<GameStateMachine>(std::make_shared<BSPlayer2>(), std::make_shared<BSBotOpponent>())));
                     }
             ));
 }
 
-void MainMenuScreen::onRender(float mouseX, float mouseY) {
+void MainMenuScreen2::onRender(float mouseX, float mouseY) {
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
     glEnable(GL_TEXTURE_2D);

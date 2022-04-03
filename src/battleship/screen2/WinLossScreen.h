@@ -6,7 +6,7 @@
 #include "wagyourgui/GLFWSession.h"
 #include "wagyourgui/Screen.h"
 #include "wagyourgui/DrawableHelper.h"
-#include "MainMenuScreen.h"
+#include "battleship/screen2/MainMenuScreen2.h"
 
 class WinLossScreen : public Screen {
         std::string message;
@@ -15,7 +15,7 @@ class WinLossScreen : public Screen {
         WinLossScreen(GLFWSession* parent, std::string message) : Screen(parent), message(std::move(message)) {}
 
         bool onClick(float x, float y, int button) override {
-            parent->setScreen(new MainMenuScreen(parent));
+            parent->setScreen(new MainMenuScreen2(parent));
             return true;
         }
 
