@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 project(BATTLESHIP)
 
@@ -41,10 +41,8 @@ set(BATTLESHIP-SOURCE
         src/client/battleship/screen2/elements/BoardElement2.cpp src/client/battleship/screen2/elements/BoardElement2.h
         src/client/battleship/screen2/SyncOpponentScreen.cpp src/client/battleship/screen2/SyncOpponentScreen.h
         src/client/battleship/screen2/PlayScreen2.cpp src/client/battleship/screen2/PlayScreen2.h
-        src/HostSocketStream.cpp src/HostSocketStream.h
-        src/SocketStream.cpp src/SocketStream.h
-        src/ClientSocketStream.cpp src/ClientSocketStream.h
-        src/BasePacket.cpp src/BasePacket.h src/server/main.cpp)
+        src/client/battleship/player2/RemoteOpponent.cpp src/client/battleship/player2/RemoteOpponent.h
+        src/shared/SocketConnection.cpp src/shared/SocketConnection.h)
 
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
@@ -60,4 +58,7 @@ if( MSVC )
 endif()
 
 project(BATTLESHIP-SERVER)
-add_executable(BATTLESHIP-SERVER src/server/main.cpp)
+add_executable(BATTLESHIP-SERVER src/server/main.cpp
+        src/server/Session.cpp src/server/Session.h
+        src/shared/SocketConnection.cpp src/shared/SocketConnection.h)
+target_include_directories(BATTLESHIP-SERVER PUBLIC ./src)
