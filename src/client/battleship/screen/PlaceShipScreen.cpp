@@ -27,8 +27,9 @@ void PlaceShipsScreen::init(Window* window) {
                         }
                     },
                     [=](BoardElement* element, int row, int col) {
-                        if (shipsPlaced < 5)
+                        if (shipsPlaced < 5) {
                             gameSession->getPlayer()->renderPlace(0, 0, ts, row, col, this->horizontal);
+                        }
                     }
             ));
 
@@ -75,7 +76,7 @@ void PlaceShipsScreen::init(Window* window) {
                             }
                         }
                     }
-        ));
+            ));
 
     elements.push_back(
             std::make_shared<Button>(

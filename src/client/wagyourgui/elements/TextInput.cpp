@@ -49,7 +49,8 @@ bool TextInput::onKey(int key, int scancode, int action, int mods) {
         switch (key) {
             case GLFW_KEY_BACKSPACE:
                 if (selStartIndex == selEndIndex && selStartIndex > 0) updateSelStart(selStartIndex - 1);
-                content = content.substr(0, selStartIndex) + (selEndIndex >= content.length() ? "" : content.substr(selEndIndex));
+                content = content.substr(0, selStartIndex) +
+                        (selEndIndex >= content.length() ? "" : content.substr(selEndIndex));
                 onChange(content);
                 updateSelEnd(selStartIndex);
                 arrowCursor = selStartIndex;
@@ -102,10 +103,11 @@ bool TextInput::onKey(int key, int scancode, int action, int mods) {
 bool TextInput::onChar(unsigned int codepoint) {
     if (selEndIndex < selStartIndex) swapStartEnd();
     std::string newContent;
-    if (selEndIndex >= content.length())
-        newContent = content.substr(0, selStartIndex) + (char)codepoint;
-    else
-        newContent = content.substr(0, selStartIndex) + (char)codepoint + content.substr(selEndIndex);
+    if (selEndIndex >= content.length()) {
+        newContent = content.substr(0, selStartIndex) + (char) codepoint;
+    } else {
+        newContent = content.substr(0, selStartIndex) + (char) codepoint + content.substr(selEndIndex);
+    }
     if (std::regex_match(newContent, regex)) {
         content = std::move(newContent);
         onChange(content);
@@ -132,7 +134,13 @@ void TextInput::onRender(float mouseX, float mouseY) {
 
     // Draw text
     float scaled_font_height = font->FONT_HEIGHT * font_scale;
-    rect(selStart, height > scaled_font_height ? y + 2 : y, min(selEnd, x + width - 2), (height > scaled_font_height ? y + 2 : y) + scaled_font_height + 4, selColor);
+    rect(
+            selStart,
+            height > scaled_font_height ? y + 2 : y,
+            min(selEnd, x + width - 2),
+            (height > scaled_font_height ? y + 2 : y) + scaled_font_height + 4,
+            selColor
+    );
     // push a matrix
     glPushMatrix();
     // translate to the right spot and scale

@@ -46,19 +46,21 @@ class GLFWSession {
         void runLoop();
 
         void setScreen(Screen* screen) {
+            mtx.lock();
             Screen* old = this->screen;
             this->screen = screen;
-            mtx.lock();
             delete old;
-            mtx.unlock();
             screen->onWindowResize(window);
+            mtx.unlock();
         }
 
     private:
         void loop();
     public:
         void onWindowResize(Window* window) {
+            mtx.lock();
             screen->onWindowResize(window);
+            mtx.unlock();
         }
 
         void onKey(int key, int scancode, int action, int mods) {

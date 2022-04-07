@@ -28,11 +28,16 @@ class GameStateMachine {
         std::shared_ptr<BSOpponent> opponent;
 
     public:
-        GameStateMachine(std::shared_ptr<BSPlayer> player, std::shared_ptr<BSOpponent> opponent) : player(std::move(player)), opponent(std::move(opponent)) {}
+        GameStateMachine(std::shared_ptr<BSPlayer> player, std::shared_ptr<BSOpponent> opponent) :
+                player(std::move(player)), opponent(std::move(opponent)) {}
+
         virtual void poll();
         virtual void transition(Battleship::Status status, int x, int y);
+
         GameStates getGameState() const { return gameState; }
+
         std::shared_ptr<BSPlayer> getPlayer() const { return player; }
+
         std::shared_ptr<BSOpponent> getOpponent() const { return opponent; }
 };
 

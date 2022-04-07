@@ -27,24 +27,27 @@ void MainMenuScreen::init(Window* window) {
                         parent->setScreen(
                                 new PlaceShipsScreen(
                                         parent,
-                                        std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), std::make_shared<BSBotOpponent>())));
+                                        std::make_shared<GameStateMachine>(
+                                                std::make_shared<BSPlayer>(),
+                                                std::make_shared<BSBotOpponent>())));
                     }
             ));
-    addElement(std::make_shared<Button>(
-            width / 2.f - 400,
-            height / 2.f + 16,
-            800,
-            28,
-            parent->font,
-            "Multiplayer",
-            0,
-            0xFFa2a2a2,
-            0xFFFFFFFF,
-            0xFF000000,
-            [=](Button* btn) {
-                parent->setScreen(new MultiplayerScreen(parent));
-            }
-    ));
+    addElement(
+            std::make_shared<Button>(
+                    width / 2.f - 400,
+                    height / 2.f + 16,
+                    800,
+                    28,
+                    parent->font,
+                    "Multiplayer",
+                    0,
+                    0xFFa2a2a2,
+                    0xFFFFFFFF,
+                    0xFF000000,
+                    [=](Button* btn) {
+                        parent->setScreen(new MultiplayerScreen(parent));
+                    }
+            ));
 }
 
 void MainMenuScreen::onRender(float mouseX, float mouseY) {

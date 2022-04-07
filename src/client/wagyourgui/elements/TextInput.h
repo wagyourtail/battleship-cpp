@@ -10,6 +10,8 @@
 #include <string>
 #include <utility>
 
+// adapted from myself @ https://github.com/wagyourtail/JsMacros/blob/main-1.18/common/src/main/java/xyz/wagyourtail/wagyourgui/elements/TextInput.java
+
 class TextInput : public Button {
     public:
         std::function<void(std::string&)> onChange;
@@ -31,25 +33,54 @@ class TextInput : public Button {
 
         bool focused{false};
     public:
-        TextInput(float x, float y, float width, float height, Font* textRenderer, uint32_t color, uint32_t borderColor, uint32_t hilightColor, uint32_t textColor, std::string message, std::function<void(Button*)> onClick, std::function<void(std::string&)> onChange) :
-                Button(x, y, width, height, textRenderer, "", color, borderColor, textColor, borderColor, std::move(onClick)), selColor(hilightColor), content(std::move(message)), onChange(std::move(onChange)) {
+        TextInput(
+                float x,
+                float y,
+                float width,
+                float height,
+                Font* textRenderer,
+                uint32_t color,
+                uint32_t borderColor,
+                uint32_t hilightColor,
+                uint32_t textColor,
+                std::string message,
+                std::function<void(Button*)> onClick,
+                std::function<void(std::string&)> onChange
+        ) :
+                Button(
+                        x,
+                        y,
+                        width,
+                        height,
+                        textRenderer,
+                        "",
+                        color,
+                        borderColor,
+                        textColor,
+                        borderColor,
+                        std::move(onClick)), selColor(hilightColor), content(std::move(message)),
+                onChange(std::move(onChange)) {
             updateSelStart(content.length());
             updateSelEnd(content.length());
             arrowCursor = content.length();
         }
+
         void setMessage(std::string message) {
             content = std::move(message);
         }
+
         void updateSelStart(int startIndex) {
             selStartIndex = startIndex;
-            if (startIndex == 0) selStart = x + 1;
-            else selStart = x + 2 + font->getWidth(content.substr(0, startIndex)) * font_scale;
+            if (startIndex == 0) { selStart = x + 1; }
+            else { selStart = x + 2 + font->getWidth(content.substr(0, startIndex)) * font_scale; }
         }
+
         void updateSelEnd(int endIndex) {
             selEndIndex = endIndex;
-            if (endIndex == 0) selEnd = x + 2;
-            else selEnd = x + 3 + font->getWidth(content.substr(0, endIndex)) * font_scale;
+            if (endIndex == 0) { selEnd = x + 2; }
+            else { selEnd = x + 3 + font->getWidth(content.substr(0, endIndex)) * font_scale; }
         }
+
         bool onClick(float mouseX, float mouseY, int btn) override;
         bool onDrag(float x, float y, float dx, float dy, int button) override;
 
@@ -67,6 +98,7 @@ class TextInput : public Button {
         void onFocus() override {
             focused = true;
         }
+
         void onFocusLost() override {
             focused = false;
         }

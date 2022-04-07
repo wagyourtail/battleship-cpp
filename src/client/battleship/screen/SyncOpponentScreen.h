@@ -14,7 +14,7 @@ class SyncOpponentScreen : public Screen {
         std::shared_ptr<GameStateMachine> gameSession;
     public:
         SyncOpponentScreen(GLFWSession* session, std::shared_ptr<GameStateMachine> gameSession) :
-        Screen(session), gameSession(std::move(gameSession)) {}
+                Screen(session), gameSession(std::move(gameSession)) {}
 
         void init(Window* window) override;
         void onRender(float mouseX, float mouseY) override;

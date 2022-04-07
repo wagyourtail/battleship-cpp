@@ -27,19 +27,24 @@ class RemoteOpponent : public BSOpponent, std::enable_shared_from_this<RemoteOpp
 
     public:
         explicit RemoteOpponent(int socket_fd) : connection(std::make_shared<SocketConnection>(socket_fd)) {}
+
         ~RemoteOpponent() {
             //if I didn't mess anything up, this should be safe
             connectionThread.detach();
         }
+
         void sendPlaceDone() override;
         bool pollPlaceDone() override;
         void attack(int x, int y) override;
-        Battleship::Status ackDone(int &x, int &y) override;
-        bool pollAttack(int &x, int &y) override;
+        Battleship::Status ackDone(int& x, int& y) override;
+        bool pollAttack(int& x, int& y) override;
         void ackAttack(Battleship::Status status, int x, int y) override;
         void surrender() override;
+
         bool goesFirst() override { return gf; }
+
         void beginMainGameReadTask();
+
         bool surrendered() override {
             return lastStatus == Battleship::GAME_END;
         }

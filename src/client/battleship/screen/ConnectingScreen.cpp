@@ -13,6 +13,7 @@
 #include "PlaceShipScreen.h"
 
 std::string ConnectingScreen::IP = "127.0.0.1";
+
 int ConnectingScreen::PORT = 5549;
 
 ConnectingScreen::ConnectingScreen(GLFWSession* parent) : Screen(parent) {
@@ -31,7 +32,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent) : Screen(parent) {
     dest.sin_port = htons(PORT);
     dest.sin_addr.s_addr = inet_addr(IP.c_str());
 
-    if (connect(sock, (sockaddr*)&dest, sizeof(dest)) < 0) {
+    if (connect(sock, (sockaddr*) &dest, sizeof(dest)) < 0) {
         perror("connect");
         parent->setScreen(new MainMenuScreen(parent));
         return;
@@ -60,7 +61,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent, const std::string& joinc
     dest.sin_port = htons(PORT);
     dest.sin_addr.s_addr = inet_addr(IP.c_str());
 
-    if (connect(sock, (sockaddr*)&dest, sizeof(dest)) < 0) {
+    if (connect(sock, (sockaddr*) &dest, sizeof(dest)) < 0) {
         perror("connect");
         parent->setScreen(new MainMenuScreen(parent));
         return;
@@ -107,7 +108,10 @@ void ConnectingScreen::waitForReadHost(std::shared_ptr<RemoteOpponent> connectio
         return;
     }
 
-    parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
+    parent->setScreen(
+            new PlaceShipsScreen(
+                    parent,
+                    std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
     connection->beginMainGameReadTask();
 }
 
@@ -129,25 +133,29 @@ void ConnectingScreen::waitForReadClient(std::shared_ptr<RemoteOpponent> connect
         return;
     }
 
-    parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
+    parent->setScreen(
+            new PlaceShipsScreen(
+                    parent,
+                    std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
     connection->beginMainGameReadTask();
 }
 
 void ConnectingScreen::init(Window* window) {
-    addElement(std::make_shared<Button>(
-            5, height - 35, width / 2 - 10, 20,
-            parent->font, "Cancel", 0, 0xFF4f4f4f, 0xFFFFFFFF, 0xFF000000,
-            [=](Button* b) {
-                parent->setScreen(new MainMenuScreen(parent));
-            }
-    ));
+    addElement(
+            std::make_shared<Button>(
+                    5, height - 35, width / 2 - 10, 20,
+                    parent->font, "Cancel", 0, 0xFF4f4f4f, 0xFFFFFFFF, 0xFF000000,
+                    [=](Button* b) {
+                        parent->setScreen(new MainMenuScreen(parent));
+                    }
+            ));
 }
 
 using namespace DrawableHelper;
 
 void ConnectingScreen::onRender(float mouseX, float mouseY) {
     int y = 10;
-    for (auto& i : message) {
+    for (auto& i: message) {
         drawCenteredString(parent->font, i, width / 2, y, 0xFFFFFFFF);
         y += 25;
     }

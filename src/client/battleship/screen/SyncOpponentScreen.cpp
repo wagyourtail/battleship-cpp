@@ -33,8 +33,10 @@ void SyncOpponentScreen::init(Window* window) {
 void SyncOpponentScreen::onRender(float mouseX, float mouseY) {
     gameSession->poll();
 
-    if (gameSession->getGameState() == GameStateMachine::PLAYER_TURN || gameSession->getGameState() == GameStateMachine::ACK_OPPONENT_TURN) {
+    if (gameSession->getGameState() == GameStateMachine::PLAYER_TURN ||
+            gameSession->getGameState() == GameStateMachine::ACK_OPPONENT_TURN) {
         parent->setScreen(new PlayScreen(parent, gameSession));
+        return;
     }
 
     drawCenteredString(parent->font, "Waiting for Opponent to Place ships", width / 2, height / 2, 0xFFFFFFFF);

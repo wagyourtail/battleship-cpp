@@ -20,6 +20,7 @@ class SocketConnection {
         }
 
         bool fail() const { return fail_flag <= 0; }
+
         int failCode() const { return fail_flag; }
 
         int get_socket_fd() const { return socket_fd; }

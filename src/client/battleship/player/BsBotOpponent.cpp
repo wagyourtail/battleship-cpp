@@ -6,7 +6,7 @@
 #include "BsBotOpponent.h"
 
 bool BSBotOpponent::pollPlaceDone() {
-    for (auto& i : Battleship::SHIP_LENGTHS) {
+    for (auto& i: Battleship::SHIP_LENGTHS) {
         placeRandomShip(i);
     }
 

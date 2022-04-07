@@ -62,7 +62,9 @@ class BoardElement : public BaseElement, public DisableableElement {
         float getWidth() const { return width; }
 
         void setRenderHitBoard(bool renderHitBoard) { this->renderHitBoard = renderHitBoard; }
+
         bool getRenderHitBoard() const { return renderHitBoard; }
+
         void onRender(float mouseX, float mouseY) override;
 };
 

@@ -30,5 +30,4 @@ class PlaceShipsScreen : public Screen {
 };
 
 
-
 #endif //BATTLESHIP_PLACESHIPSCREEN2_H

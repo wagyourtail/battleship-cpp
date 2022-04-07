@@ -17,7 +17,7 @@ class Screen {
     public:
         GLFWSession* parent;
         std::vector<std::shared_ptr<BaseElement>> elements{};
-        BaseElement* focused{};
+        std::shared_ptr<BaseElement> focused{};
         int width{};
         int height{};
 

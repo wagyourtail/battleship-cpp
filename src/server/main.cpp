@@ -9,7 +9,7 @@
 // thx
 // https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     // socket
     int server_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (server_fd == -1) {
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(5549);
     server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    if (bind(server_fd, (struct sockaddr *) &server_addr, sizeof(server_addr)) == -1) {
+    if (bind(server_fd, (struct sockaddr*) &server_addr, sizeof(server_addr)) == -1) {
         perror("bind");
         return 1;
     }

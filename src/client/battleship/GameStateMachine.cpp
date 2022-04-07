@@ -4,7 +4,7 @@
 
 #include "GameStateMachine.h"
 
-void GameStateMachine::poll()  {
+void GameStateMachine::poll() {
     switch (gameState) {
         case PLACE_SHIPS:
             break;

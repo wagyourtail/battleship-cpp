@@ -33,71 +33,73 @@ void Session::start(int clientFd) {
 }
 
 void Session::connect(int unknownFd) {
-    std::thread t([=]() {
-        char buffer[1024];
-        ssize_t n = read(unknownFd, buffer, sizeof(buffer));
-        if (n < 0) {
-            perror("read");
-            exit(1);
-        }
-        if (buffer[0] == 'h') {
-//            std::cout << "new host" << std::endl;
-            std::random_device rd;
-            std::uniform_int_distribution<int> dist(0, 35);
-            std::string session_id;
-            do {
-                session_id = "";
-                for (int i = 0; i < 5; ++i) {
-                    char c = dist(rd);
-                    if (c < 10) {
-                        c += '0';
-                    } else {
-                        c += 'A' - 10;
-                    }
-                    session_id += c;
+    std::thread t(
+            [=]() {
+                char buffer[1024];
+                ssize_t n = read(unknownFd, buffer, sizeof(buffer));
+                if (n < 0) {
+                    perror("read");
+                    exit(1);
                 }
-            } while (sessions.find(session_id) != sessions.end());
-            std::string session_pkt = "s" + session_id;
-            write(unknownFd, session_pkt.c_str(), session_pkt.size());
+                if (buffer[0] == 'h') {
+//            std::cout << "new host" << std::endl;
+                    std::random_device rd;
+                    std::uniform_int_distribution<int> dist(0, 35);
+                    std::string session_id;
+                    do {
+                        session_id = "";
+                        for (int i = 0; i < 5; ++i) {
+                            char c = dist(rd);
+                            if (c < 10) {
+                                c += '0';
+                            } else {
+                                c += 'A' - 10;
+                            }
+                            session_id += c;
+                        }
+                    } while (sessions.find(session_id) != sessions.end());
+                    std::string session_pkt = "s" + session_id;
+                    write(unknownFd, session_pkt.c_str(), session_pkt.size());
 
-            sessions.insert(std::make_pair(session_id, std::make_shared<Session>(session_id, unknownFd)));
+                    sessions.insert(std::make_pair(session_id, std::make_shared<Session>(session_id, unknownFd)));
 
-            // kill if no client connects after 1 minute
-            std::this_thread::sleep_for(std::chrono::seconds(60));
-            int error_code;
-            socklen_t error_code_size = sizeof(error_code);
-            getsockopt(unknownFd, SOL_SOCKET, SO_ERROR, &error_code, &error_code_size);
+                    // kill if no client connects after 1 minute
+                    std::this_thread::sleep_for(std::chrono::seconds(60));
+                    int error_code;
+                    socklen_t error_code_size = sizeof(error_code);
+                    getsockopt(unknownFd, SOL_SOCKET, SO_ERROR, &error_code, &error_code_size);
 //            std::cout << "error code: " << error_code << std::endl;
 
-            if (error_code != 0) {
-                auto it = sessions.find(session_id);
-                if (it != sessions.end()) {
-                    if (it->second->client_connection == nullptr) {
-                        sessions.erase(it);
-                    } else {
-                        return;
+                    if (error_code != 0) {
+                        auto it = sessions.find(session_id);
+                        if (it != sessions.end()) {
+                            if (it->second->client_connection == nullptr) {
+                                sessions.erase(it);
+                            } else {
+                                return;
+                            }
+                        }
+                        close(unknownFd);
                     }
+
+                } else if (buffer[0] == 'j') {
+                    std::cout << "new client ";
+                    std::string session_id(buffer + 1, buffer + 6);
+                    std::cout << "session id: " << session_id << std::endl;
+
+                    auto it = sessions.find(session_id);
+                    if (it == sessions.end()) {
+                        std::string error_pkt = "e" + session_id;
+                        write(unknownFd, error_pkt.c_str(), error_pkt.size());
+                        close(unknownFd);
+                    } else {
+                        it->second->start(unknownFd);
+                    }
+                } else {
+                    close(unknownFd);
                 }
-                close(unknownFd);
             }
-
-        } else if (buffer[0] == 'j') {
-            std::cout << "new client ";
-            std::string session_id(buffer + 1, buffer + 6);
-            std::cout << "session id: " << session_id << std::endl;
-
-            auto it = sessions.find(session_id);
-            if (it == sessions.end()) {
-                std::string error_pkt = "e" + session_id;
-                write(unknownFd, error_pkt.c_str(), error_pkt.size());
-                close(unknownFd);
-            } else {
-                it->second->start(unknownFd);
-            }
-        } else {
-            close(unknownFd);
-        }
-    });
+    );
     t.detach();
 }
 

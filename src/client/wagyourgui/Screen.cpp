@@ -46,8 +46,8 @@ bool Screen::onClick(float x, float y, int button) {
     bool unfocus = true;
     for (auto& element: elements) {
         if (element->shouldFocus(x, y)) {
-            BaseElement* old = focused;
-            focused = element.get();
+            std::shared_ptr<BaseElement> old = focused;
+            focused = element;
             if (old != nullptr) {
                 old->onFocusLost();
             }

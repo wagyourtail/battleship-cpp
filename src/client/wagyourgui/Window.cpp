@@ -33,10 +33,12 @@ Window::Window(const std::string& title, int width, int height, GLFWSession* par
             }
     );
 
-    glfwSetCursorPosCallback(handle, [](GLFWwindow* window, double x, double y) {
-        auto* thisRef = (Window*) glfwGetWindowUserPointer(window);
-        thisRef->parent->onMousePos(x, y);
-    });
+    glfwSetCursorPosCallback(
+            handle, [](GLFWwindow* window, double x, double y) {
+                auto* thisRef = (Window*) glfwGetWindowUserPointer(window);
+                thisRef->parent->onMousePos(x, y);
+            }
+    );
 
     glfwSetCharCallback(
             handle, [](GLFWwindow* window, unsigned int codepoint) {

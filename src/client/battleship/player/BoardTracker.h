@@ -20,12 +20,18 @@ class BoardTracker {
     public:
         void attack(Battleship::Status status, int x, int y);
         bool placeShip(int x, int y, int length, bool horizontal);
+
         bool attackBoardHit(int x, int y) const { return attackBoard[x][y] & 2; }
+
         int undoPlace();
-        void freeze() {frozen = true;}
-        bool isFrozen() const {return frozen;}
+
+        void freeze() { frozen = true; }
+
+        bool isFrozen() const { return frozen; }
+
         Battleship::Status attacked(int x, int y);
-        bool isLost() const {return shipTilesAlive == 0;}
+
+        bool isLost() const { return shipTilesAlive == 0; }
 };
 
 

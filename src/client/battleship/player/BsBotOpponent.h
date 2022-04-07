@@ -18,6 +18,7 @@ class BSBotOpponent : public BSOpponent, public BoardTracker {
     public:
         BSBotOpponent() = default;
         bool pollPlaceDone() override;
+
         void sendPlaceDone() override {};
         void attack(int x, int y) override;
         Battleship::Status ackDone(int& x, int& y) override;
@@ -35,6 +36,7 @@ class BSBotOpponent : public BSOpponent, public BoardTracker {
         bool surrendered() override {
             return false;
         }
+
     private:
         void placeRandomShip(int length);
 };
