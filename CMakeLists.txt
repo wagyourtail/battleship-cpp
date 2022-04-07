@@ -29,21 +29,21 @@ set(BATTLESHIP-SOURCE
         src/client/wagyourgui/elements/Button.cpp src/client/wagyourgui/elements/Button.h
         src/client/wagyourgui/elements/DisableableElement.cpp src/client/wagyourgui/elements/DisableableElement.h
         src/client/battleship/Battleship.cpp src/client/battleship/Battleship.h
-        src/client/battleship/screen2/WinLossScreen.h
+        src/client/battleship/screen/WinLossScreen.h
         src/client/battleship/GameStateMachine.cpp src/client/battleship/GameStateMachine.h
-        src/client/battleship/player2/BSOpponent2.cpp src/client/battleship/player2/BSOpponent2.h
-        src/client/battleship/player2/BsPlayer2.cpp src/client/battleship/player2/BsPlayer2.h
-        src/client/battleship/player2/BoardTracker.cpp src/client/battleship/player2/BoardTracker.h
-        src/client/battleship/player2/BsBotOpponent.cpp src/client/battleship/player2/BsBotOpponent.h
-        src/client/battleship/player2/BoardTrackerRenderer.cpp src/client/battleship/player2/BoardTrackerRenderer.h
-        src/client/battleship/screen2/MainMenuScreen2.cpp src/client/battleship/screen2/MainMenuScreen2.h
-        src/client/battleship/screen2/PlaceShipScreen2.cpp src/client/battleship/screen2/PlaceShipScreen2.h
-        src/client/battleship/screen2/elements/BoardElement2.cpp src/client/battleship/screen2/elements/BoardElement2.h
-        src/client/battleship/screen2/SyncOpponentScreen.cpp src/client/battleship/screen2/SyncOpponentScreen.h
-        src/client/battleship/screen2/PlayScreen2.cpp src/client/battleship/screen2/PlayScreen2.h
-        src/client/battleship/player2/RemoteOpponent.cpp src/client/battleship/player2/RemoteOpponent.h
-        src/client/battleship/screen2/MultiplayerScreen.cpp src/client/battleship/screen2/MultiplayerScreen.h
-        src/shared/SocketConnection.cpp src/shared/SocketConnection.h src/client/wagyourgui/elements/TextInput.cpp src/client/wagyourgui/elements/TextInput.h src/client/battleship/screen2/ConnectingScreen.cpp src/client/battleship/screen2/ConnectingScreen.h)
+        src/client/battleship/player/BSOpponent.cpp src/client/battleship/player/BSOpponent.h
+        src/client/battleship/player/BsPlayer.cpp src/client/battleship/player/BsPlayer.h
+        src/client/battleship/player/BoardTracker.cpp src/client/battleship/player/BoardTracker.h
+        src/client/battleship/player/BsBotOpponent.cpp src/client/battleship/player/BsBotOpponent.h
+        src/client/battleship/player/BoardTrackerRenderer.cpp src/client/battleship/player/BoardTrackerRenderer.h
+        src/client/battleship/screen/MainMenuScreen.cpp src/client/battleship/screen/MainMenuScreen.h
+        src/client/battleship/screen/PlaceShipScreen.cpp src/client/battleship/screen/PlaceShipScreen.h
+        src/client/battleship/screen/elements/BoardElement.cpp src/client/battleship/screen/elements/BoardElement.h
+        src/client/battleship/screen/SyncOpponentScreen.cpp src/client/battleship/screen/SyncOpponentScreen.h
+        src/client/battleship/screen/PlayScreen.cpp src/client/battleship/screen/PlayScreen.h
+        src/client/battleship/player/RemoteOpponent.cpp src/client/battleship/player/RemoteOpponent.h
+        src/client/battleship/screen/MultiplayerScreen.cpp src/client/battleship/screen/MultiplayerScreen.h
+        src/shared/SocketConnection.cpp src/shared/SocketConnection.h src/client/wagyourgui/elements/TextInput.cpp src/client/wagyourgui/elements/TextInput.h src/client/battleship/screen/ConnectingScreen.cpp src/client/battleship/screen/ConnectingScreen.h)
 
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead

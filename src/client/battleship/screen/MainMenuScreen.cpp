@@ -2,15 +2,15 @@
 // Created by william on 4/3/22.
 //
 
-#include "MainMenuScreen2.h"
+#include "MainMenuScreen.h"
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/elements/Button.h"
 #include "client/battleship/Battleship.h"
-#include "PlaceShipScreen2.h"
-#include "client/battleship/player2/BsBotOpponent.h"
+#include "PlaceShipScreen.h"
+#include "client/battleship/player/BsBotOpponent.h"
 #include "MultiplayerScreen.h"
 
-void MainMenuScreen2::init(Window* window) {
+void MainMenuScreen::init(Window* window) {
     elements.push_back(
             std::make_shared<Button>(
                     width / 2.f - 400,
@@ -25,9 +25,9 @@ void MainMenuScreen2::init(Window* window) {
                     0xFF000000,
                     [=](Button* btn) {
                         parent->setScreen(
-                                new PlaceShipsScreen2(
+                                new PlaceShipsScreen(
                                         parent,
-                                        std::make_shared<GameStateMachine>(std::make_shared<BSPlayer2>(), std::make_shared<BSBotOpponent>())));
+                                        std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), std::make_shared<BSBotOpponent>())));
                     }
             ));
     addElement(std::make_shared<Button>(
@@ -47,7 +47,7 @@ void MainMenuScreen2::init(Window* window) {
     ));
 }
 
-void MainMenuScreen2::onRender(float mouseX, float mouseY) {
+void MainMenuScreen::onRender(float mouseX, float mouseY) {
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
     glEnable(GL_TEXTURE_2D);

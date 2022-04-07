@@ -3,26 +3,26 @@
 //
 
 #include "client/wagyourgui/GLFWSession.h"
-#include "PlayScreen2.h"
+#include "PlayScreen.h"
 #include "client/wagyourgui/GLBuilder.h"
 #include "client/wagyourgui/elements/Button.h"
 #include "WinLossScreen.h"
 
-void PlayScreen2::init(Window* window) {
+void PlayScreen::init(Window* window) {
     float ts = height / 11;
     elements.push_back(
-            board = std::make_shared<BoardElement2>(
+            board = std::make_shared<BoardElement>(
                     0,
                     0,
                     ts * 11,
                     parent->font,
                     gameSession->getPlayer(),
-                    [=](BoardElement2* element, int row, int col, int button) {
+                    [=](BoardElement* element, int row, int col, int button) {
                         if (button == GLFW_MOUSE_BUTTON_LEFT) {
                             handleAttack(col, row);
                         }
                     },
-                    [=](BoardElement2* element, int row, int col) {
+                    [=](BoardElement* element, int row, int col) {
                         Battleship::atlas.bind();
                         GLBuilder& builder = GLBuilder::getImmediate();
                         builder.begin(GL_TRIANGLE_STRIP, GLBuilder::POS_COL_TEX)
@@ -76,7 +76,7 @@ void PlayScreen2::init(Window* window) {
     board->setRenderHitBoard(gameSession->getGameState() == GameStateMachine::PLAYER_TURN);
 }
 
-void PlayScreen2::onRender(float mouseX, float mouseY) {
+void PlayScreen::onRender(float mouseX, float mouseY) {
     gameSession->poll();
 
     board->setDisabled(gameSession->getGameState() != GameStateMachine::PLAYER_TURN || !board->getRenderHitBoard());
@@ -118,7 +118,7 @@ void PlayScreen2::onRender(float mouseX, float mouseY) {
     Screen::onRender(mouseX, mouseY);
 }
 
-void PlayScreen2::handleAttack(int col, int row) {
+void PlayScreen::handleAttack(int col, int row) {
     if (gameSession->getGameState() == GameStateMachine::PLAYER_TURN) {
         gameSession->transition(Battleship::WAITING, col, row);
     }

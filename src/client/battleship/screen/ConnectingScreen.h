@@ -8,7 +8,7 @@
 
 #include "client/wagyourgui/Screen.h"
 #include "shared/SocketConnection.h"
-#include "client/battleship/player2/RemoteOpponent.h"
+#include "client/battleship/player/RemoteOpponent.h"
 #include <thread>
 
 class ConnectingScreen : public Screen {

@@ -8,9 +8,9 @@
 
 #include "client/wagyourgui/Screen.h"
 
-class MainMenuScreen2 : public Screen {
+class MainMenuScreen : public Screen {
     public:
-        explicit MainMenuScreen2(GLFWSession* session) : Screen(session) {};
+        explicit MainMenuScreen(GLFWSession* session) : Screen(session) {};
         void init(Window* window) override;
 
         void onRender(float mouseX, float mouseY) override;

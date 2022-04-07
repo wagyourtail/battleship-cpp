@@ -9,7 +9,7 @@
 #include <memory>
 #include "client/battleship/Battleship.h"
 
-class BSOpponent2 {
+class BSOpponent {
     public:
         // <-
         virtual bool pollPlaceDone() = 0;

@@ -10,7 +10,7 @@
 #include "BoardTracker.h"
 #include "BoardTrackerRenderer.h"
 
-class BSPlayer2 : public BoardTrackerRenderer {
+class BSPlayer : public BoardTrackerRenderer {
 };
 
 

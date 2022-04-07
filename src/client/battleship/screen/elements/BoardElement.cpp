@@ -2,13 +2,13 @@
 // Created by william on 4/3/22.
 //
 
-#include "BoardElement2.h"
+#include "BoardElement.h"
 #include "client/wagyourgui/DrawableHelper.h"
 #include <string>
 
 using namespace DrawableHelper;
 
-void BoardElement2::onRender(float mouseX, float mouseY) {
+void BoardElement::onRender(float mouseX, float mouseY) {
     float ts = width / 11;
     if (renderHitBoard) {
         player->renderHitBoard(x + ts, y + ts, ts);

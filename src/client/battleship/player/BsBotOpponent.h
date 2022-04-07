@@ -6,11 +6,11 @@
 #define BATTLESHIP_BSBOTOPPONENT_H
 
 
-#include "BSOpponent2.h"
+#include "BSOpponent.h"
 #include "BoardTracker.h"
 #include <random>
 
-class BSBotOpponent : public BSOpponent2, public BoardTracker {
+class BSBotOpponent : public BSOpponent, public BoardTracker {
     private:
         int lastShotX{};
         int lastShotY{};

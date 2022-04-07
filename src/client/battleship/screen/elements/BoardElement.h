@@ -10,33 +10,33 @@
 #include "client/wagyourgui/elements/BaseElement.h"
 #include "client/wagyourgui/elements/DisableableElement.h"
 #include "client/wagyourgui/Font.h"
-#include "client/battleship/player2/BsPlayer2.h"
+#include "client/battleship/player/BsPlayer.h"
 
-class BoardElement2 : public BaseElement, public DisableableElement {
+class BoardElement : public BaseElement, public DisableableElement {
     protected:
         float x;
         float y;
         float width;
         Font* font;
-        std::shared_ptr<BSPlayer2> player;
-        std::function<void(BoardElement2*, int, int, int)> onClickFn;
+        std::shared_ptr<BSPlayer> player;
+        std::function<void(BoardElement*, int, int, int)> onClickFn;
         bool disabled{false};
         bool renderHitBoard{};
-        std::function<void(BoardElement2*, int, int)> onRenderHighlightFn;
+        std::function<void(BoardElement*, int, int)> onRenderHighlightFn;
     public:
-        BoardElement2(
+        BoardElement(
                 float x,
                 float y,
                 float width,
                 Font* font,
-                std::shared_ptr<BSPlayer2> player,
-                std::function<void(BoardElement2*, int, int, int)> onClick,
-                std::function<void(BoardElement2*, int, int)> onRenderHighlightFn
+                std::shared_ptr<BSPlayer> player,
+                std::function<void(BoardElement*, int, int, int)> onClick,
+                std::function<void(BoardElement*, int, int)> onRenderHighlightFn
         ) :
                 BaseElement(), x(x), y(y), width(width), font(font), player(player), onClickFn(std::move(onClick)),
                 onRenderHighlightFn(std::move(onRenderHighlightFn)) {}
 
-        void setOnClick(std::function<void(BoardElement2*, int, int, int)> onClick) {
+        void setOnClick(std::function<void(BoardElement*, int, int, int)> onClick) {
             onClickFn = std::move(onClick);
         }
 

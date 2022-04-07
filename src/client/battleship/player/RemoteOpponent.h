@@ -6,13 +6,13 @@
 #define BATTLESHIP_SERVER_REMOTEOPPONENT_H
 
 
-#include "BSOpponent2.h"
+#include "BSOpponent.h"
 #include "shared/SocketConnection.h"
 #include <unistd.h>
 #include <thread>
 #include <mutex>
 
-class RemoteOpponent : public BSOpponent2, std::enable_shared_from_this<RemoteOpponent> {
+class RemoteOpponent : public BSOpponent, std::enable_shared_from_this<RemoteOpponent> {
     public:
         std::shared_ptr<SocketConnection> connection;
         std::thread connectionThread{};

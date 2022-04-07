@@ -6,8 +6,8 @@
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/DrawableHelper.h"
 #include "client/wagyourgui/elements/Button.h"
-#include "MainMenuScreen2.h"
-#include "PlayScreen2.h"
+#include "MainMenuScreen.h"
+#include "PlayScreen.h"
 
 using namespace DrawableHelper;
 
@@ -25,7 +25,7 @@ void SyncOpponentScreen::init(Window* window) {
                     0xFFFFFFFF,
                     0xFF000000,
                     [=](Button* button) {
-                        parent->setScreen(new MainMenuScreen2(parent));
+                        parent->setScreen(new MainMenuScreen(parent));
                     }
             ));
 }
@@ -34,7 +34,7 @@ void SyncOpponentScreen::onRender(float mouseX, float mouseY) {
     gameSession->poll();
 
     if (gameSession->getGameState() == GameStateMachine::PLAYER_TURN || gameSession->getGameState() == GameStateMachine::ACK_OPPONENT_TURN) {
-        parent->setScreen(new PlayScreen2(parent, gameSession));
+        parent->setScreen(new PlayScreen(parent, gameSession));
     }
 
     drawCenteredString(parent->font, "Waiting for Opponent to Place ships", width / 2, height / 2, 0xFFFFFFFF);

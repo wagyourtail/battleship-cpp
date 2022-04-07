@@ -9,8 +9,8 @@
 #include "ConnectingScreen.h"
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/DrawableHelper.h"
-#include "MainMenuScreen2.h"
-#include "PlaceShipScreen2.h"
+#include "MainMenuScreen.h"
+#include "PlaceShipScreen.h"
 
 std::string ConnectingScreen::IP = "127.0.0.1";
 int ConnectingScreen::PORT = 5549;
@@ -24,7 +24,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent) : Screen(parent) {
 
     if (sock < 0) {
         perror("socket");
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
@@ -33,7 +33,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent) : Screen(parent) {
 
     if (connect(sock, (sockaddr*)&dest, sizeof(dest)) < 0) {
         perror("connect");
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
@@ -53,7 +53,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent, const std::string& joinc
 
     if (sock < 0) {
         perror("socket");
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
@@ -62,7 +62,7 @@ ConnectingScreen::ConnectingScreen(GLFWSession* parent, const std::string& joinc
 
     if (connect(sock, (sockaddr*)&dest, sizeof(dest)) < 0) {
         perror("connect");
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
@@ -77,7 +77,7 @@ void ConnectingScreen::waitForReadHost(std::shared_ptr<RemoteOpponent> connectio
     std::string message;
     *connection->connection >> message;
     if (connection->connection->fail()) {
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
     if (message.length() == 6 && message[0] == 's') {
@@ -88,11 +88,11 @@ void ConnectingScreen::waitForReadHost(std::shared_ptr<RemoteOpponent> connectio
         message = "";
         *connection->connection >> message;
         if (connection->connection->fail()) {
-            parent->setScreen(new MainMenuScreen2(parent));
+            parent->setScreen(new MainMenuScreen(parent));
             return;
         }
     } else {
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
@@ -103,11 +103,11 @@ void ConnectingScreen::waitForReadHost(std::shared_ptr<RemoteOpponent> connectio
             connection->gf = false;
         }
     } else {
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
-    parent->setScreen(new PlaceShipsScreen2(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer2>(), connection)));
+    parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
     connection->beginMainGameReadTask();
 }
 
@@ -115,7 +115,7 @@ void ConnectingScreen::waitForReadClient(std::shared_ptr<RemoteOpponent> connect
     std::string message;
     *connection->connection >> message;
     if (connection->connection->fail()) {
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
     if (message.length() == 2 && message[0] == 's') {
@@ -125,11 +125,11 @@ void ConnectingScreen::waitForReadClient(std::shared_ptr<RemoteOpponent> connect
             connection->gf = false;
         }
     } else {
-        parent->setScreen(new MainMenuScreen2(parent));
+        parent->setScreen(new MainMenuScreen(parent));
         return;
     }
 
-    parent->setScreen(new PlaceShipsScreen2(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer2>(), connection)));
+    parent->setScreen(new PlaceShipsScreen(parent, std::make_shared<GameStateMachine>(std::make_shared<BSPlayer>(), connection)));
     connection->beginMainGameReadTask();
 }
 
@@ -138,7 +138,7 @@ void ConnectingScreen::init(Window* window) {
             5, height - 35, width / 2 - 10, 20,
             parent->font, "Cancel", 0, 0xFF4f4f4f, 0xFFFFFFFF, 0xFF000000,
             [=](Button* b) {
-                parent->setScreen(new MainMenuScreen2(parent));
+                parent->setScreen(new MainMenuScreen(parent));
             }
     ));
 }

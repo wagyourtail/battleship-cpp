@@ -7,7 +7,7 @@
 #include "client/wagyourgui/elements/TextInput.h"
 #include "client/wagyourgui/DrawableHelper.h"
 #include "ConnectingScreen.h"
-#include "MainMenuScreen2.h"
+#include "MainMenuScreen.h"
 #include <algorithm>
 #include <string>
 
@@ -46,7 +46,7 @@ void MultiplayerScreen::init(Window* window) {
             5, height - 35, width / 2 - 10, 20,
             parent->font, "Back", 0, 0xFF4f4f4f, 0xFFFFFFFF, 0xFF000000,
             [=](Button* b) {
-                parent->setScreen(new MainMenuScreen2(parent));
+                parent->setScreen(new MainMenuScreen(parent));
             }
     ));
 }

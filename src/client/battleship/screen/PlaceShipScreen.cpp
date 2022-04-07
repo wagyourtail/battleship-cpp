@@ -3,30 +3,30 @@
 //
 
 #include "client/wagyourgui/GLFWSession.h"
-#include "PlaceShipScreen2.h"
+#include "PlaceShipScreen.h"
 #include "client/wagyourgui/elements/Button.h"
 #include "client/wagyourgui/DrawableHelper.h"
 #include "SyncOpponentScreen.h"
-#include "MainMenuScreen2.h"
+#include "MainMenuScreen.h"
 
-void PlaceShipsScreen2::init(Window* window) {
+void PlaceShipsScreen::init(Window* window) {
     float ts;
     ts = height / 11;
     elements.push_back(
-            board = std::make_shared<BoardElement2>(
+            board = std::make_shared<BoardElement>(
                     0,
                     0,
                     ts * 11,
                     parent->font,
                     gameSession->getPlayer(),
-                    [=](BoardElement2* element, int row, int col, int button) {
+                    [=](BoardElement* element, int row, int col, int button) {
                         if (button == GLFW_MOUSE_BUTTON_LEFT) {
                             this->placeShip(element, row, col);
                         } else if (button == GLFW_MOUSE_BUTTON_MIDDLE) {
                             this->horizontal = !this->horizontal;
                         }
                     },
-                    [=](BoardElement2* element, int row, int col) {
+                    [=](BoardElement* element, int row, int col) {
                         if (shipsPlaced < 5)
                             gameSession->getPlayer()->renderPlace(0, 0, ts, row, col, this->horizontal);
                     }
@@ -90,12 +90,12 @@ void PlaceShipsScreen2::init(Window* window) {
                     0xFFFFFFFF,
                     0xFF000000,
                     [=](Button* button) {
-                        parent->setScreen(new MainMenuScreen2(parent));
+                        parent->setScreen(new MainMenuScreen(parent));
                     }
             ));
 }
 
-void PlaceShipsScreen2::onRender(float mouseX, float mouseY) {
+void PlaceShipsScreen::onRender(float mouseX, float mouseY) {
     Screen::onRender(mouseX, mouseY);
 
     // calc room for controls on right
@@ -128,7 +128,7 @@ void PlaceShipsScreen2::onRender(float mouseX, float mouseY) {
     glPopMatrix();
 }
 
-void PlaceShipsScreen2::placeShip(BoardElement2* element, int row, int col) {
+void PlaceShipsScreen::placeShip(BoardElement* element, int row, int col) {
     bool success = gameSession->getPlayer()->placeShip(col, row, Battleship::SHIP_LENGTHS[shipsPlaced], horizontal);
     if (success) {
         ++shipsPlaced;

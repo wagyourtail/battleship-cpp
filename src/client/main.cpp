@@ -4,12 +4,12 @@
 
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/Screen.h"
-#include "client/battleship/screen2/MainMenuScreen2.h"
+#include "client/battleship/screen/MainMenuScreen.h"
 
 int main(int argc, char* argv[]) {
     GLFWSession session{
             [](GLFWSession* session1) {
-                Screen* screen = new MainMenuScreen2(session1);
+                Screen* screen = new MainMenuScreen(session1);
                 return screen;
             }};
     try {
