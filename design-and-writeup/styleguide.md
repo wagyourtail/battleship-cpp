@@ -13,10 +13,8 @@ or be in a file where the "class" is a namespace.
 
 ## Folders
 
-//TODO: actually move things to match this
-
-Folders should be synonymous with namespaces, so for example if there is a file at `example/folder/file.h`,
-it should be in a namespace called `example::folder`.
+classes are grouped in folders, there groupings should be for related classes, but don't nececairily require a
+equivalently named namespace.
 
 ## Forward References
 
@@ -26,7 +24,7 @@ Forward References should be avoided when possible, it is *always* preferable to
 
 4 spaces, not tabs.
 
-### Indentation
+## Indentation
 
 indentation should occur on every hierarchical thing, (ie class scope operators, case, inside curly braces, etc).
 ie
@@ -37,7 +35,7 @@ class Foo {
 };
 ```
 
-### Whitespace
+## Whitespace
 
 whitespace should be blank lines between important statements for readability...
 for example, before a function definition, before a class definition, before a namespace definition, etc.
@@ -45,11 +43,11 @@ there don't need to be a blank line between stubs, or between a function definit
 
 generally, blank lines should be before any line with opening curly braces or a colon in it, or after a closing curly brace.
 
-### Line Length
+## Line Length
 
 120
 
-### if statements and braces
+## if statements and braces
 
 if an if statement doesn't use curly braces its contents should be on the same line,
 if the contents are too long to do this due to line length,
@@ -74,4 +72,9 @@ if (foo) {
 }
 ```
 
-//TODO: add more rules
+## Capitialization and Var names
+
+Most things are camelCase, namespaces, classes and enums should be PascalCase.
+variables are mostly camelCase, but if it's a direct reference to a C variable/concept,
+it is allowed to be snake_case. `static/const` variables should be SCREAMING_SNAKE_CASE.
+

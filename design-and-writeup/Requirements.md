@@ -19,8 +19,8 @@ Your finished project should demonstrate the following concepts we learned in cl
 - [inheritance](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/elements/Button.h#L15)
 - [exceptions](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/Font.cpp#L22)
 - [file I/O](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/Font.cpp#L11)
-- [a UML diagram]()
-- demonstration of a C++ command/function/concept that we have not covered in class yet
+- [a UML diagram](https://github.com/wagyourtail/battleship-cpp/blob/main/design-and-writeup/uml-diagram.png) - it's a bit big to display in git
+- demonstration of a C++ command/function/concept that we have not covered in class yet - [mutex](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/player/RemoteOpponent.h#L22) [shared_ptr/unique_ptr](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/player/RemoteOpponent.h#L17) [thread](https://github.com/wagyourtail/battleship-cpp/blob/main/src/server/Session.cpp#L29) [c11 random](https://github.com/wagyourtail/battleship-cpp/blob/main/src/server/Session.cpp#L22)
 - good programming practices
 
 Submit a style guide and made sure to follow it with all your submitted code. (In class we talked about Google&#39;s coding guidelines: [https://](https://google.github.io/styleguide/cppguide.html)[google.github.io/styleguide/cppguide.html](https://google.github.io/styleguide/cppguide.html) Your Style Guide doesn&#39;t have to be nearly this extensive)
