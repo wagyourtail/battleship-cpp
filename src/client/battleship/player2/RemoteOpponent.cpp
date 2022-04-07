@@ -57,7 +57,7 @@ void RemoteOpponent::beginMainGameReadTask() {
             std::stringstream ss(message);
             std::string command;
             ss >> command;
-            std::cout << command << std::endl;
+//            std::cout << command << std::endl;
             if (command == "attack") {
                 mtx.lock();
                 ss >> lastX;

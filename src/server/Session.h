@@ -35,7 +35,7 @@
     public:
         Session(std::string session_id, int hostFd) : session_id(std::move(session_id)), host_connection(std::make_shared<SocketConnection>(hostFd)) {}
         ~Session() {
-            std::cout << "Session destructor" << std::endl;
+//            std::cout << "Session destructor" << std::endl;
             alive = false;
             //detatch to not kill the main thread, they should stop themselves shortly anyway...
             host_read_thread.detach();

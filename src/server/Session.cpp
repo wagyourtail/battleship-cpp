@@ -29,7 +29,7 @@ void Session::start(int clientFd) {
     host_read_thread = std::thread(&Session::hostRead, shared_from_this());
     client_read_thread = std::thread(&Session::clientRead, shared_from_this());
 
-    std::cout << "Session::start " << session_id << std::endl;
+//    std::cout << "Session::start " << session_id << std::endl;
 }
 
 void Session::connect(int unknownFd) {
@@ -41,7 +41,7 @@ void Session::connect(int unknownFd) {
             exit(1);
         }
         if (buffer[0] == 'h') {
-            std::cout << "new host" << std::endl;
+//            std::cout << "new host" << std::endl;
             std::random_device rd;
             std::uniform_int_distribution<int> dist(0, 35);
             std::string session_id;
@@ -67,7 +67,7 @@ void Session::connect(int unknownFd) {
             int error_code;
             socklen_t error_code_size = sizeof(error_code);
             getsockopt(unknownFd, SOL_SOCKET, SO_ERROR, &error_code, &error_code_size);
-            std::cout << "error code: " << error_code << std::endl;
+//            std::cout << "error code: " << error_code << std::endl;
 
             if (error_code != 0) {
                 auto it = sessions.find(session_id);
@@ -105,7 +105,7 @@ void Session::connect(int unknownFd) {
 void Session::hostRead(std::shared_ptr<Session> session) {
     try {
         while (session->alive) {
-            std::cout << "host read" << std::endl;
+//            std::cout << "host read" << std::endl;
             std::string msg;
             *session->client_connection >> msg;
             if (!session->alive) {
@@ -117,7 +117,7 @@ void Session::hostRead(std::shared_ptr<Session> session) {
                 sessions.erase(session->session_id);
                 break;
             }
-            std::cout << "session id: " << session->session_id << " <<" << msg << std::endl;
+//            std::cout << "session id: " << session->session_id << " <<" << msg << std::endl;
             *session->host_connection << msg;
             if (msg == "gameover") {
                 session->alive = false;
@@ -129,13 +129,13 @@ void Session::hostRead(std::shared_ptr<Session> session) {
         session->host_connection = nullptr;
     } catch (...) {}
 
-    std::cout << "host read end" << std::endl;
+//    std::cout << "host read end" << std::endl;
 }
 
 void Session::clientRead(std::shared_ptr<Session> session) {
     try {
         while (session->alive) {
-            std::cout << "client read" << std::endl;
+//            std::cout << "client read" << std::endl;
             std::string msg;
             *session->host_connection >> msg;
             if (!session->alive) {
@@ -147,7 +147,7 @@ void Session::clientRead(std::shared_ptr<Session> session) {
                 sessions.erase(session->session_id);
                 break;
             }
-            std::cout << "session id: " << session->session_id << " >>" << msg << std::endl;
+//            std::cout << "session id: " << session->session_id << " >>" << msg << std::endl;
             *session->client_connection << msg;
             if (msg == "gameover") {
                 session->alive = false;
@@ -159,5 +159,5 @@ void Session::clientRead(std::shared_ptr<Session> session) {
         session->host_connection = nullptr;
     } catch (...) {}
 
-    std::cout << "client read end" << std::endl;
+//    std::cout << "client read end" << std::endl;
 }
