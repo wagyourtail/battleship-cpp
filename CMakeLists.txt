@@ -42,7 +42,8 @@ set(BATTLESHIP-SOURCE
         src/client/battleship/screen2/SyncOpponentScreen.cpp src/client/battleship/screen2/SyncOpponentScreen.h
         src/client/battleship/screen2/PlayScreen2.cpp src/client/battleship/screen2/PlayScreen2.h
         src/client/battleship/player2/RemoteOpponent.cpp src/client/battleship/player2/RemoteOpponent.h
-        src/shared/SocketConnection.cpp src/shared/SocketConnection.h)
+        src/client/battleship/screen2/MultiplayerScreen.cpp src/client/battleship/screen2/MultiplayerScreen.h
+        src/shared/SocketConnection.cpp src/shared/SocketConnection.h src/client/wagyourgui/elements/TextInput.cpp src/client/wagyourgui/elements/TextInput.h)
 
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead

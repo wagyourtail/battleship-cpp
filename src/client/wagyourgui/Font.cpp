@@ -198,3 +198,43 @@ int Font::getCP(const std::string& text, int to, int i, int* cpOut) {
     *cpOut = c1;
     return 1;
 }
+
+std::string Font::trimToWidth(const std::string& text, float width) {
+    // get width of initial string
+    float width0 = getWidth(text);
+    if (width0 <= width) {
+        return text;
+    }
+    // estimate based on ratio
+    int estimate = (int) (width / width0 * text.length());
+    // get width of estimated string
+    std::string textEst = text.substr(0, estimate);
+    float widthEst = getWidth(textEst);
+    // test size
+    if (widthEst > width) {
+        // trim
+        int i = estimate - 1;
+        while (i > 0) {
+            textEst = text.substr(0, i);
+            widthEst = getWidth(textEst);
+            if (widthEst <= width) {
+                break;
+            }
+            i--;
+        }
+    } else {
+        // add to reach
+        int i = estimate + 1;
+        while (i < text.length()) {
+            std::string newEst = text.substr(0, i);
+            widthEst = getWidth(textEst);
+            if (widthEst > width) {
+                break;
+            }
+            // use std::move to avoid copying
+            textEst = std::move(newEst);
+            i++;
+        }
+    }
+    return textEst;
+}

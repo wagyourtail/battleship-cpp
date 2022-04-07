@@ -61,7 +61,7 @@ class Button : public BaseElement, public DisableableElement {
         ) :
                 BaseElement(), x(x), y(y), width(width), height(height), font(font), text(std::move(text)),
                 color(color), hoverColor(hoverColor), textColor(textColor), hoverTextColor(textColor),
-                borderColor(borderColor), onClickFn(onClick), active(true) {}
+                borderColor(borderColor), onClickFn(std::move(onClick)), active(true) {}
 
         void setOnClick(std::function<void(Button*)> onClick) { this->onClickFn = onClick; }
 
@@ -84,25 +84,25 @@ class Button : public BaseElement, public DisableableElement {
 
         void setBorderColor(uint32_t borderColor) { this->borderColor = borderColor; }
 
-        float getX() { return x; }
+        float getX() const { return x; }
 
-        float getY() { return y; }
+        float getY() const { return y; }
 
-        float getWidth() { return width; }
+        float getWidth() const { return width; }
 
-        float getHeight() { return height; }
+        float getHeight() const { return height; }
 
         std::string getText() { return text; }
 
-        uint32_t getColor() { return color; }
+        uint32_t getColor() const { return color; }
 
-        uint32_t getHoverColor() { return hoverColor; }
+        uint32_t getHoverColor() const { return hoverColor; }
 
-        uint32_t getTextColor() { return textColor; }
+        uint32_t getTextColor() const { return textColor; }
 
-        uint32_t getHoverTextColor() { return hoverTextColor; }
+        uint32_t getHoverTextColor() const { return hoverTextColor; }
 
-        uint32_t getBorderColor() { return borderColor; }
+        uint32_t getBorderColor() const { return borderColor; }
 
         virtual bool shouldFocus(float mouseX, float mouseY) override {
             return mouseX >= x && mouseX <= x + width && mouseY >= y && mouseY <= y + height;
@@ -115,7 +115,7 @@ class Button : public BaseElement, public DisableableElement {
             return true;
         }
 
-        virtual void onRender(float mouseX, float mouseY);
+        virtual void onRender(float mouseX, float mouseY) override;
 
         void setDisabled(bool disabled) override { this->active = !disabled; }
 

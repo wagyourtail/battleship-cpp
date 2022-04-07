@@ -21,6 +21,15 @@ void Session::start(int clientFd) {
     host_read_thread = std::thread(&Session::hostRead, this);
     client_read_thread = std::thread(&Session::clientRead, this);
 
+    // roll who goes first
+    std::random_device rd;
+    std::uniform_int_distribution<int> dist(0, 1);
+    bool host_start = dist(rd);
+    std::string startString = host_start ? "shost" : "sclient";
+
+    *host_connection << startString;
+    *client_connection << startString;
+
     std::cout << "Session::start" << std::endl;
 }
 

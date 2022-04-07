@@ -8,6 +8,7 @@
 #include "client/battleship/Battleship.h"
 #include "PlaceShipScreen2.h"
 #include "client/battleship/player2/BsBotOpponent.h"
+#include "MultiplayerScreen.h"
 
 void MainMenuScreen2::init(Window* window) {
     elements.push_back(
@@ -17,7 +18,7 @@ void MainMenuScreen2::init(Window* window) {
                     800,
                     28,
                     parent->font,
-                    "Start Game",
+                    "Singleplayer",
                     0,
                     0xFFa2a2a2,
                     0xFFFFFFFF,
@@ -29,6 +30,21 @@ void MainMenuScreen2::init(Window* window) {
                                         std::make_shared<GameStateMachine>(std::make_shared<BSPlayer2>(), std::make_shared<BSBotOpponent>())));
                     }
             ));
+    addElement(std::make_shared<Button>(
+            width / 2.f - 400,
+            height / 2.f + 16,
+            800,
+            28,
+            parent->font,
+            "Multiplayer",
+            0,
+            0xFFa2a2a2,
+            0xFFFFFFFF,
+            0xFF000000,
+            [=](Button* btn) {
+                parent->setScreen(new MultiplayerScreen(parent));
+            }
+    ));
 }
 
 void MainMenuScreen2::onRender(float mouseX, float mouseY) {

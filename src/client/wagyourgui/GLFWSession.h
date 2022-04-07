@@ -70,6 +70,14 @@ class GLFWSession {
             screen->onMouseButton((float) cursorX, (float) cursorY, button, action, mods);
         }
 
+        void onMousePos(double x, double y) {
+            for (int i = 0; i < 6; ++i) {
+                if (glfwGetMouseButton(window->handle, i) == GLFW_PRESS) {
+                    screen->onMousePos((float) x, (float) y, i);
+                }
+            }
+        }
+
         void onScroll(double xOffset, double yOffset) {
             double cursorX, cursorY;
             glfwGetCursorPos(window->handle, &cursorX, &cursorY);

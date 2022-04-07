@@ -42,6 +42,7 @@ class Font {
         float drawString(const std::string& text, float x, float y);
         float getWidth(const std::string& text);
         float drawTrimmedString(const std::string& text, float x, float y, float width);
+        std::string trimToWidth(const std::string& text, float width);
     private:
         static int getCP(const std::string& text, int to, int i, int* cpOut);
 

@@ -4,6 +4,7 @@
 
 #include "Screen.h"
 #include "Window.h"
+#include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/elements/BaseElement.h"
 
 float* Screen::sX = new float[6];
@@ -30,13 +31,14 @@ void Screen::onMouseButton(float x, float y, int button, int action, int mods) {
         case GLFW_RELEASE:
             onRelease(x, y, button);
             break;
-        case GLFW_REPEAT:
-            if (button < 6) {
-                onDrag(x, y, x - sX[button], y - sY[button], button);
-                sX[button] = x;
-                sY[button] = y;
-            }
-            break;
+    }
+}
+
+void Screen::onMousePos(float x, float y, int button) {
+    if (button < 6) {
+        onDrag(x, y, x - sX[button], y - sY[button], button);
+        sX[button] = x;
+        sY[button] = y;
     }
 }
 

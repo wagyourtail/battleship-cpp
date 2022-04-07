@@ -5,6 +5,9 @@
 #include "SocketConnection.h"
 #include <cstring>
 
+// thx
+// https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
+
 template<class T, class U>
 inline auto min(T a, U b) -> decltype(a + b) {
     return a < b ? a : b;

@@ -35,6 +35,7 @@ class Screen {
 
     public:
         virtual void onMouseButton(float x, float y, int button, int action, int mods);
+        virtual void onMousePos(float x, float y, int button);
         virtual bool onClick(float x, float y, int button);
         virtual bool onScroll(float x, float y, float dx, float dy);
         virtual bool onDrag(float x, float y, float dx, float dy, int button);
@@ -44,6 +45,13 @@ class Screen {
         virtual void onRender(float mouseX, float mouseY);
 
         virtual void init(Window* window) = 0;
+
+    protected:
+        template<typename T, typename std::enable_if<std::is_base_of<BaseElement, T>::value>::type* = nullptr>
+        std::shared_ptr<T> addElement(const std::shared_ptr<T>& element) {
+            elements.push_back(element);
+            return element;
+        }
 };
 
 

@@ -6,6 +6,9 @@
 #include <cstdio>
 #include "Session.h"
 
+// thx
+// https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
+
 int main(int argc, char *argv[]) {
     // socket
     int server_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
