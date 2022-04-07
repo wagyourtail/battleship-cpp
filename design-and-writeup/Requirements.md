@@ -9,17 +9,17 @@ Your finished project should demonstrate the following concepts we learned in cl
 
 - thoughtful selection of variable names, function names, and class names.
 - division of code into multiple header and source code files
-- if statements
-- while, do-while, and for loops
-- functions
-- class definitions
-- constructors and destructors
-- operator overloading
-- object composition
-- inheritance
-- exceptions
-- file I/O
-- a UML diagram
+- [if statements](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/DrawableHelper.cpp#L13)
+- [while](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/GLFWSession.cpp#L60), [do-while](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/player/BsBotOpponent.cpp#L22), and [for loops](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/player/BsBotOpponent.cpp#L9)
+- [functions](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/DrawableHelper.cpp#L12)
+- [class definitions](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/GameStateMachine.h)
+- [constructors and destructors](https://github.com/wagyourtail/battleship-cpp/blob/main/src/shared/SocketConnection.h#L16)
+- [operator overloading](https://github.com/wagyourtail/battleship-cpp/blob/main/src/shared/SocketConnection.h#L28)
+- [object composition](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/battleship/GameStateMachine.h#L27)
+- [inheritance](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/elements/Button.h#L15)
+- [exceptions](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/Font.cpp#L22)
+- [file I/O](https://github.com/wagyourtail/battleship-cpp/blob/main/src/client/wagyourgui/Font.cpp#L11)
+- [a UML diagram]()
 - demonstration of a C++ command/function/concept that we have not covered in class yet
 - good programming practices
 

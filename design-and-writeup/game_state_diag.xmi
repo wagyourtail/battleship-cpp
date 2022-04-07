@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmi.version="1.2" timestamp="2022-03-28T11:41:52" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
+<XMI xmi.version="1.2" timestamp="2022-04-07T12:48:37" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller 2.32.3 http://umbrello.kde.org</XMI.exporter>
@@ -44,30 +44,30 @@
         <messages/>
         <associations/>
        </diagram>
-       <diagram xmi.id="ubYlSi8BwAg4R" name="state diagram" type="5" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="107.472" canvasheight="189.526" canvaswidth="1205" isopen="1">
+       <diagram xmi.id="ubYlSi8BwAg4R" name="state diagram" type="5" documentation="" backgroundcolor="#ffffff" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" griddotcolor="#d3d3d3" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="107.613" canvasheight="303.076" canvaswidth="707.361" isopen="1">
         <widgets>
-         <statewidget xmi.id="un8peuEHlqQij" localid="udkwVzVQUtiaU" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-144.848" y="-260.951" width="153" height="28" isinstance="0" showstereotype="2" statename="wait for opponent ack" documentation="" statetype="1">
+         <statewidget xmi.id="usDfwZW48o6a5" localid="uKTYR2IoZAlhO" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="100" y="-201" width="81" height="28" isinstance="0" showstereotype="2" statename="game_over" documentation="" statetype="1">
           <Activities/>
          </statewidget>
-         <statewidget xmi.id="uV7e6gW5h1nhG" localid="uFzRipEC2uUDQ" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-667.69" y="-226.888" width="163" height="28" isinstance="0" showstereotype="2" statename="wait for opponent done" documentation="" statetype="1">
+         <statewidget xmi.id="unbT3ClWsYTXc" localid="uiV6JgymPppob" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-511.882" y="-311.858" width="81" height="28" isinstance="0" showstereotype="2" statename="place ships" documentation="" statetype="1">
+          <Activities/>
+         </statewidget>
+         <statewidget xmi.id="un8peuEHlqQij" localid="udkwVzVQUtiaU" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-144.848" y="-260.951" width="153" height="28" isinstance="0" showstereotype="2" statename="wait for opponent ack" documentation="" statetype="1">
           <Activities/>
          </statewidget>
          <statewidget xmi.id="uokTy3ALtdCj3" localid="upRpXRmOyEOzn" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-260.718" y="-159.474" width="168" height="28" isinstance="0" showstereotype="2" statename="Opponent Turn wait/ack" documentation="" statetype="1">
           <Activities/>
          </statewidget>
-         <statewidget xmi.id="uqK5zDFzmsTWf" localid="uyUjPrBX2BsNq" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="-940" y="-321" width="10" height="10" isinstance="0" showstereotype="2" statename="State" documentation="" statetype="0">
-          <Activities/>
-         </statewidget>
          <statewidget xmi.id="uFAWI6g1wqs1C" localid="ulrU9uilYhQtx" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="-307.669" y="-255.904" width="84" height="28" isinstance="0" showstereotype="2" statename="Player Turn" documentation="" statetype="1">
           <Activities/>
          </statewidget>
-         <statewidget xmi.id="unbT3ClWsYTXc" localid="uiV6JgymPppob" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-899" y="-216" width="81" height="28" isinstance="0" showstereotype="2" statename="place ships" documentation="" statetype="1">
+         <statewidget xmi.id="uqK5zDFzmsTWf" localid="uyUjPrBX2BsNq" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="-482.833" y="-367.7" width="10" height="10" isinstance="0" showstereotype="2" statename="State" documentation="" statetype="0">
           <Activities/>
          </statewidget>
-         <statewidget xmi.id="usDfwZW48o6a5" localid="uKTYR2IoZAlhO" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="100" y="-201" width="81" height="28" isinstance="0" showstereotype="2" statename="game_over" documentation="" statetype="1">
+         <statewidget xmi.id="uV7e6gW5h1nhG" localid="uFzRipEC2uUDQ" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-526.361" y="-204.767" width="163" height="28" isinstance="0" showstereotype="2" statename="wait for opponent done" documentation="" statetype="1">
           <Activities/>
          </statewidget>
-         <statewidget xmi.id="unwgd88Qj9jZd" localid="uGF5kBawDBT1o" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="255" y="-184" width="10" height="10" isinstance="0" showstereotype="2" statename="State" documentation="" statetype="2">
+         <statewidget xmi.id="unwgd88Qj9jZd" localid="uGF5kBawDBT1o" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" x="146.853" y="-74.6239" width="10" height="10" isinstance="0" showstereotype="2" statename="State" documentation="" statetype="2">
           <Activities/>
          </statewidget>
         </widgets>
@@ -83,35 +83,35 @@
          <assocwidget xmi.id="uaxILtx51v6fW" localid="ucJc1Svl8wL2P" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="uokTy3ALtdCj3" widgetbid="usDfwZW48o6a5" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
           <floatingtext xmi.id="uGj1SOIqi8ape" localid="uU6avT1efkGk0" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-23.4001" y="-179.527" width="55" height="22" isinstance="0" showstereotype="2" text="sunk all" pretext="" posttext="" role="703"/>
           <linepath layout="Direct">
-           <startpoint startx="-92.7179" starty="-159.474"/>
+           <startpoint startx="-92.718" starty="-159.474"/>
            <endpoint endx="100" endy="-173"/>
           </linepath>
          </assocwidget>
          <assocwidget xmi.id="uZpNWquzasUaw" localid="uh9PlLhJP6Mj6" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="uqK5zDFzmsTWf" widgetbid="unbT3ClWsYTXc" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
           <linepath layout="Direct">
-           <startpoint startx="-930" starty="-311"/>
-           <endpoint endx="-899" endy="-216"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget xmi.id="uGBztr5VKUupJ" localid="uJKYOHoSaWw8H" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="uV7e6gW5h1nhG" widgetbid="uokTy3ALtdCj3" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
-          <floatingtext xmi.id="u0jGHMJ8MzNG3" localid="u0as7P759NIcv" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-421.5" y="-184" width="48" height="22" isinstance="0" showstereotype="2" text="ot first" pretext="" posttext="" role="703"/>
-          <linepath layout="Direct">
-           <startpoint startx="-504.69" starty="-198.888"/>
-           <endpoint endx="-260.718" endy="-159.474"/>
+           <startpoint startx="-472.833" starty="-357.7"/>
+           <endpoint endx="-472.833" endy="-311.858"/>
           </linepath>
          </assocwidget>
          <assocwidget xmi.id="uzm7OkpuNBaSn" localid="uXcUrgoTIXwVf" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="un8peuEHlqQij" widgetbid="usDfwZW48o6a5" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
           <floatingtext xmi.id="ut1o1zGQE7Pgs" localid="uDMBfqM2wPiEj" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="66.5" y="-217.5" width="55" height="22" isinstance="0" showstereotype="2" text="sunk all" pretext="" posttext="" role="703"/>
           <linepath layout="Direct">
-           <startpoint startx="8.15184" starty="-232.951"/>
+           <startpoint startx="8.152" starty="-232.951"/>
            <endpoint endx="100" endy="-201"/>
           </linepath>
          </assocwidget>
          <assocwidget xmi.id="udPuCgDGo49vs" localid="u4ue5xOlkDakH" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="uV7e6gW5h1nhG" widgetbid="uFAWI6g1wqs1C" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
-          <floatingtext xmi.id="uQ6Ie1cPL7G4F" localid="u4jlvjUDgKOy6" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-427.5" y="-257.5" width="48" height="22" isinstance="0" showstereotype="2" text="pt first" pretext="" posttext="" role="703"/>
+          <floatingtext xmi.id="uQ6Ie1cPL7G4F" localid="u4jlvjUDgKOy6" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-371.5" y="-255.5" width="48" height="22" isinstance="0" showstereotype="2" text="pt first" pretext="" posttext="" role="703"/>
           <linepath layout="Direct">
-           <startpoint startx="-504.69" starty="-226.888"/>
+           <startpoint startx="-363.361" starty="-204.767"/>
            <endpoint endx="-307.669" endy="-227.904"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget xmi.id="uGBztr5VKUupJ" localid="uJKYOHoSaWw8H" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="uV7e6gW5h1nhG" widgetbid="uokTy3ALtdCj3" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
+          <floatingtext xmi.id="u0jGHMJ8MzNG3" localid="u0as7P759NIcv" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-365.5" y="-182" width="48" height="22" isinstance="0" showstereotype="2" text="ot first" pretext="" posttext="" role="703"/>
+          <linepath layout="Direct">
+           <startpoint startx="-363.361" starty="-176.767"/>
+           <endpoint endx="-260.718" endy="-159.474"/>
           </linepath>
          </assocwidget>
          <assocwidget xmi.id="uvJA52ZfU9AjM" localid="uud5gjwLS9YeB" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="un8peuEHlqQij" widgetbid="uFAWI6g1wqs1C" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
@@ -123,8 +123,8 @@
          </assocwidget>
          <assocwidget xmi.id="uKzNKkSJNkeuO" localid="uapHoUmqsq2uU" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="unbT3ClWsYTXc" widgetbid="uV7e6gW5h1nhG" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
           <linepath layout="Direct">
-           <startpoint startx="-818" starty="-213.775"/>
-           <endpoint endx="-667.69" endy="-213.775"/>
+           <startpoint startx="-468.869" starty="-283.858"/>
+           <endpoint endx="-468.869" endy="-204.767"/>
           </linepath>
          </assocwidget>
          <assocwidget xmi.id="ukWm5xjp84fl9" localid="uix2riQRY4Oq4" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="un8peuEHlqQij" widgetbid="uokTy3ALtdCj3" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
@@ -143,8 +143,8 @@
          </assocwidget>
          <assocwidget xmi.id="u5xBJHBpSLMQU" localid="uEsmaA09eNKu9" textcolor="none" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="1" usesdiagramusefillcolor="1" fillcolor="none" font="Noto Sans,10,-1,0,50,0,0,0,0,0" autoresize="1" seqnum="" type="514" visibilityA="0" visibilityB="0" changeabilityA="900" changeabilityB="900" roleAdoc="" roleBdoc="" documentation="" widgetaid="usDfwZW48o6a5" widgetbid="unwgd88Qj9jZd" indexa="1" totalcounta="2" indexb="1" totalcountb="2">
           <linepath layout="Direct">
-           <startpoint startx="181" starty="-174"/>
-           <endpoint endx="255" endy="-174"/>
+           <startpoint startx="149.311" starty="-173"/>
+           <endpoint endx="149.311" endy="-74.6239"/>
           </linepath>
          </assocwidget>
         </associations>
@@ -168,7 +168,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="ubYlSi8BwAg4R" documentation="" uniqueid="uwQwDDb3e27PK"/>
+  <docsettings viewid="ubYlSi8BwAg4R" documentation="" uniqueid="ukg7fVIL68v9l"/>
   <listview>
    <listitem id="Views" type="800" open="1">
     <listitem id="Component_View" type="821" open="1"/>
