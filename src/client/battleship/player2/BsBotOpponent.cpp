@@ -59,6 +59,6 @@ bool BSBotOpponent::pollAttack(int& x, int& y) {
     return true;
 }
 
-void BSBotOpponent::ackAttack(Battleship::Status status) {
-    BoardTracker::attack(status, lastShotX, lastShotY);
+void BSBotOpponent::ackAttack(Battleship::Status status, int x, int y) {
+    BoardTracker::attack(status, x, y);
 }

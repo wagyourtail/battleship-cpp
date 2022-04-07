@@ -13,12 +13,15 @@
 #include <iostream>
 #include <chrono>
 #include <functional>
+#include <mutex>
 
 /*
  * GLFWSession
  * adapted from "HelloWorld" example at <https://www.lwjgl.org/guide>
  */
 class GLFWSession {
+    private:
+        std::recursive_mutex mtx{};
     public:
         Window* window{};
         Font* font{};
@@ -45,7 +48,9 @@ class GLFWSession {
         void setScreen(Screen* screen) {
             Screen* old = this->screen;
             this->screen = screen;
+            mtx.lock();
             delete old;
+            mtx.unlock();
             screen->onWindowResize(window);
         }
 

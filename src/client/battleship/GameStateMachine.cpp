@@ -14,6 +14,9 @@ void GameStateMachine::poll()  {
             }
             break;
         case PLAYER_TURN:
+            if (opponent->surrendered()) {
+                gameState = GAME_OVER;
+            }
             break;
         case WAIT_FOR_OPPONENT_ACK: {
             int x, y;
@@ -25,6 +28,9 @@ void GameStateMachine::poll()  {
         }
         case ACK_OPPONENT_TURN: {
             int x, y;
+            if (opponent->surrendered()) {
+                gameState = GAME_OVER;
+            }
             if (opponent->pollAttack(x, y)) {
                 transition(Battleship::WAITING, x, y);
             }
@@ -38,10 +44,11 @@ void GameStateMachine::poll()  {
 void GameStateMachine::transition(Battleship::Status status, int x, int y) {
     switch (gameState) {
         case PLACE_SHIPS:
+            opponent->sendPlaceDone();
             gameState = WAIT_FOR_OPPONENT_PLACE_SHIPS;
             break;
         case WAIT_FOR_OPPONENT_PLACE_SHIPS:
-            gameState = PLAYER_TURN;
+            gameState = opponent->goesFirst() ? ACK_OPPONENT_TURN : PLAYER_TURN;
             break;
         case PLAYER_TURN:
             opponent->attack(x, y);
@@ -62,8 +69,10 @@ void GameStateMachine::transition(Battleship::Status status, int x, int y) {
             if (hitStatus == Battleship::GAME_END) {
                 gameState = GAME_OVER;
             } else if (hitStatus != Battleship::ERROR) {
-                opponent->ackAttack(hitStatus);
+                opponent->ackAttack(hitStatus, x, y);
                 gameState = PLAYER_TURN;
+            } else {
+                opponent->ackAttack(hitStatus, x, y);
             }
             break;
         }

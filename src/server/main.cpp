@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
     // bind
-    struct sockaddr_in server_addr;
+    sockaddr_in server_addr{};
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(5549);
     server_addr.sin_addr.s_addr = htonl(INADDR_ANY);

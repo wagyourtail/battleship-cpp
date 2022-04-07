@@ -7,22 +7,23 @@
 
 #include "Button.h"
 #include <regex>
+#include <string>
 #include <utility>
 
 class TextInput : public Button {
     public:
-        std::function<void(const std::string&)> onChange;
+        std::function<void(std::string&)> onChange;
         std::basic_regex<char> regex{"^.*$"};
         std::string content;
     protected:
         uint32_t selColor;
-        float selStart;
+        float selStart{};
     public:
-        int selStartIndex;
+        int selStartIndex{};
     protected:
-        float selEnd;
+        float selEnd{};
     public:
-        int selEndIndex;
+        int selEndIndex{};
     protected:
         int arrowCursor;
 
@@ -30,7 +31,7 @@ class TextInput : public Button {
 
         bool focused{false};
     public:
-        TextInput(float x, float y, float width, float height, Font* textRenderer, uint32_t color, uint32_t borderColor, uint32_t hilightColor, uint32_t textColor, std::string message, std::function<void(Button*)> onClick, std::function<void(const std::string&)> onChange) :
+        TextInput(float x, float y, float width, float height, Font* textRenderer, uint32_t color, uint32_t borderColor, uint32_t hilightColor, uint32_t textColor, std::string message, std::function<void(Button*)> onClick, std::function<void(std::string&)> onChange) :
                 Button(x, y, width, height, textRenderer, "", color, borderColor, textColor, borderColor, std::move(onClick)), selColor(hilightColor), content(std::move(message)), onChange(std::move(onChange)) {
             updateSelStart(content.length());
             updateSelEnd(content.length());

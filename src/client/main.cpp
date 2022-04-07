@@ -12,6 +12,10 @@ int main(int argc, char* argv[]) {
                 Screen* screen = new MainMenuScreen2(session1);
                 return screen;
             }};
-    session.runLoop();
+    try {
+        session.runLoop();
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
 }
 

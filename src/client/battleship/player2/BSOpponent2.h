@@ -14,6 +14,9 @@ class BSOpponent2 {
         // <-
         virtual bool pollPlaceDone() = 0;
 
+        // ->
+        virtual void sendPlaceDone() = 0;
+
         // send attack to opponent
         // ->
         virtual void attack(int x, int y) = 0;
@@ -26,10 +29,14 @@ class BSOpponent2 {
         virtual bool pollAttack(int& x, int& y) = 0;
         // send acknowledgement of attack back to opponent with status
         // ->
-        virtual void ackAttack(Battleship::Status status) = 0;
+        virtual void ackAttack(Battleship::Status status, int x, int y) = 0;
 
         // ->
         virtual void surrender() = 0;
+
+        virtual bool goesFirst() = 0;
+
+        virtual bool surrendered() = 0;
 };
 
 

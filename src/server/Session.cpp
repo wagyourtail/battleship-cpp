@@ -7,7 +7,7 @@
 #include <random>
 #include "Session.h"
 
-std::unordered_map<std::string, Session> Session::sessions{};
+std::unordered_map<std::string, std::shared_ptr<Session>> Session::sessions{};
 
 void Session::start(int clientFd) {
     if (this->client_connection != nullptr) {
@@ -16,21 +16,20 @@ void Session::start(int clientFd) {
         close(clientFd);
         return;
     }
-    this->client_connection = std::make_unique<SocketConnection>(clientFd);
-
-    host_read_thread = std::thread(&Session::hostRead, this);
-    client_read_thread = std::thread(&Session::clientRead, this);
+    this->client_connection = std::make_shared<SocketConnection>(clientFd);
 
     // roll who goes first
     std::random_device rd;
     std::uniform_int_distribution<int> dist(0, 1);
     bool host_start = dist(rd);
-    std::string startString = host_start ? "shost" : "sclient";
 
-    *host_connection << startString;
-    *client_connection << startString;
+    *host_connection << (host_start ? "s1" : "s0");
+    *client_connection << (host_start ? "s0" : "s1");
 
-    std::cout << "Session::start" << std::endl;
+    host_read_thread = std::thread(&Session::hostRead, shared_from_this());
+    client_read_thread = std::thread(&Session::clientRead, shared_from_this());
+
+    std::cout << "Session::start " << session_id << std::endl;
 }
 
 void Session::connect(int unknownFd) {
@@ -44,7 +43,7 @@ void Session::connect(int unknownFd) {
         if (buffer[0] == 'h') {
             std::cout << "new host" << std::endl;
             std::random_device rd;
-            std::uniform_int_distribution<int> dist(0, 36);
+            std::uniform_int_distribution<int> dist(0, 35);
             std::string session_id;
             do {
                 session_id = "";
@@ -61,7 +60,7 @@ void Session::connect(int unknownFd) {
             std::string session_pkt = "s" + session_id;
             write(unknownFd, session_pkt.c_str(), session_pkt.size());
 
-            sessions.insert(std::make_pair(session_id, Session(session_id, unknownFd)));
+            sessions.insert(std::make_pair(session_id, std::make_shared<Session>(session_id, unknownFd)));
 
             // kill if no client connects after 1 minute
             std::this_thread::sleep_for(std::chrono::seconds(60));
@@ -73,7 +72,7 @@ void Session::connect(int unknownFd) {
             if (error_code != 0) {
                 auto it = sessions.find(session_id);
                 if (it != sessions.end()) {
-                    if (it->second.client_connection == nullptr) {
+                    if (it->second->client_connection == nullptr) {
                         sessions.erase(it);
                     } else {
                         return;
@@ -93,7 +92,7 @@ void Session::connect(int unknownFd) {
                 write(unknownFd, error_pkt.c_str(), error_pkt.size());
                 close(unknownFd);
             } else {
-                it->second.start(unknownFd);
+                it->second->start(unknownFd);
             }
         } else {
             close(unknownFd);
@@ -103,30 +102,62 @@ void Session::connect(int unknownFd) {
 }
 
 
-void Session::hostRead() {
-    while (alive) {
-        std::cout << "host read" << std::endl;
-        std::string msg;
-        *client_connection >> msg;
-        if (msg == "game over") {
-            alive = false;
-            sessions.erase(session_id);
-            break;
+void Session::hostRead(std::shared_ptr<Session> session) {
+    try {
+        while (session->alive) {
+            std::cout << "host read" << std::endl;
+            std::string msg;
+            *session->client_connection >> msg;
+            if (!session->alive) {
+                break;
+            }
+            if (session->client_connection->fail()) {
+                session->alive = false;
+                session->host_connection = nullptr;
+                sessions.erase(session->session_id);
+                break;
+            }
+            std::cout << "session id: " << session->session_id << " <<" << msg << std::endl;
+            *session->host_connection << msg;
+            if (msg == "gameover") {
+                session->alive = false;
+                session->host_connection = nullptr;
+                sessions.erase(session->session_id);
+                break;
+            }
         }
-        *host_connection << msg;
-    }
+        session->host_connection = nullptr;
+    } catch (...) {}
+
+    std::cout << "host read end" << std::endl;
 }
 
-void Session::clientRead() {
-    while (alive) {
-        std::cout << "client read" << std::endl;
-        std::string msg;
-        *host_connection >> msg;
-        if (msg == "game over") {
-            alive = false;
-            sessions.erase(session_id);
-            break;
+void Session::clientRead(std::shared_ptr<Session> session) {
+    try {
+        while (session->alive) {
+            std::cout << "client read" << std::endl;
+            std::string msg;
+            *session->host_connection >> msg;
+            if (!session->alive) {
+                break;
+            }
+            if (session->host_connection->fail()) {
+                session->alive = false;
+                session->client_connection = nullptr;
+                sessions.erase(session->session_id);
+                break;
+            }
+            std::cout << "session id: " << session->session_id << " >>" << msg << std::endl;
+            *session->client_connection << msg;
+            if (msg == "gameover") {
+                session->alive = false;
+                session->client_connection = nullptr;
+                sessions.erase(session->session_id);
+                break;
+            }
         }
-        *client_connection << msg;
-    }
+        session->host_connection = nullptr;
+    } catch (...) {}
+
+    std::cout << "client read end" << std::endl;
 }

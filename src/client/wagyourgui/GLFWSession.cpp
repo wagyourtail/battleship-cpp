@@ -79,7 +79,9 @@ void GLFWSession::loop() {
         double cursorX, cursorY;
         glfwGetCursorPos(window->handle, &cursorX, &cursorY);
 
+        mtx.lock();
         screen->onRender((float) cursorX, (float) cursorY);
+        mtx.unlock();
 
         glPopMatrix();
 

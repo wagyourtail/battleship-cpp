@@ -11,14 +11,21 @@
 
 class SocketConnection {
         int socket_fd;
+        int fail_flag;
     public:
         explicit SocketConnection(int socket_fd) : socket_fd(socket_fd) {}
-        ~SocketConnection() {
+
+        virtual ~SocketConnection() {
             close(socket_fd);
         }
+
+        bool fail() const { return fail_flag <= 0; }
+        int failCode() const { return fail_flag; }
+
         int get_socket_fd() const { return socket_fd; }
-        friend SocketConnection& operator<<(SocketConnection& socketConnection, std::string const& message);
-        friend SocketConnection& operator>>(SocketConnection& socketConnection, std::string& message);
+
+        friend SocketConnection& operator <<(SocketConnection& socketConnection, std::string const& message);
+        friend SocketConnection& operator >>(SocketConnection& socketConnection, std::string& message);
 };
 
 

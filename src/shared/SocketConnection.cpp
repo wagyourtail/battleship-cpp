@@ -14,13 +14,15 @@ inline auto min(T a, U b) -> decltype(a + b) {
 }
 
 SocketConnection& operator<<(SocketConnection& socket, const std::string& str) {
-    write(socket.socket_fd, str.c_str(), str.size());
+    int status = write(socket.socket_fd, str.c_str(), str.size() + 1);
+    socket.fail_flag = status;
     return socket;
 }
 
 SocketConnection& operator>>(SocketConnection& socket, std::string& str) {
     char buffer[1024];
-    read(socket.socket_fd, buffer, 1024);
+    int status = read(socket.socket_fd, buffer, 1024);
+    socket.fail_flag = status;
     str = std::string(buffer, min(strlen(buffer), 1024));
     return socket;
 }

@@ -14,8 +14,8 @@ using namespace DrawableHelper;
 void SyncOpponentScreen::init(Window* window) {
     elements.push_back(
             std::make_shared<Button>(
-                    height / 2 + 20,
                     width / 2 - 100,
+                    height / 2 + 50,
                     200,
                     50,
                     parent->font,
