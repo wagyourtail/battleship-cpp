@@ -14,6 +14,7 @@
 
 class Button : public BaseElement, public DisableableElement {
     protected:
+        std::function<void(Button*)> onClickFn;
         float x;
         float y;
         float width;
@@ -25,7 +26,6 @@ class Button : public BaseElement, public DisableableElement {
         uint32_t textColor;
         uint32_t hoverTextColor;
         uint32_t borderColor;
-        std::function<void(Button*)> onClickFn;
         bool active;
     public:
         Button(

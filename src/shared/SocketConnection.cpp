@@ -23,6 +23,6 @@ SocketConnection& operator >>(SocketConnection& socket, std::string& str) {
     char buffer[1024];
     int status = read(socket.socket_fd, buffer, 1024);
     socket.fail_flag = status;
-    str = std::string(buffer, min(strlen(buffer), 1024));
+    if (status > 0) str = std::string(buffer, min(strlen(buffer), 1024));
     return socket;
 }

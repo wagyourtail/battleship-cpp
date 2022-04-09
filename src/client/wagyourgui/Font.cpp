@@ -149,7 +149,7 @@ float Font::drawTrimmedString(const std::string& text, float x, float y, float w
     float lineY = 0;
 
     glBegin(GL_QUADS);
-    float x1;
+    float x1{0};
     for (int i = 0, to = text.length(); i < to;) {
         i += getCP(text, to, i, &pCodepoint);
         int cp = pCodepoint;
