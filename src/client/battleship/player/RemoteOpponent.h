@@ -23,7 +23,7 @@ class RemoteOpponent : public BSOpponent, std::enable_shared_from_this<RemoteOpp
         bool placeDone{false};
         int lastX{-1};
         int lastY{-1};
-        Battleship::Status lastStatus{Battleship::WAITING};
+        Battleship::Status lastStatus{Battleship::Status::WAITING};
 
     public:
         explicit RemoteOpponent(int socket_fd) : connection(std::make_shared<SocketConnection>(socket_fd)) {}
@@ -46,7 +46,7 @@ class RemoteOpponent : public BSOpponent, std::enable_shared_from_this<RemoteOpp
         void beginMainGameReadTask();
 
         bool surrendered() override {
-            return lastStatus == Battleship::GAME_END;
+            return lastStatus == Battleship::Status::GAME_END;
         }
 };
 

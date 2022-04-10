@@ -1,8 +1,16 @@
 //
 // Created by william on 4/3/22.
 //
+#ifdef __LINUX
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#endif
+#ifdef __WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#endif
 #include <cstdio>
 #include "Session.h"
 
@@ -10,6 +18,10 @@
 // https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
 
 int main(int argc, char* argv[]) {
+#ifdef __WIN32
+    WSADATA wsaData;
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
+#endif
     // socket
     int server_fd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (server_fd == -1) {

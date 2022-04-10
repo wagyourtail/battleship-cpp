@@ -16,6 +16,8 @@ class ConnectingScreen : public Screen {
         static int PORT;
         std::shared_ptr<RemoteOpponent> connection;
         std::vector<std::string> message{};
+        std::string messageToSend{};
+        bool host;
     public:
         ConnectingScreen(GLFWSession* parent, const std::string& joincode);
         explicit ConnectingScreen(GLFWSession* parent);

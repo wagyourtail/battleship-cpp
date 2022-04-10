@@ -27,11 +27,11 @@ void BSBotOpponent::placeRandomShip(int length) {
 }
 
 void BSBotOpponent::attack(int x, int y) {
-    if (lastShotResult != Battleship::WAITING) {
+    if (lastShotResult != Battleship::Status::WAITING) {
         throw std::runtime_error("prev attack not polled!");
     }
     if (x < 0 || x > 9 || y < 0 || y > 9) {
-        lastShotResult = Battleship::ERROR;
+        lastShotResult = Battleship::Status::BS_ERROR;
     } else {
         lastShotResult = attacked(x, y);
         lastShotX = x;
@@ -41,7 +41,7 @@ void BSBotOpponent::attack(int x, int y) {
 
 Battleship::Status BSBotOpponent::ackDone(int& x, int& y) {
     Battleship::Status result = lastShotResult;
-    lastShotResult = Battleship::WAITING;
+    lastShotResult = Battleship::Status::WAITING;
     x = lastShotX;
     y = lastShotY;
     return result;

@@ -4,6 +4,14 @@
 
 #include "SocketConnection.h"
 #include <cstring>
+#ifdef __WIN32
+inline int write(int fd, const void *buf, size_t count) {
+    return send(fd, (const char *) buf, count, 0);
+}
+inline int read(int fd, void *buf, size_t count) {
+    return recv(fd, (char *) buf, count, 0);
+}
+#endif
 
 // thx
 // https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/

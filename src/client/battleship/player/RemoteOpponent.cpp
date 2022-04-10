@@ -18,7 +18,7 @@ Battleship::Status RemoteOpponent::ackDone(int& x, int& y) {
     Battleship::Status status = lastStatus;
     x = lastX;
     y = lastY;
-    lastStatus = Battleship::WAITING;
+    lastStatus = Battleship::Status::WAITING;
     lastX = -1;
     lastY = -1;
     mtx.unlock();
@@ -36,7 +36,7 @@ bool RemoteOpponent::pollAttack(int& x, int& y) {
 }
 
 void RemoteOpponent::ackAttack(Battleship::Status status, int x, int y) {
-    *connection << ("ackAttack " + std::to_string(status) + " " + std::to_string(x) + " " + std::to_string(y));
+    *connection << ("ackAttack " + std::to_string((int) status) + " " + std::to_string(x) + " " + std::to_string(y));
 }
 
 void RemoteOpponent::surrender() {
@@ -51,7 +51,7 @@ void RemoteOpponent::beginMainGameReadTask() {
             *connection >> message;
             if (connection->fail()) {
                 std::cout << "Connection to opponent lost" << std::endl;
-                lastStatus = Battleship::GAME_END;
+                lastStatus = Battleship::Status::GAME_END;
                 break;
             }
             std::stringstream ss(message);
@@ -76,7 +76,7 @@ void RemoteOpponent::beginMainGameReadTask() {
                 placeDone = true;
                 mtx.unlock();
             } else if (command == "gameover") {
-                lastStatus = Battleship::GAME_END;
+                lastStatus = Battleship::Status::GAME_END;
                 break;
             }
 

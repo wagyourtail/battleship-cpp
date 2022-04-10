@@ -7,6 +7,15 @@
 #include <random>
 #include "Session.h"
 
+#ifdef __WIN32
+inline int write(int fd, const void *buf, size_t count) {
+    return send(fd, (const char *) buf, count, 0);
+}
+inline int read(int fd, void *buf, size_t count) {
+    return recv(fd, (char *) buf, count, 0);
+}
+#endif
+
 std::unordered_map<std::string, std::shared_ptr<Session>> Session::sessions{};
 
 void Session::start(int clientFd) {
@@ -65,7 +74,12 @@ void Session::connect(int unknownFd) {
 
                     // kill if no client connects after 1 minute
                     std::this_thread::sleep_for(std::chrono::seconds(60));
+#ifdef __WIN32
+                    char error_code;
+#endif
+#ifdef __LINUX
                     int error_code;
+#endif
                     socklen_t error_code_size = sizeof(error_code);
                     getsockopt(unknownFd, SOL_SOCKET, SO_ERROR, &error_code, &error_code_size);
 //            std::cout << "error code: " << error_code << std::endl;
@@ -85,7 +99,7 @@ void Session::connect(int unknownFd) {
                 } else if (buffer[0] == 'j') {
                     std::cout << "new client ";
                     std::string session_id(buffer + 1, buffer + 6);
-                    std::cout << "session id: " << session_id << std::endl;
+//                    std::cout << "session id: " << session_id << std::endl;
 
                     auto it = sessions.find(session_id);
                     if (it == sessions.end()) {
@@ -107,7 +121,7 @@ void Session::connect(int unknownFd) {
 void Session::hostRead(std::shared_ptr<Session> session) {
     try {
         while (session->alive) {
-//            std::cout << "host read" << std::endl;
+            std::cout << "host read" << std::endl;
             std::string msg;
             *session->client_connection >> msg;
             if (!session->alive) {
@@ -137,7 +151,7 @@ void Session::hostRead(std::shared_ptr<Session> session) {
 void Session::clientRead(std::shared_ptr<Session> session) {
     try {
         while (session->alive) {
-//            std::cout << "client read" << std::endl;
+            std::cout << "client read" << std::endl;
             std::string msg;
             *session->host_connection >> msg;
             if (!session->alive) {

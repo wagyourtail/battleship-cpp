@@ -14,7 +14,7 @@ class BSBotOpponent : public BSOpponent, public BoardTracker {
     private:
         int lastShotX{};
         int lastShotY{};
-        Battleship::Status lastShotResult{Battleship::WAITING};
+        Battleship::Status lastShotResult{Battleship::Status::WAITING};
     public:
         BSBotOpponent() = default;
         bool pollPlaceDone() override;

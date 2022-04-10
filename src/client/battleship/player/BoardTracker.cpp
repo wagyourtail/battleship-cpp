@@ -39,35 +39,35 @@ bool BoardTracker::placeShip(int x, int y, int length, bool horizontal) {
 
 void BoardTracker::attack(Battleship::Status status, int x, int y) {
     switch (status) {
-        case Battleship::HIT:
-        case Battleship::SUNK_2:
-        case Battleship::SUNK_3:
-        case Battleship::SUNK_4:
-        case Battleship::SUNK_5:
-        case Battleship::GAME_END:
+        case Battleship::Status::HIT:
+        case Battleship::Status::SUNK_2:
+        case Battleship::Status::SUNK_3:
+        case Battleship::Status::SUNK_4:
+        case Battleship::Status::SUNK_5:
+        case Battleship::Status::GAME_END:
             attackBoard[x][y] |= 2;
-        case Battleship::MISS:
+        case Battleship::Status::MISS:
             attackBoard[x][y] |= 1;
-        case Battleship::ERROR:
-        case Battleship::WAITING:
+        case Battleship::Status::BS_ERROR:
+        case Battleship::Status::WAITING:
             break;
     }
 }
 
 Battleship::Status BoardTracker::attacked(int x, int y) {
     if (board[x][y] & 1) {
-        return Battleship::ERROR;
+        return Battleship::Status::BS_ERROR;
     }
     board[x][y] |= 1;
     if (board[x][y] & 2) {
         --shipTilesAlive;
         if (shipTilesAlive == 0) {
-            return Battleship::GAME_END;
+            return Battleship::Status::GAME_END;
         }
         // todo, return sunk status
-        return Battleship::HIT;
+        return Battleship::Status::HIT;
     }
-    return Battleship::MISS;
+    return Battleship::Status::MISS;
 }
 
 int BoardTracker::undoPlace() {

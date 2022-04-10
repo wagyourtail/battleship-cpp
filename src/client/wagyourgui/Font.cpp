@@ -142,14 +142,16 @@ float Font::drawTrimmedString(const std::string& text, float x, float y, float w
     glBindTexture(GL_TEXTURE_2D, texid);
 
     stbtt_aligned_quad q;
-    float xP, yP;
+    float xP = 0, yP = 0;
 
     int pCodepoint;
     int lineStart = 0;
     float lineY = 0;
 
+    float x0 = 0;
+    float x1 = 0;
+
     glBegin(GL_QUADS);
-    float x1{0};
     for (int i = 0, to = text.length(); i < to;) {
         i += getCP(text, to, i, &pCodepoint);
         int cp = pCodepoint;
@@ -165,14 +167,13 @@ float Font::drawTrimmedString(const std::string& text, float x, float y, float w
             getCP(text, to, i, &pCodepoint);
             xP = xP + (float) stbtt_GetCodepointKernAdvance(&fontInfo, cp, pCodepoint - 32);
         }
-        float x0 = scaler(cpX, q.x0, 1);
+        x0 = scaler(cpX, q.x0, 1);
         float y0 = scaler(cpY, q.y0, 1);
         x1 = scaler(cpX, q.x1, 1);
         float y1 = scaler(cpY, q.y1, 1);
 
-        if (x1 - x > width) {
-            glEnd();
-            return x0;
+        if (x1 + x > width) {
+            break;
         }
 
         glTexCoord2f(q.s0, q.t0);
@@ -189,7 +190,7 @@ float Font::drawTrimmedString(const std::string& text, float x, float y, float w
     }
     glEnd();
 
-    return x1;
+    return x0;
 }
 
 int Font::getCP(const std::string& text, int to, int i, int* cpOut) {

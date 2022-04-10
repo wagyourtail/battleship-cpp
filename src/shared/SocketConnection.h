@@ -5,7 +5,16 @@
 #ifndef BATTLESHIP_SERVER_SOCKETCONNECTION_H
 #define BATTLESHIP_SERVER_SOCKETCONNECTION_H
 
+#ifdef __LINUX
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <unistd.h>
+#endif
+#ifdef __WIN32
+#include <winsock.h>
+inline int close(SOCKET s) { return closesocket(s); }
+#endif
 #include <iostream>
 #include <string>
 

@@ -10,7 +10,7 @@ void GameStateMachine::poll() {
             break;
         case WAIT_FOR_OPPONENT_PLACE_SHIPS:
             if (opponent->pollPlaceDone()) {
-                transition(Battleship::WAITING, 0, 0);
+                transition(Battleship::Status::WAITING, 0, 0);
             }
             break;
         case PLAYER_TURN:
@@ -21,7 +21,7 @@ void GameStateMachine::poll() {
         case WAIT_FOR_OPPONENT_ACK: {
             int x, y;
             Battleship::Status ack = opponent->ackDone(x, y);
-            if (ack != Battleship::WAITING) {
+            if (ack != Battleship::Status::WAITING) {
                 transition(ack, x, y);
             }
             break;
@@ -32,7 +32,7 @@ void GameStateMachine::poll() {
                 gameState = GAME_OVER;
             }
             if (opponent->pollAttack(x, y)) {
-                transition(Battleship::WAITING, x, y);
+                transition(Battleship::Status::WAITING, x, y);
             }
             break;
         }
@@ -55,9 +55,9 @@ void GameStateMachine::transition(Battleship::Status status, int x, int y) {
             gameState = WAIT_FOR_OPPONENT_ACK;
             break;
         case WAIT_FOR_OPPONENT_ACK:
-            if (status == Battleship::ERROR) {
+            if (status == Battleship::Status::BS_ERROR) {
                 gameState = PLAYER_TURN;
-            } else if (status == Battleship::GAME_END) {
+            } else if (status == Battleship::Status::GAME_END) {
                 gameState = GAME_OVER;
             } else {
                 player->attack(status, x, y);
@@ -66,9 +66,9 @@ void GameStateMachine::transition(Battleship::Status status, int x, int y) {
             break;
         case ACK_OPPONENT_TURN: {
             Battleship::Status hitStatus = player->attacked(x, y);
-            if (hitStatus == Battleship::GAME_END) {
+            if (hitStatus == Battleship::Status::GAME_END) {
                 gameState = GAME_OVER;
-            } else if (hitStatus != Battleship::ERROR) {
+            } else if (hitStatus != Battleship::Status::BS_ERROR) {
                 opponent->ackAttack(hitStatus, x, y);
                 gameState = PLAYER_TURN;
             } else {

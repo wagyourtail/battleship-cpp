@@ -48,7 +48,7 @@ namespace Battleship {
         bool horizontal;
     };
 
-    enum Status {
+    enum class Status {
         WAITING,
         HIT,
         MISS,
@@ -57,7 +57,7 @@ namespace Battleship {
         SUNK_4,
         SUNK_5,
         GAME_END,
-        ERROR
+        BS_ERROR
     };
 }
 

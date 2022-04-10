@@ -61,7 +61,7 @@ void GLFWSession::loop() {
         ++frameCount;
         if (frameCount % 10 == 0) {
             auto newTimeNanos = std::chrono::high_resolution_clock::now();
-            fps = 10 * 1000000000L / std::chrono::nanoseconds{newTimeNanos - timeNanos}.count();
+            fps = 10 * (1000000000L / std::chrono::nanoseconds{newTimeNanos - timeNanos}.count());
             timeNanos = newTimeNanos;
         }
 

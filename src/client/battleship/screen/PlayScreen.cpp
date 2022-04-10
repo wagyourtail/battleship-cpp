@@ -120,6 +120,6 @@ void PlayScreen::onRender(float mouseX, float mouseY) {
 
 void PlayScreen::handleAttack(int col, int row) {
     if (gameSession->getGameState() == GameStateMachine::PLAYER_TURN) {
-        gameSession->transition(Battleship::WAITING, col, row);
+        gameSession->transition(Battleship::Status::WAITING, col, row);
     }
 }
