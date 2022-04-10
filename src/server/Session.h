@@ -12,12 +12,14 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #endif
-#ifdef __WIN32
+#ifdef WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
 #endif
+#ifdef __LINUX
 #include <unistd.h>
+#endif
 #include <cstdio>
 #include <unordered_map>
 #include <string>

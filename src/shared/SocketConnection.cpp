@@ -4,7 +4,7 @@
 
 #include "SocketConnection.h"
 #include <cstring>
-#ifdef __WIN32
+#ifdef WIN32
 inline int write(int fd, const void *buf, size_t count) {
     return send(fd, (const char *) buf, count, 0);
 }
@@ -17,7 +17,7 @@ inline int read(int fd, void *buf, size_t count) {
 // https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
 
 template<class T, class U>
-inline auto min(T a, U b) -> decltype(a + b) {
+inline auto min2(T a, U b) -> decltype(a + b) {
     return a < b ? a : b;
 }
 
@@ -31,6 +31,6 @@ SocketConnection& operator >>(SocketConnection& socket, std::string& str) {
     char buffer[1024];
     int status = read(socket.socket_fd, buffer, 1024);
     socket.fail_flag = status;
-    if (status > 0) str = std::string(buffer, min(strlen(buffer), 1024));
+    if (status > 0) str = std::string(buffer, min2(strlen(buffer), 1024));
     return socket;
 }

@@ -7,13 +7,14 @@
 #include <random>
 #include "Session.h"
 
-#ifdef __WIN32
+#ifdef WIN32
 inline int write(int fd, const void *buf, size_t count) {
     return send(fd, (const char *) buf, count, 0);
 }
 inline int read(int fd, void *buf, size_t count) {
     return recv(fd, (char *) buf, count, 0);
 }
+typedef int ssize_t;
 #endif
 
 std::unordered_map<std::string, std::shared_ptr<Session>> Session::sessions{};
@@ -74,7 +75,7 @@ void Session::connect(int unknownFd) {
 
                     // kill if no client connects after 1 minute
                     std::this_thread::sleep_for(std::chrono::seconds(60));
-#ifdef __WIN32
+#ifdef WIN32
                     char error_code;
 #endif
 #ifdef __LINUX

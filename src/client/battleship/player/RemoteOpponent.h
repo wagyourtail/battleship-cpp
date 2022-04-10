@@ -8,7 +8,9 @@
 
 #include "BSOpponent.h"
 #include "shared/SocketConnection.h"
+#ifdef __LINUX
 #include <unistd.h>
+#endif
 #include <thread>
 #include <mutex>
 

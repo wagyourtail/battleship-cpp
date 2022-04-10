@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #endif
-#ifdef __WIN32
+#ifdef WIN32
 #include <winsock2.h>
 #endif
 
@@ -112,7 +112,7 @@ void ConnectingScreen::init(Window* window) {
     int sock;
     sockaddr_in dest;
 
-#ifdef __WIN32
+#ifdef WIN32
     WSADATA wsaData;
     WSAStartup(0x0202, &wsaData);
 #endif

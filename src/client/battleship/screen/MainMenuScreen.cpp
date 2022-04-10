@@ -2,6 +2,7 @@
 // Created by william on 4/3/22.
 //
 
+#include <string>
 #include "MainMenuScreen.h"
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/elements/Button.h"

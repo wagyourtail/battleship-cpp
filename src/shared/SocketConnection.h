@@ -11,7 +11,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #endif
-#ifdef __WIN32
+#ifdef WIN32
 #include <winsock.h>
 inline int close(SOCKET s) { return closesocket(s); }
 #endif

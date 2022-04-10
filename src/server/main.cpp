@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #endif
-#ifdef __WIN32
+#ifdef WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #endif
@@ -18,7 +18,7 @@
 // https://www.techpowerup.com/forums/threads/c-c-sockets-faq-and-how-to-win-linux.56901/
 
 int main(int argc, char* argv[]) {
-#ifdef __WIN32
+#ifdef WIN32
     WSADATA wsaData;
     WSAStartup(MAKEWORD(2, 2), &wsaData);
 #endif
