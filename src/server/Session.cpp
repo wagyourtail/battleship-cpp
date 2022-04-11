@@ -77,8 +77,7 @@ void Session::connect(int unknownFd) {
                     std::this_thread::sleep_for(std::chrono::seconds(60));
 #ifdef WIN32
                     char error_code;
-#endif
-#ifdef __LINUX
+#else
                     int error_code;
 #endif
                     socklen_t error_code_size = sizeof(error_code);

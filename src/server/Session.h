@@ -6,18 +6,13 @@
 #define BATTLESHIP_SERVER_SESSION_H
 
 
-#ifdef __LINUX
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#endif
 #ifdef WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
-
-#endif
-#ifdef __LINUX
+#else
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
 #include <unistd.h>
 #endif
 #include <cstdio>

@@ -51,7 +51,11 @@ set(BATTLESHIP-SOURCE
 add_executable(BATTLESHIP WIN32 ${BATTLESHIP-SOURCE})
 # allows not using ../ in #include, and specifying from the root of the project instead
 target_include_directories(BATTLESHIP PUBLIC ./src ./includes)
-target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw ws2_32 wsock32)
+if (MSVC)
+    target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw ws2_32 wsock32)
+else()
+    target_link_libraries(BATTLESHIP ${OPENGL_LIBRARIES} glfw)
+endif()
 
 if( MSVC )
     if(${CMAKE_VERSION} VERSION_LESS "3.6.0")
@@ -66,4 +70,6 @@ add_executable(BATTLESHIP-SERVER src/server/main.cpp
         src/server/Session.cpp src/server/Session.h
         src/shared/SocketConnection.cpp src/shared/SocketConnection.h)
 target_include_directories(BATTLESHIP-SERVER PUBLIC ./src)
+if (MSVC)
 target_link_libraries(BATTLESHIP-SERVER  ws2_32 wsock32)
+endif()
