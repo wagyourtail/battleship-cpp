@@ -13,22 +13,21 @@
 #endif
 
 #include <memory>
+#include <utility>
 #include "ConnectingScreen.h"
 #include "client/wagyourgui/GLFWSession.h"
 #include "client/wagyourgui/DrawableHelper.h"
 #include "MainMenuScreen.h"
 #include "PlaceShipScreen.h"
 
-std::string ConnectingScreen::IP = "127.0.0.1";
-
 int ConnectingScreen::PORT = 5549;
 
-ConnectingScreen::ConnectingScreen(GLFWSession* parent) : Screen(parent) {
+ConnectingScreen::ConnectingScreen(GLFWSession* parent, std::string  server_ip) : Screen(parent), server_ip(std::move(server_ip)) {
     messageToSend = "h";
     host = true;
 }
 
-ConnectingScreen::ConnectingScreen(GLFWSession* parent, const std::string& joincode) : Screen(parent) {
+ConnectingScreen::ConnectingScreen(GLFWSession* parent, std::string server_ip, const std::string& joincode) : Screen(parent), server_ip(std::move(server_ip)) {
     messageToSend = "j" + joincode;
     host = false;
 }
@@ -127,7 +126,7 @@ void ConnectingScreen::init(Window* window) {
     }
 
     dest.sin_port = htons(PORT);
-    dest.sin_addr.s_addr = inet_addr(IP.c_str());
+    dest.sin_addr.s_addr = inet_addr(server_ip.c_str());
 
     if (connect(sock, (sockaddr*) &dest, sizeof(dest)) < 0) {
         perror("connect");

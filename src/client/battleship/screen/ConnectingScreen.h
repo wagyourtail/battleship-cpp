@@ -12,15 +12,15 @@
 #include <thread>
 
 class ConnectingScreen : public Screen {
-        static std::string IP;
+        std::string server_ip;
         static int PORT;
         std::shared_ptr<RemoteOpponent> connection;
         std::vector<std::string> message{};
         std::string messageToSend{};
         bool host;
     public:
-        ConnectingScreen(GLFWSession* parent, const std::string& joincode);
-        explicit ConnectingScreen(GLFWSession* parent);
+        ConnectingScreen(GLFWSession* parent, std::string server_ip, const std::string& joincode);
+        ConnectingScreen(GLFWSession* parent, std::string server_ip);
 
         void init(Window* window) override;
 

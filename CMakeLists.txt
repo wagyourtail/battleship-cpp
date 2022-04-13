@@ -66,7 +66,7 @@ if( MSVC )
 endif()
 
 project(BATTLESHIP-SERVER)
-add_executable(BATTLESHIP-SERVER src/server/main.cpp
+add_executable(src/server/main.cpp
         src/server/Session.cpp src/server/Session.h
         src/shared/SocketConnection.cpp src/shared/SocketConnection.h)
 target_include_directories(BATTLESHIP-SERVER PUBLIC ./src)
